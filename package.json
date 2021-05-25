@@ -1,0 +1,24 @@
+{
+  "name": "friendlink",
+  "version": "1.0.0",
+  "description": "My social media web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "social",
+    "media",
+    "post",
+    "like",
+    "comment",
+    "chat",
+    "upload",
+    "share"
+  ],
+  "author": "Amir Khan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
