@@ -1,9 +1,13 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 
+// express.urlencoded will extract the data from the form and add them into req.body
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('./assets'));
 
 // tell the app to use express layouts
 app.use(expressLayouts);
