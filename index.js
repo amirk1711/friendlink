@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
 const port = 8000;
-
+const db = require('./config/mongoose');
 // setup the view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
 // handle the routes
-app.use('/', require('./routes'));
+// writing index is not neccesary
+app.use('/', require('./routes/index'));
 
 
 // make server listen
