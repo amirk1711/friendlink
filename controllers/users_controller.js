@@ -35,3 +35,9 @@ module.exports.signUp = function(req, res){
         title: 'friendlink'
     });
 };
+
+module.exports.signIn = function(req, res){
+    res.render('user_sign_in', {
+        title: 'friendlink'
+    });
+};

@@ -7,6 +7,7 @@ const db = require('./config/mongoose');
 
 // express.urlencoded will extract the data from the form and add them into req.body
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(express.static('./assets'));
 
 // tell the app to use express layouts
@@ -21,7 +22,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 // handle the routes
-// writing index is not neccesary
+// writing index is not neccessary
 app.use('/', require('./routes/index'));
 
 
