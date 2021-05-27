@@ -1,9 +1,15 @@
-<h3>Sign in</h3>
+<div class="accounts-container">
+    <h3 class="brand-text">friendlink</h3>
 
-<form action="/users/create" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-    <input type="submit" value="Sign In">
-</form>
+    <form action="/users/create" method="POST" id="sign-up-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <input type="submit" value="Sign In">
+    </form>
+
+    <p>
+        Already have an account? <a href='/'>Sign In</a>
+    </p>
+</div>

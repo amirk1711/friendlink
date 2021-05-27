@@ -38,7 +38,7 @@ module.exports.signUp = function(req, res){
     }
 
     return res.render('user_sign_up', {
-        title: 'friendlink Sign Up'
+        title: 'friendlink | Sign Up'
     });
 };
 

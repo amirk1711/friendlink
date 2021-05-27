@@ -10,6 +10,21 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const { pass } = require('./config/mongoose');
 const MongoStore = require('connect-mongo');
+const sassMiddleware = require('node-sass-middleware');
+
+// use middleware to compile scss file into css file
+// src: from where to pick scss file
+// dest: where css file will be placed after compiling scss
+// Note: you must place sass-middleware before `express.static`
+// prefix - (String) It will tell the sass middleware that 
+// any request file will always be prefixed with <prefix> and this prefix should be ignored.
+app.use(sassMiddleware({
+    src: './assets/scss',
+    dest: './assets/css',
+    debug: true,
+    outputStyle: 'extended',
+    prefix: '/css' // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+}));
 
 
 // express.urlencoded will extract the data from the form and add them into req.body
