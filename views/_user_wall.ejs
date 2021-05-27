@@ -1,5 +1,6 @@
 <h1>Signed in as <%= user.name %></h1>
-
+<a href="/users/sign-out">Sign out</a>
+<br></br>
 
 <% if(locals.user){ %>
     <form action="/posts/create" id="new-post-form" method="POST">
@@ -14,10 +15,8 @@
 <div id="post-list-container">
     <ul>
         <% for(post of posts){ %>
-            
             <%- include('_post') -%>
         <% } %>
     </ul>
 </div>
 
-<a href="/users/sign-out">Sign out</a>
