@@ -34,7 +34,7 @@ module.exports.signUp = function(req, res){
     // if req is authenticated then
     // hide the sign up form
     if(req.isAuthenticated()){
-        return res.redirect('/users/profile')
+        return res.redirect('/')
     }
 
     return res.render('user_sign_up', {
@@ -46,7 +46,7 @@ module.exports.signIn = function(req, res){
     // if req is authenticated then
     // hide the sign up form
     if(req.isAuthenticated()){
-        return res.redirect('/users/profile')
+        return res.redirect('/')
     }
 
     res.render('user_sign_in', {

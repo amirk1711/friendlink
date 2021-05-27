@@ -9,6 +9,7 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const { pass } = require('./config/mongoose');
+const MongoStore = require('connect-mongo');
 
 
 // express.urlencoded will extract the data from the form and add them into req.body
@@ -36,8 +37,18 @@ app.use(session({
     resave: false,
     cookie: {
         maxAge: (1000 * 60 * 1000)
-    }
-
+    },
+    // mongo store is used to store session cookie in the db
+    store: MongoStore.create(
+        {
+            // mongooseConnection: db,
+            mongoUrl: 'mongodb://localhost/friendlink-development',
+            autoRemove: 'disabled'
+        },
+        function(err){
+            console.log(err || 'connect-mongodb setup ok');
+        }
+    )
 }));
 
 // we need to tell the app to use passport
