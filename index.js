@@ -8,6 +8,7 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const { pass } = require('./config/mongoose');
 
 
 // express.urlencoded will extract the data from the form and add them into req.body
@@ -42,6 +43,9 @@ app.use(session({
 // we need to tell the app to use passport
 app.use(passport.initialize());
 app.use(passport.session());
+
+// set authenticated user in locals
+app.use(passport.setAuthenticatedUser);
 
 // handle the routes
 // writing index is not neccessary

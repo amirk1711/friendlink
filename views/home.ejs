@@ -4,5 +4,10 @@
 <body>
     <h1>Friendlink</h1>
 
-    <%- include('user_sign_in') %>
+    <% if(locals.user){ %>
+        <%- include('_user_wall') %> 
+    <% }else{ %>
+        <%- include('user_sign_in') %>
+    <% } %>
+    
 </body>

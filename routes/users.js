@@ -6,6 +6,7 @@ const userController = require('../controllers/users_controller');
 
 router.get('/sign-up', userController.signUp);
 router.get('/sign-in', userController.signIn);
+router.get('/sign-out', userController.destroySession);
 router.post('/create', userController.create);
 
 // use passpot as a middleware to authenticate
