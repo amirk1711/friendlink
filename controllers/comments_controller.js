@@ -3,6 +3,9 @@ const Post = require('../models/post');
 
 module.exports.create = function(req, res){
     Post.findById(req.body.post, function(err, post){
+        if(err){
+            console.log('Error in finding post', err)
+        }
         if(post){
             Comment.create({
                 content: req.body.content,
@@ -21,5 +24,7 @@ module.exports.create = function(req, res){
                 post.save();
             });
         }
+
+        res.redirect('back');
     });
 };
