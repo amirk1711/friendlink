@@ -57,9 +57,37 @@ module.exports.signIn = function(req, res){
 // sign in and create session for the user
 module.exports.createSession = function(req, res){
     return res.redirect('/');
-}
+};
 
 module.exports.destroySession = function(req, res){
     req.logout();
     return res.redirect('/');
-}
+};
+
+module.exports.update = function(req, res){
+    if(req.user.id == req.params.id){
+        let user = User.findById(req.params.id, function(err, user){
+            if(err){
+                console.log('Error in finding user');
+                return;
+            }
+
+            user.name = req.body.name;
+            user.save();
+            return res.redirect('/');
+        });
+    }
+};
+
+module.exports.profile = function(req, res){
+    User.findById(req.params.id, function(err, user){
+        if(err){
+            console.log('Erro rin finding user');
+            return;
+        }
+        return res.render('user_profile', {
+            title: `${user.name} | Profile`,
+            profile_user: user
+        });
+    });
+};

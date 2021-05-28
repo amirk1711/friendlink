@@ -17,4 +17,7 @@ router.post(
     userController.createSession
 );
 
+router.post('/update/:id', passport.checkAuthentication, userController.update);
+router.get('/profile/:id', passport.checkAuthentication, userController.profile);
+
 module.exports = router;
