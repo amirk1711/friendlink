@@ -1,24 +1,31 @@
 const User = require('../models/user');
 const Post = require('../models/post');
 
-module.exports.home = function(req, res){
+module.exports.home = async function(req, res){
     // populate() function in mongoose is used 
     // for populating the data inside the reference.
     // populate the user of each post
-    Post.find({})
-    .populate('user')
-    .populate({
-        path: 'comments',
-        populate: {
-            path: 'user'
-        }
-    })
-    .exec(
-        function(err, posts){
-            res.render('home', {
-                title: 'friendlink',
-                posts: posts
-            });
-        }
-    );
+
+    try {
+        let posts = await Post.find({})
+        .populate('user')
+        .populate({
+            path: 'comments',
+            populate: {
+                path: 'user'
+            }
+        });
+
+        let users = await User.find({});
+
+        return res.render('home', {
+            title: 'friendlink | Home',
+            posts: posts,
+            // to show friends list
+            all_users: users
+        });
+    } catch (error) {
+        console.log(`Error: ${err}`);
+        return;
+    }
 }
