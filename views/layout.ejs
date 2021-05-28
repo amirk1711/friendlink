@@ -11,6 +11,13 @@
 
         <%- include('_header') %>
 
+        <!-- access flash messages here -->
+        <% if(flash.success && flash.success.length > 0){%>
+            <h5>
+                <%= flash.success %> 
+            </h5>
+        <%} %> 
+
         <main id="layout-main">
             <%- body %>    
         </main>

@@ -11,6 +11,8 @@ const passportLocal = require('./config/passport-local-strategy');
 const { pass } = require('./config/mongoose');
 const MongoStore = require('connect-mongo');
 const sassMiddleware = require('node-sass-middleware');
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
 
 // use middleware to compile scss file into css file
 // src: from where to pick scss file
@@ -72,6 +74,13 @@ app.use(passport.session());
 
 // set authenticated user in locals
 app.use(passport.setAuthenticatedUser);
+
+// all requests will have a req.flash() function 
+// that can be used for flash messages.
+app.use(flash());
+// use this middleware to put flash into res.locals
+// so that it will be accessible in the ejs templates
+app.use(customMware.setFlash);
 
 // handle the routes
 // writing index is not neccessary
