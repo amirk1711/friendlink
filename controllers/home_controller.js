@@ -24,7 +24,7 @@ module.exports.home = async function(req, res){
             // to show friends list
             all_users: users
         });
-    } catch (error) {
+    } catch (err) {
         console.log(`Error: ${err}`);
         return;
     }
