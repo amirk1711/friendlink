@@ -16,6 +16,9 @@
                 <% for(comment of post.comments){ %>
                     <p>
                         <li>
+                            <% if(locals.user && locals.user.id == comment.user.id || locals.user.id == post.user.id){ %>
+                                <a class="delete-post-button" href="/comments/destroy/<%= comment.id %> ">X</a>
+                            <% } %>
                             <%= comment.content %>
                             <small>
                                 by <%= comment.user.name %> 
