@@ -4,9 +4,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
 
-        <link rel="stylesheet" href="/css/layout.css">
-        <link rel="stylesheet" href="/css/header.css">
-        <link rel="stylesheet" href="/css/footer.css">
+        <!-- include jquery for ajax equest  -->
+        <!-- add it in the layout so that every page can access it -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
         <%- style %> 
     </head>
     <body>
@@ -26,10 +27,10 @@
 
         <script>
 
-            <% if(flash.success && flash.success.length > 0){ %>
+            <% if(locals.flash.success && locals.flash.success.length > 0){ %>
                 new Noty({
-                    theme: 'relax',
-                    text: '<%= flash.success %>',
+                    theme: 'mint',
+                    text: '<%= locals.flash.success %>',
                     type: 'success',
                     layout: 'topRight',
                     timeout: 1500,
@@ -37,10 +38,10 @@
                 }).show();
             <% } %>
 
-            <% if(flash.error && flash.error.length > 0){ %>
+            <% if(locals.flash.error && locals.flash.error.length > 0){ %>
                 new Noty({
                     theme: 'relax',
-                    text: '<%= flash.error %>',
+                    text: '<%= locals.flash.error %>',
                     type: 'error',
                     layout: 'topRight',
                     timeout: 1500,
