@@ -1,4 +1,6 @@
 const User = require("../models/user");
+const fs = require('fs');
+const path = require('path');
 
 module.exports.create = function(req, res){
     console.log('req body', req.body);
@@ -66,25 +68,47 @@ module.exports.destroySession = function(req, res){
     return res.redirect('/');
 };
 
-module.exports.update = function(req, res){
+module.exports.update = async function(req, res){
     if(req.user.id == req.params.id){
-        let user = User.findById(req.params.id, function(err, user){
-            if(err){
-                console.log('Error in finding user');
-                return;
-            }
+        try {
+            let user = await User.findById(req.params.id)
+            User.uploadedAvatar(req, res, function (err) {
+				if (err) {
+					console.log("***Multer error***: ", err);
+					return;
+				}
 
-            user.name = req.body.name;
-            user.save();
-            return res.redirect('/');
-        });
+                user.name = req.body.name;
+
+                // if user is updating file also 
+                if (req.file) {
+                    // check if user has already an avatar and that file is present at that path
+                    // then unlink that path and file
+                    if(user.avatar && fs.existsSync(path.join(__dirname, '..', user.avatar))){
+                        fs.unlinkSync(path.join(__dirname, '..', user.avatar));
+                    }
+					// this is saving the path of the uploaded file into the avatar field in the user
+					user.avatar = User.avatarPath + "/" + req.file.filename;
+					// console.log(user.avatar);
+				}
+
+                user.save();
+                return res.redirect('/');
+            });
+        }catch(err){
+            req.flash("error", error);
+			return res.redirect("back");
+        }
+    }else{
+        req.flash("error", "Unauthorized!");
+		return res.status(401).send("Unauthorized");
     }
 };
 
 module.exports.profile = function(req, res){
     User.findById(req.params.id, function(err, user){
         if(err){
-            console.log('Erro rin finding user');
+            console.log('Error in finding user');
             return;
         }
         return res.render('user_profile', {
