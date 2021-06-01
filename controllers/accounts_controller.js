@@ -35,8 +35,7 @@ module.exports.confirmEmail = async function(req, res){
             console.log('myToken', myToken) ;
             resetPasswordMailer.passResetToken(myToken);
             // let resetURL = `localhost:8000/accounts/reset/?accessToken=${accessToken}`;
-            req.flash('sucess' , 'Password Reset Link has been sent to the user!!');
-            console.log('Password Reset Link has been sent to the user!!');
+            req.flash('success' , 'Password Reset Link has been sent to the user!!');
             return res.redirect('back');
         }else{
             console.log('User not found');
@@ -47,5 +46,66 @@ module.exports.confirmEmail = async function(req, res){
     } catch (err) {
         req.flash('error' , err);
         return res.redirect('back');
+    }
+}
+
+module.exports.reset = async function(req, res){
+    // console.log('req.query', req.query);
+    // console.log('req.params', req.params);
+
+    try {
+        let token = req.query.accessToken;
+
+        let accessToken = await ResetPassToken.findOne({accessToken: token});
+
+        // console.log('accessToken', accessToken);
+
+        if(accessToken && accessToken.isValid){
+            return res.render('reset_password' , {
+                title: 'Reset Password',
+                accessToken: token,
+            });
+        }else{
+            req.flash('error' , "Unauthorized !");
+            return res.redirect('back');
+        }
+    } catch (err) {
+        req.flash('error', err);
+        return;
+    }
+}
+
+module.exports.resetPassword = async function(req, res){    
+    try {
+        if(req.body.password != req.body.confirm_password){
+            req.flash('error', 'Passwords do not match!');
+            return;
+        }
+
+        let token = req.body.accessToken;
+        let accessToken = await ResetPassToken.findOne({accessToken: token});        
+
+        if(accessToken && accessToken.isValid){
+            let user = await User.findById(accessToken.user);
+            if(user.password == req.body.password){
+                req.flash('error', 'enter new password');
+                return res.redirect('back');
+            }
+
+            user.password = req.body.password;
+            await user.save();
+
+            accessToken.isValid = false;
+            accessToken.remove();
+
+            req.flash('success' , "Password Reset Successfull!");
+            return res.redirect('/users/sign-in');
+        }else{
+            req.flash('error' , "You are not authorized to reset the password!");
+            return res.redirect('back');
+        }
+    } catch (err) {
+        req.flash('error', err);
+        return;
     }
 }
