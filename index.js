@@ -25,7 +25,7 @@ const customMware = require('./config/middleware');
 app.use(sassMiddleware({
     src: './assets/scss',
     dest: './assets/css',
-    debug: true,
+    debug: false,
     outputStyle: 'extended',
     prefix: '/css' // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
 }));
