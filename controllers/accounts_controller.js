@@ -6,6 +6,8 @@ const crypto = require('crypto');
 
 const nodemailer = require('../config/nodemailer');
 const resetPasswordMailer = require('../mailers/reset_password_mailer');
+const queue = require('../config/kue');
+const resetPasswordEmailWorker = require('../workers/reset_password_email_worker');
 
 module.exports.forgotPassword = function(req, res){
     return res.render('forgot_password', {
@@ -33,8 +35,17 @@ module.exports.confirmEmail = async function(req, res){
 
             const myToken = await token.populate('user' , 'name email').execPopulate() ; 
             console.log('myToken', myToken) ;
-            resetPasswordMailer.passResetToken(myToken);
-            // let resetURL = `localhost:8000/accounts/reset/?accessToken=${accessToken}`;
+
+            // resetPasswordMailer.passResetToken(myToken);
+            let job = queue.create('resetPasswordEmails', myToken).priority('medium').save(function(err){
+                if(err){
+                    console.log('error in creating a queue for password reset', err);
+                    return;
+                }
+
+                console.log('job enqueued', job.id);
+            });
+
             req.flash('success' , 'Password Reset Link has been sent to the user!!');
             return res.redirect('back');
         }else{
