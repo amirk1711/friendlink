@@ -1,19 +1,14 @@
-<div class="accounts-container">
-    <h3 class="brand-text">friendlink</h3>
+<h1>Sign Up</h1>
 
-    <p>
-        <a href="/users/auth/google">Continue with Google</a>
-    </p>
+<form action="/users/create" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+    <input type="submit" value="Sign Up">
 
-    <form action="/users/create" method="POST" id="sign-up-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-        <input type="submit" value="Sign In">
-    </form>
+</form>
 
-    <p>
-        Already have an account? <a href='/'>Sign In</a>
-    </p>
-</div>
+<p>
+    <a href="/users/auth/google">Google Sign In/Sign Up</a>
+</p>

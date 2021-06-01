@@ -1,39 +1,37 @@
-<li id="post-<%= post._id %> ">
-    <% if(locals.user && locals.user.id == post.user.id){ %>
-        <a class="delete-post-button" href="/posts/destroy/<%= post.id %> ">X</a>
-    <% } %>
+<li id="post-<%= post._id %>">
+    <p>
+        <% if (locals.user && locals.user.id == post.user.id){ %>
+        <small>
+            <a class="delete-post-button"  href="/posts/destroy/<%= post.id %>">X</a>
+        </small>
+        <% } %>
+        <%= post.content %>
+        <br>
+        <small>
+            <%= post.user.name %>
+        </small>
+    </p>
+    <div class="post-comments">
+        <% if (locals.user){ %>
+            <!-- let's give an id to the new comment form, we'll also need to make the same changes in home_posts.js where we're adding a post to the page -->
+            <form id="post-<%= post._id %>-comments-form" action="/comments/create" method="POST">
+                <input type="text" name="content" placeholder="Type Here to add comment..." required>
+                <input type="hidden" name="post" value="<%= post._id %>" >
+                <input type="submit" value="Add Comment">
+            </form>
 
-    <%= post.content %>   
-    <small>
-        by
-        <%= post.user.name %>
-    </small>
+        <% } %>
 
+        <div class="post-comments-list">
+            <ul id="post-comments-<%= post._id %>">
+                <% for (comment of post.comments){%>
 
-    <div class="post-comments-list">
-        <ul id="post-comments-<%= post._id %> ">
-            <% for(comment of post.comments){ %>
-                <p>
-                    <li>
-                        <% if(locals.user && locals.user.id == comment.user.id || locals.user.id == post.user.id){ %>
-                            <a class="delete-post-button" href="/comments/destroy/<%= comment.id %> ">X</a>
-                        <% } %>
-                        <%= comment.content %>
-                        <small>
-                            by <%= comment.user.name %> 
-                        </small>
-                    </li>
-                </p>
-            <% } %> 
-        </ul>
+                    <%- include('_comment') -%>
+                    
+                
+                <%} %>
+            </ul>
+        </div>
     </div>
-    <form action="/comments/create" id="new-comment-form" method="POST">
-        <input type="text" name="content" cols="20" rows="1" placeholder="Add a comment..." required>
-        <!-- we need to send the pos id as well 
-        to the comments create controller 
-        because in comment model post is also referenced
-        along with user(which is passed in the req)  -->
-        <input type="hidden" name="post" value="<%= post._id %>">
-        <input type="submit" value="Comment">
-    </form>
-</li>    
+    
+</li>

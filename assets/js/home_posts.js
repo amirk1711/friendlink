@@ -1,70 +1,80 @@
-{
-    // function to create post which will 
-    // fetch the data from the form
-    // and send it to the controller's action
-
+{   
     // method to submit the form data for new post using AJAX
     let createPost = function(){
         let newPostForm = $('#new-post-form');
 
-        // whenever this form is submitted 
         newPostForm.submit(function(e){
-            // we dont want to submit it naturally
             e.preventDefault();
-            
-            // submit it using ajax
+
             $.ajax({
                 type: 'post',
                 url: '/posts/create',
-                data: newPostForm.serialize(), // this converts form data into json
+                data: newPostForm.serialize(),
                 success: function(data){
-                    let newPost = newPostDOM(data.data.post);
-                    $('#post-list-container>ul').prepend(newPost);
+                    let newPost = newPostDom(data.data.post);
+                    $('#posts-list-container>ul').prepend(newPost);
                     deletePost($(' .delete-post-button', newPost));
-                },
-                error: function(err){
-                    console.log(err.resposeText);
-                }
 
+                    // call the create comment class
+                    new PostComments(data.data.post._id);
+
+                    new Noty({
+                        theme: 'relax',
+                        text: "Post published!",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                        
+                    }).show();
+
+                }, error: function(error){
+                    console.log(error.responseText);
+                }
             });
         });
-    };
+    }
 
 
-    let newPostDOM = function(post){
+    // method to create a post in DOM
+    let newPostDom = function(post){
         return $(`<li id="post-${post._id}">
-                <p>
-                    
-                    <a class="delete-post-button" href="/posts/destroy/${post._id}">X</a>
+                    <p>
+                        
+                        <small>
+                            <a class="delete-post-button"  href="/posts/destroy/${ post._id }">X</a>
+                        </small>
+                       
+                        ${ post.content }
+                        <br>
+                        <small>
+                        ${ post.user.name }
+                        </small>
+                    </p>
+                    <div class="post-comments">
+                        
+                            <form id="post-${ post._id }-comments-form" action="/comments/create" method="POST">
+                                <input type="text" name="content" placeholder="Type Here to add comment..." required>
+                                <input type="hidden" name="post" value="${ post._id }" >
+                                <input type="submit" value="Add Comment">
+                            </form>
+               
                 
-                    ${post.content}
-                    <small>
-                        by
-                        ${post.user.name}
-                    </small>
-                
-                </p>
-                    <div class="post-comments-list">
-                        <ul id="post-comments-${post._id}">
-                            
-                        </ul>
+                        <div class="post-comments-list">
+                            <ul id="post-comments-${ post._id }">
+                                
+                            </ul>
+                        </div>
                     </div>
-                    <form action="/comments/create" id="new-comment-form" method="POST">
-                        <input type="text" name="content" cols="20" rows="1" placeholder="Add a comment..." required>
-                        <!-- we need to send the pos id as well 
-                        to the comments create controller 
-                        because in comment model post is also referenced
-                        along with user(which is passed in the req)  -->
-                        <input type="hidden" name="post" value="${post._id}">
-                        <input type="submit" value="Comment">
-                    </form>
-                </li>    `);
-    };
+                    
+                </li>`)
+    }
+
 
     // method to delete a post from DOM
     let deletePost = function(deleteLink){
         $(deleteLink).click(function(e){
             e.preventDefault();
+
             $.ajax({
                 type: 'get',
                 url: $(deleteLink).prop('href'),
@@ -78,13 +88,33 @@
                         timeout: 1500
                         
                     }).show();
-                },
-                error: function(err){
+                },error: function(error){
                     console.log(error.responseText);
                 }
             });
+
         });
-    };
+    }
+
+
+
+
+
+    // loop over all the existing posts on the page (when the window loads for the first time) and call the delete post method on delete link of each, also add AJAX (using the class we've created) to the delete button of each
+    let convertPostsToAjax = function(){
+        $('#posts-list-container>ul>li').each(function(){
+            let self = $(this);
+            let deleteButton = $(' .delete-post-button', self);
+            deletePost(deleteButton);
+
+            // get the post's id by splitting the id attribute
+            let postId = self.prop('id').split("-")[1]
+            new PostComments(postId);
+        });
+    }
+
+
 
     createPost();
+    convertPostsToAjax();
 }
