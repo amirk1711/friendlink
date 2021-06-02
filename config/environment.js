@@ -1,3 +1,17 @@
+const fs = require('fs');
+const rfs = require('rotating-file-stream');
+const path = require('path');
+
+// dir where the log will be stored
+const logDirectory = path.join(__dirname, '../production_logs');
+// if logDirectory doesnt exists, it will be created
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+
+const accessLogStream = rfs.createStream('access.log', {
+    interval: '1d',
+    path: logDirectory
+});
+
 const development = {
     name: 'development',
     asset_path: 'assets',
@@ -17,6 +31,10 @@ const development = {
     google_client_secret: "mloXX6PO9WgINXqRovnT2OXc",
     google_callback_url: 'http://localhost:8000/users/auth/google/callback',
     jwt_secret: 'friendlink',
+    morgan: {
+        mode:'dev',
+        options: {stream: accessLogStream}
+    }
 }
 
 const production = {
@@ -38,6 +56,10 @@ const production = {
     google_client_secret: process.env.FRIENDLINK_GOOGLE_CLIENT_SECRET,
     google_callback_url: process.env.FRIENDLINK_GOOGLE_CALLBACK_URL,
     jwt_secret: process.env.FRIENDLINK_JWT_SECRET,
+    morgan: {
+        mode:'combined',
+        options: {stream: accessLogStream}
+    }
 }
 
 module.exports = eval(process.env.FRIENDLINK_ENVIRONMENT) == undefined ? development : eval(process.env.FRIENDLINK_ENVIRONMENT); 
