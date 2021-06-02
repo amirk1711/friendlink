@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const env = require('./environment');
 
-mongoose.connect('mongodb://localhost/friendlink_development', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+mongoose.connect(`mongodb://localhost/${env.db}`, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
 
 const db = mongoose.connection;
 
