@@ -25,13 +25,17 @@ const path = require('path');
 // Note: you must place sass-middleware before `express.static`
 // prefix - (String) It will tell the sass middleware that 
 // any request file will always be prefixed with <prefix> and this prefix should be ignored.
-app.use(sassMiddleware({
-    src: path.join(__dirname, env.asset_path, 'scss'),
-    dest: path.join(__dirname, env.asset_path, 'css'),
-    debug: false,
-    outputStyle: 'extended',
-    prefix: '/css' // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
-}));
+
+// run sass middleware only in development mode
+if(env.name == 'development'){
+    app.use(sassMiddleware({
+        src: path.join(__dirname, env.asset_path, 'scss'),
+        dest: path.join(__dirname, env.asset_path, 'css'),
+        debug: false,
+        outputStyle: 'extended',
+        prefix: '/css' // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+    }));
+}
 
 
 // express.urlencoded will extract the data from the form and add them into req.body
