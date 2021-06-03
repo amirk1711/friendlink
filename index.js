@@ -105,7 +105,7 @@ app.use('/', require('./routes/index'));
 
 
 // make server listen
-app.listen(process.env.PORT, '0.0.0.', function(err){
+app.listen(process.env.PORT || 3000, function(err){
     if(err){
         console.log(`Error in running server: ${err}`);
         return;
