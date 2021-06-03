@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { schema } = require('../../codeial/models/user');
 const multer = require('multer');
 const path = require('path');
 

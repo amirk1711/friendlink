@@ -24,7 +24,7 @@ const development = {
         secure: false,
         auth: {
             user: 'friendlinkhelp',
-            pass: 'Amir_1711',
+            pass: 'Amir_password1',
         }
     },
     google_client_id: "500756648360-jccbaaqcmdge2vasnt78p9ea5l7vd619.apps.googleusercontent.com",
