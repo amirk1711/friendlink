@@ -4,7 +4,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const app = express();
 require('./config/view-helper')(app);
-const port = 8000;
+const port = 4000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 
@@ -105,7 +105,7 @@ app.use('/', require('./routes/index'));
 
 
 // make server listen
-app.listen(process.env.PORT || 3000, function(err){
+app.listen(port, function(err){
     if(err){
         console.log(`Error in running server: ${err}`);
         return;
