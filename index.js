@@ -4,7 +4,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const app = express();
 require('./config/view-helper')(app);
-const port = 4000;
+const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 
@@ -80,7 +80,11 @@ app.use(session({
             autoRemove: 'disabled'
         },
         function(err){
-            console.log(err || 'connect-mongodb setup ok');
+            if(err){
+                console.log(`Error in mongo store: ${err}`);
+            }else{
+                console.log('connect-mongo setup ok');
+            }
         }
     )
 }));

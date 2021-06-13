@@ -2,7 +2,7 @@ const Like = require('../models/likes');
 const Post = require('../models/post');
 const Comment = require('../models/comment');
 
-module.exports.toggleLike = function(req, res){
+module.exports.toggleLike = async function(req, res){
     try {
         // after cliking like route will be like   /likes/toggle/?id="abcde"&type="Post"
         let likeable;
@@ -41,12 +41,14 @@ module.exports.toggleLike = function(req, res){
 
         }
 
-        return res.status(200).json({
-            message: "Request successfull",
-            data: {
-                deleted: deleted
-            }
-        });
+        // return res.status(200).json({
+        //     message: "Request successfull",
+        //     data: {
+        //         deleted: deleted
+        //     }
+        // });
+
+        return res.redirect('back');
 
     } catch (err) {
         if(err){
