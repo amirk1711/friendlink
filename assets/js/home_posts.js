@@ -18,13 +18,15 @@
                     // call the create comment class
                     new PostComments(data.data.post._id);
 
+                    // Enable the functionality of the toggle like button on the new post
+                    new ToggleLike($(' .toggle-like-button', newPost));
+
                     new Noty({
-                        theme: 'relax',
-                        text: "Post published!",
+                        theme: 'light',
+                        text: "Post published using AJAX!",
                         type: 'success',
                         layout: 'topRight',
                         timeout: 1500
-                        
                     }).show();
 
                 }, error: function(error){
@@ -39,7 +41,6 @@
     let newPostDom = function(post){
         return $(`<li id="post-${post._id}">
                     <p>
-                        
                         <small>
                             <a class="delete-post-button"  href="/posts/destroy/${ post._id }">X</a>
                         </small>
@@ -47,8 +48,17 @@
                         ${ post.content }
                         <br>
                         <small>
-                        ${ post.user.name }
+                            by ${ post.user.name }
                         </small>
+                        <br>
+                        <small>
+                            
+                                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
+                                    <button class='like-btn'><span id='like-count-${ post.id }-Post'>${ post.likes.length }</span> &nbsp <i class="fas fa-heart"></i></button>
+                                </a>
+                            
+                        </small>
+
                     </p>
                     <div class="post-comments">
                         
@@ -66,7 +76,7 @@
                         </div>
                     </div>
                     
-                </li>`)
+                </li>`);
     }
 
 
@@ -74,29 +84,24 @@
     let deletePost = function(deleteLink){
         $(deleteLink).click(function(e){
             e.preventDefault();
-
             $.ajax({
                 type: 'get',
                 url: $(deleteLink).prop('href'),
                 success: function(data){
                     $(`#post-${data.data.post_id}`).remove();
                     new Noty({
-                        theme: 'relax',
-                        text: "Post Deleted",
+                        theme: 'light',
+                        text: "Post Deleted using AJAX!",
                         type: 'success',
                         layout: 'topRight',
                         timeout: 1500
-                        
                     }).show();
                 },error: function(error){
                     console.log(error.responseText);
                 }
             });
-
         });
     }
-
-
 
 
 
@@ -112,8 +117,6 @@
             new PostComments(postId);
         });
     }
-
-
 
     createPost();
     convertPostsToAjax();

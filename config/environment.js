@@ -14,7 +14,7 @@ const accessLogStream = rfs.createStream('access.log', {
 
 const development = {
     name: 'development',
-    asset_path: '/assets',
+    asset_path: './assets',
     session_cookie_key: 'blahsomething',
     db: 'friendlink_development',
     smtp: {
@@ -24,7 +24,11 @@ const development = {
         secure: false,
         auth: {
             user: 'friendlinkhelp',
-            pass: 'Amir_password1',
+            pass: 'Amir_1711',
+        },
+        tls: {
+            rejectUnauthorized: false,  
+            ciphers: "SSLv3"  
         }
     },
     google_client_id: "500756648360-jccbaaqcmdge2vasnt78p9ea5l7vd619.apps.googleusercontent.com",
@@ -50,6 +54,10 @@ const production = {
         auth: {
             user: process.env.FRIENDLINK_GMAIL_USERNAME,
             pass: process.env.FRIENDLINK_GMAIL_PASSWORD,
+        },
+        tls: {
+            rejectUnauthorized: false,  
+            ciphers: "SSLv3"  
         }
     },
     google_client_id: process.env.FRIENDLINK_GOOGLE_CLIENT_ID,
@@ -62,7 +70,7 @@ const production = {
     }
 }
 
-// module.exports = eval(process.env.FRIENDLINK_ENVIRONMENT) == undefined ? development : eval(process.env.FRIENDLINK_ENVIRONMENT); 
+module.exports = eval(process.env.FRIENDLINK_ENVIRONMENT) == undefined ? development : eval(process.env.FRIENDLINK_ENVIRONMENT); 
 
 // run in development mode for debugging
-module.exports = development;
+// module.exports = development;

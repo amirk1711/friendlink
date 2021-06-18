@@ -2,8 +2,9 @@
   "css/footer.css": "css/footer-80b8801692.css",
   "css/header.css": "css/header-5624c7deef.css",
   "css/home.css": "css/home-bacaa64d3a.css",
-  "css/layout.css": "css/layout-5f54bd59b6.css",
-  "css/user_profile.css": "css/user_profile-bf94b0b59a.css",
-  "js/home_post_comments.js": "js/home_post_comments-250181bf74.js",
-  "js/home_posts.js": "js/home_posts-dd1b699d35.js"
+  "css/layout.css": "css/layout-5b817c96a3.css",
+  "css/user_profile.css": "css/user_profile-4812a2a92f.css",
+  "js/home_post_comments.js": "js/home_post_comments-c83ff927ff.js",
+  "js/home_posts.js": "js/home_posts-8d7581ad69.js",
+  "js/toggle_like.js": "js/toggle_like-5ee67ee700.js"
 }

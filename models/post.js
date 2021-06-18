@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const postScehma = new mongoose.Schema({
+const postSchema = new mongoose.Schema({
     content: {
         type: String,
         required: true
@@ -28,5 +28,5 @@ const postScehma = new mongoose.Schema({
     timestamps: true
 });
 
-const Post = mongoose.model('Post', postScehma);
+const Post = mongoose.model('Post', postSchema);
 module.exports = Post;

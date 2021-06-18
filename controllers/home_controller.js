@@ -1,39 +1,54 @@
 const User = require('../models/user');
 const Post = require('../models/post');
 
-module.exports.home = async function(req, res){
-    // populate() function in mongoose is used 
-    // for populating the data inside the reference.
-    // populate the user of each post
+module.exports.home = async function(req ,res){
+    try {   
+            // Find all the posts and populate referenced documents
+            // so that posts can be displayed on the home screen
+            // with details like user(owner of the post), comments and likes 
+            let posts = await Post.find({})
+            .sort('-createdAt')
+            .populate('user')
+            .populate({
+                path: 'comments',
+                populate: {
+                    path: 'user likes'
+                }
+            }).populate('likes');
 
-    try {
-        let posts = await Post.find({})
-        .sort('-createdAt')
-        .populate('user')//populate user of each post
-        .populate({
-            path: 'comments',//populate comments of each post
-            populate: {
-                path: 'user'//populate user from comments
-            },
-            populate: {
-                path: 'likes'//populate likes from comments
+            // console.log('posts.comments:', posts);
+            
+            // Find all the users to show the list of all the users
+            let users = await User.find({});
+
+            let usersFriendships;
+            
+            // if user is logged in, find his friendships
+            if(req.user){
+                usersFriendships = await User.findById(req.user._id)
+                .populate({
+                    path: 'friendships',
+                    populate: {
+                        path: 'from_user'
+                    },
+                    populate: {
+                        path: 'to_user'
+                    }
+                });
             }
-        })
-        // .populate('comments')
-        .populate('likes'); // populate likes of post
-        
-        // console.log('posts: ', posts);
+            
+            // console.log('usersFriendships', usersFriendships);
 
-        let users = await User.find({});
+            // send all the posts, users, and friendships to the view
+            return res.render('home' , {
+                title: "Friendlink | Home",
+                posts: posts,
+                all_users: users,
+                my_friends: usersFriendships
+            });
 
-        return res.render('home', {
-            title: 'friendlink | Home',
-            posts: posts,
-            // to show friends list
-            all_users: users
-        });
-    } catch (err) {
-        console.log(`Error: ${err}`);
+    } catch (error) {
+        console.log("Error : " , error);
         return;
     }
 }

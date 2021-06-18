@@ -8,7 +8,6 @@ const resetPasswordMailer = require('../mailers/reset_password_mailer');
 
 // this process function calls the mailer
 queue.process('resetPasswordEmails', function (job, done) {
-    // 'emails' is name of queue or type of queue
     console.log('reset password emails worker is processing a job', job.data);
 
     resetPasswordMailer.passResetToken(job.data);

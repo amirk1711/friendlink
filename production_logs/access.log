@@ -1,674 +1,719 @@
-::1 - - [02/Jun/2021:19:14:40 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:14:46 +0000] "GET /users/profile/60b7d1aa1481f50c5caf0716 HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:24 +0000] "GET /users/profile/60b7d1aa1481f50c5caf0716 HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:25 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/users/profile/60b7d1aa1481f50c5caf0716" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:25 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/users/profile/60b7d1aa1481f50c5caf0716" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:25 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/users/profile/60b7d1aa1481f50c5caf0716" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:25 +0000] "GET /css/user_profile.css HTTP/1.1" 404 159 "http://localhost:8000/users/profile/60b7d1aa1481f50c5caf0716" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:37 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:37 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:37 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:37 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:37 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:37 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:37 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:37 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:37 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:37 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:37 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [02/Jun/2021:19:46:38 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:49:02 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:49:02 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:49:03 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:49:03 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:49:03 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:49:03 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:49:03 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:49:03 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:29 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:29 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:29 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:29 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:29 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:29 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:29 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:29 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:29 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:29 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:29 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:41 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:42 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:42 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:42 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:42 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:42 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:42 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:42 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:42 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:42 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:42 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:49 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:49 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:49 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:49 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:49 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:49 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:00:59:49 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:00 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:00 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::ffff:127.0.0.1 - - [03/Jun/2021:01:00:00 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::ffff:127.0.0.1 - - [03/Jun/2021:01:00:00 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:00 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:00 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:00 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:00 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:00 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:00 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:06 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:06 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:06 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:06 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:06 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:06 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:06 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:12 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:13 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::ffff:127.0.0.1 - - [03/Jun/2021:01:00:13 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::ffff:127.0.0.1 - - [03/Jun/2021:01:00:13 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:13 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:13 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:00:13 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:06:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:06:47 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:06:47 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:06:47 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:06:47 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:06:47 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:06:47 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:06:47 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:06:47 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:07:43 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:07:43 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:07:43 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:07:43 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:18:08 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:27:18 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:27:18 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:27:18 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:27:18 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:27:18 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:27:18 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:27:18 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:27:18 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:27:18 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:27:18 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:27:18 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:53:22 +0000] "GET / HTTP/1.1" 200 2767 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:53:22 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:53:23 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:53:23 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:53:23 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:53:23 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:54:25 +0000] "GET / HTTP/1.1" 200 2768 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:54:25 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:54:25 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:54:25 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:54:25 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:54:25 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:54:25 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:54:25 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:54:43 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:54:43 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:54:43 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:54:56 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-::1 - - [03/Jun/2021:01:54:56 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-::1 - - [03/Jun/2021:01:54:56 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-::1 - - [03/Jun/2021:01:54:56 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-::1 - - [03/Jun/2021:01:54:56 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-::1 - - [03/Jun/2021:01:54:56 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-::1 - - [03/Jun/2021:01:54:56 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-::1 - - [03/Jun/2021:01:54:56 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-::1 - - [03/Jun/2021:01:54:56 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-::1 - - [03/Jun/2021:01:54:56 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-::1 - - [03/Jun/2021:01:54:56 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-[0mGET / [32m200[0m 1710.935 ms - 22944[0m
-[0mGET /js/home_post_comments.js [33m404[0m 7.615 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 5.152 ms - 155[0m
-[0mGET /js/home_posts.js [33m404[0m 1.991 ms - 155[0m
-::1 - - [03/Jun/2021:01:57:27 +0000] "GET / HTTP/1.1" 200 2387 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:57:27 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:57:27 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:57:27 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:57:27 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:57:27 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:57:27 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:57:57 +0000] "GET / HTTP/1.1" 200 2398 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:57:57 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:57:57 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:57:57 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:01:57:57 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:02:00:11 +0000] "GET / HTTP/1.1" 200 2419 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:02:01:32 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-::1 - - [03/Jun/2021:07:32:48 +0000] "GET / HTTP/1.1" 200 2419 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:07:33:21 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:07:59:13 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:07:59:16 +0000] "GET /users/sign-in HTTP/1.1" 200 2089 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:07:59:22 +0000] "POST /users/create-session HTTP/1.1" 302 46 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:07:59:22 +0000] "GET / HTTP/1.1" 200 3113 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:07:59:29 +0000] "POST /posts/create HTTP/1.1" 200 273 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:07:59:35 +0000] "POST /comments/create HTTP/1.1" 200 328 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:07:59:40 +0000] "GET /users/sign-out HTTP/1.1" 302 46 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:07:59:40 +0000] "GET / HTTP/1.1" 200 3447 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:08:51:07 +0000] "GET / HTTP/1.1" 200 3155 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:09:14:17 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:09:14:22 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:09:14:27 +0000] "GET /users/sign-in HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:09:14:36 +0000] "POST /users/create-session HTTP/1.1" 302 72 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:09:14:36 +0000] "GET /users/sign-in HTTP/1.1" 200 2381 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:09:14:47 +0000] "POST /users/create-session HTTP/1.1" 302 46 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [03/Jun/2021:09:14:47 +0000] "GET / HTTP/1.1" 200 4700 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [05/Jun/2021:09:41:38 +0000] "GET / HTTP/1.1" 200 3155 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [05/Jun/2021:09:41:38 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:4000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-[0mGET / [32m200[0m 141.354 ms - 22938[0m
-[0mGET /js/home_post_comments.js [33m404[0m 5.773 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 5.558 ms - 155[0m
-[0mGET /js/home_posts.js [33m404[0m 2.948 ms - 155[0m
-[0mGET /api/v1/posts [32m200[0m 45.370 ms - 28430[0m
-[0mGET /api/v1/posts?page=1&limit=5 [32m200[0m 40.256 ms - 28430[0m
-[0mGET /api/v1/posts?page=1&limit=5 [36m304[0m 48.196 ms - -[0m
-[0mGET / [36m304[0m 54.277 ms - -[0m
-[0mGET /js/home_post_comments.js [33m404[0m 3.432 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 3.497 ms - 155[0m
-[0mGET /css/header.css [33m404[0m 8.242 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 9.132 ms - 151[0m
-[0mGET /css/layout.css [33m404[0m 13.549 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 14.330 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 2.273 ms - 163[0m
-[0mGET /css/header.css [33m404[0m 2.994 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 3.586 ms - 151[0m
-[0mGET /js/home_posts.js [33m404[0m 1.631 ms - 155[0m
-[0mGET / [32m200[0m 370.471 ms - 25242[0m
-[0mGET /js/home_post_comments.js [33m404[0m 7.730 ms - 163[0m
-[0mGET /js/toggle_likes.js [33m404[0m 10.038 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 13.557 ms - 155[0m
-[0mGET /js/home_posts.js [33m404[0m 3.843 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.169 ms - 157[0m
-[0mGET /favicon.ico [33m404[0m 1.753 ms - 150[0m
-[0mGET /users/sign-in [32m200[0m 4.289 ms - 2053[0m
-[0mGET /users/css/layout.css [33m404[0m 3.583 ms - 159[0m
-[0mGET /users/css/header.css [33m404[0m 5.037 ms - 159[0m
-[0mGET /users/css/footer.css [33m404[0m 4.992 ms - 159[0m
-[0mPOST /users/create-session [36m302[0m 61.743 ms - 46[0m
-[0mGET / [32m200[0m 207.796 ms - 37969[0m
-[0mGET /css/layout.css [33m404[0m 16.276 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 18.529 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 17.077 ms - 163[0m
-[0mGET /css/home.css [33m404[0m 20.833 ms - 151[0m
-[0mGET /js/home_posts.js [33m404[0m 23.531 ms - 155[0m
-[0mGET /css/footer.css [33m404[0m 25.590 ms - 153[0m
-[0mGET /js/toggle_likes.js [33m404[0m 6.508 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 3.467 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 3.010 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [33m404[0m 7.143 ms - 152[0m
-[0mGET / [32m200[0m 193.878 ms - 37678[0m
-[0mGET /js/home_post_comments.js [33m404[0m 13.822 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 15.743 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 5.476 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 3.246 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 2.962 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 5.663 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [32m200[0m 374.879 ms - 58[0m
-[0mGET /likes/toggle/?id=60b5b281d08c986890ef6db7&type=Post [32m200[0m 12.290 ms - 58[0m
-[0mGET / [32m200[0m 181.064 ms - 37678[0m
-[0mGET /js/home_post_comments.js [33m404[0m 21.464 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 22.924 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 62.267 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 5.042 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 8.743 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 5.028 ms - 157[0m
-[0mGET /likes/toggle/?id=60b5b276d08c986890ef6db3&type=Post [36m302[0m 19.129 ms - 88[0m
-[0mGET / [32m200[0m 47.996 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 11.352 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 13.555 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 16.823 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 18.846 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 20.414 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 9.785 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 10.421 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 16.848 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.986 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 12.935 ms - 88[0m
-[0mGET / [32m200[0m 118.817 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 16.955 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 17.833 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 16.992 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 16.697 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 19.010 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 12.254 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 5.398 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 2.762 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 3.840 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 13.078 ms - 88[0m
-[0mGET / [32m200[0m 46.526 ms - 37678[0m
-[0mGET /css/header.css [33m404[0m 12.683 ms - 153[0m
-[0mGET /css/layout.css [33m404[0m 13.967 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 13.775 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 14.006 ms - 151[0m
-[0mGET /js/home_post_comments.js [33m404[0m 12.410 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 15.391 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.558 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 8.206 ms - 88[0m
-[0mGET / [32m200[0m 40.852 ms - 37678[0m
-[0mGET /css/header.css [33m404[0m 13.210 ms - 153[0m
-[0mGET /css/layout.css [33m404[0m 15.885 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 15.833 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 17.948 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 18.039 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 12.950 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.802 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 2.588 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.533 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 7.836 ms - 88[0m
-[0mGET / [32m200[0m 42.476 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 12.125 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 11.575 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 13.519 ms - 153[0m
-[0mGET /js/home_posts.js [33m404[0m 11.909 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 14.657 ms - 151[0m
-[0mGET /js/home_post_comments.js [33m404[0m 18.864 ms - 163[0m
-[0mGET /js/toggle_likes.js [33m404[0m 3.921 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 11.326 ms - 88[0m
-[0mGET / [32m200[0m 39.961 ms - 37678[0m
-[0mGET /css/header.css [33m404[0m 9.036 ms - 153[0m
-[0mGET /css/layout.css [33m404[0m 10.606 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 10.473 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 10.259 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 13.815 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 14.018 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.844 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 2.476 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.396 ms - 157[0m
-[0mGET /likes/toggle/?id=60b4ba3ee5cd681784918a33&type=Post [36m302[0m 16.145 ms - 88[0m
-[0mGET / [32m200[0m 56.256 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 13.759 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 15.056 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 20.813 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 18.618 ms - 155[0m
-[0mGET /css/footer.css [33m404[0m 17.575 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 16.995 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 11.152 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 3.329 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.761 ms - 157[0m
-[0mGET /likes/toggle/?id=60b4ba3ee5cd681784918a33&type=Post [36m302[0m 12.136 ms - 88[0m
-[0mGET / [32m200[0m 49.788 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 13.498 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 13.762 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 16.658 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 14.845 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 17.151 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 10.541 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 6.455 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 4.011 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.041 ms - 157[0m
-[0mGET / [36m304[0m 1107.293 ms - -[0m
-[0mGET /js/home_post_comments.js [33m404[0m 10.375 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 9.439 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 8.757 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 3.947 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 2.978 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.999 ms - 157[0m
-[0mGET /likes/toggle/?id=60b5b281d08c986890ef6db7&type=Post [36m302[0m 79.992 ms - 88[0m
-[0mGET / [32m200[0m 59.461 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 7.446 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 20.616 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 25.212 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 25.121 ms - 155[0m
-[0mGET /css/footer.css [33m404[0m 18.863 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 19.111 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 19.931 ms - 157[0m
-[0mGET /css/layout.css [33m404[0m 4.404 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 4.399 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 2.832 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.893 ms - 157[0m
-[0mGET /likes/toggle/?id=60b5b281d08c986890ef6db7&type=Post [36m302[0m 13.329 ms - 88[0m
-[0mGET / [32m200[0m 59.836 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 17.354 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 12.883 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 15.476 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 19.848 ms - 155[0m
-[0mGET /css/footer.css [33m404[0m 26.866 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 22.439 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 10.373 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 7.738 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 2.906 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 5.388 ms - 157[0m
-[0mGET /css/footer.css [33m404[0m 3.698 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 4.402 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.662 ms - 157[0m
-[0mGET / [36m304[0m 73.957 ms - -[0m
-[0mGET /css/layout.css [33m404[0m 12.757 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 17.469 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 16.824 ms - 155[0m
-[0mGET /css/header.css [33m404[0m 20.202 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 18.334 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 17.549 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 15.148 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 10.322 ms - 163[0m
-[0mGET /css/header.css [33m404[0m 13.719 ms - 153[0m
-[0mGET /css/layout.css [33m404[0m 13.037 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 15.297 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 16.974 ms - 151[0m
-[0mGET /js/home_posts.js [33m404[0m 3.186 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 3.324 ms - 157[0m
-[0mGET /users/sign-out [36m302[0m 7.734 ms - 46[0m
-[0mGET / [32m200[0m 42.233 ms - 25534[0m
-[0mGET /css/layout.css [33m404[0m 1.738 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 3.181 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 4.522 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 6.645 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 9.474 ms - 157[0m
-[0mGET /css/footer.css [33m404[0m 9.733 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 10.680 ms - 151[0m
-[0mGET /js/home_posts.js [33m404[0m 1.591 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 1.539 ms - 157[0m
-[0mGET /users/sign-in [36m304[0m 5.254 ms - -[0m
-[0mGET /users/css/header.css [33m404[0m 3.670 ms - 159[0m
-[0mGET /users/css/layout.css [33m404[0m 4.024 ms - 159[0m
-[0mGET /users/css/footer.css [33m404[0m 1.979 ms - 159[0m
-[0mPOST /users/create-session [36m302[0m 4.127 ms - 46[0m
-[0mGET / [32m200[0m 67.780 ms - 37969[0m
-[0mGET /css/layout.css [33m404[0m 13.811 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 13.843 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 15.034 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 13.615 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 13.345 ms - 151[0m
-[0mGET /css/header.css [33m404[0m 13.351 ms - 153[0m
-[0mGET /js/toggle_likes.js [33m404[0m 6.280 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 175.716 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 182.853 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 8.282 ms - 157[0m
-[0mGET / [32m200[0m 119.231 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 14.251 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 13.881 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 17.513 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 17.424 ms - 155[0m
-[0mGET /css/footer.css [33m404[0m 19.652 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 19.802 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 13.557 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 5.728 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 5.696 ms - 157[0m
-[0mGET /css/layout.css [33m404[0m 12.616 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 12.659 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 13.940 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 13.444 ms - 151[0m
-::1 - - [10/Jun/2021:16:56:10 +0000] "GET / HTTP/1.1" - - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [10/Jun/2021:16:56:24 +0000] "GET / HTTP/1.1" 200 3604 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::ffff:127.0.0.1 - - [10/Jun/2021:16:56:24 +0000] "GET /js/toggle_likes.js HTTP/1.1" 404 157 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [10/Jun/2021:16:56:24 +0000] "GET /js/toggle_likes.js HTTP/1.1" 404 157 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [10/Jun/2021:16:56:29 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [10/Jun/2021:16:56:29 +0000] "GET /js/toggle_likes.js HTTP/1.1" 404 157 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [10/Jun/2021:16:56:29 +0000] "GET /js/toggle_likes.js HTTP/1.1" 404 157 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-::1 - - [10/Jun/2021:16:56:29 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
-[0mGET / [32m200[0m 164.025 ms - 25242[0m
-[0mGET /js/home_post_comments.js [33m404[0m 7.486 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 6.883 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.957 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 3.116 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 1.712 ms - 157[0m
-[0mGET / [31m500[0m 120.670 ms - 4030[0m
-[0mGET / [32m200[0m 173.329 ms - 25242[0m
-[0mGET /js/home_post_comments.js [33m404[0m 9.582 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 8.115 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.016 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 2.633 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 2.030 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 1.830 ms - 157[0m
-[0mGET /css/layout.css [33m404[0m 5.836 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 5.831 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 6.609 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 8.715 ms - 151[0m
-[0mGET / [36m304[0m 136.444 ms - -[0m
-[0mGET /css/layout.css [33m404[0m 8.765 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 12.170 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 4.986 ms - 155[0m
-[0mGET /css/footer.css [33m404[0m 12.173 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 12.038 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 7.195 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 7.447 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 3.660 ms - 163[0m
-[0mGET /css/layout.css [33m404[0m 8.826 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 7.296 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 4.674 ms - 151[0m
-[0mGET /css/header.css [33m404[0m 19.227 ms - 153[0m
-[0mGET /js/home_posts.js [33m404[0m 2.893 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.865 ms - 157[0m
-[0mGET / [32m200[0m 148.781 ms - 25242[0m
-[0mGET / [36m304[0m 146.407 ms - -[0m
-[0mGET /js/home_post_comments.js [33m404[0m 8.569 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 11.704 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.776 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 1.702 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 1.966 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.376 ms - 157[0m
-[0mGET / [36m304[0m 143.043 ms - -[0m
-[0mGET /js/home_post_comments.js [33m404[0m 4.006 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 8.340 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.989 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 1.768 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 2.154 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.354 ms - 157[0m
-[0mGET / [36m304[0m 117.121 ms - -[0m
-[0mGET /css/layout.css [33m404[0m 4.101 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 8.293 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 4.100 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 6.720 ms - 155[0m
-[0mGET /css/footer.css [33m404[0m 6.811 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 6.439 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 6.945 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 3.301 ms - 163[0m
-[0mGET /css/layout.css [33m404[0m 5.299 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 6.478 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 10.803 ms - 151[0m
-[0mGET /css/header.css [33m404[0m 13.765 ms - 153[0m
-[0mGET /js/home_posts.js [33m404[0m 1.705 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 1.797 ms - 157[0m
-[0mGET / [36m304[0m 141.948 ms - -[0m
-[0mGET /js/home_post_comments.js [33m404[0m 6.775 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 7.403 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 6.255 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 1.749 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 1.765 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 1.741 ms - 157[0m
-[0mGET / [36m304[0m 92.186 ms - -[0m
-[0mGET /js/home_post_comments.js [33m404[0m 4.298 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 7.620 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 5.139 ms - 157[0m
-[0mGET /js/home_post_comments.js [33m404[0m 2.721 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 1.706 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.501 ms - 157[0m
-[0mGET / [32m200[0m 3103.111 ms - 25242[0m
-[0mGET /js/home_post_comments.js [33m404[0m 942.633 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 5.181 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 8.631 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 2.252 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.753 ms - 157[0m
-[0mGET /favicon.ico [33m404[0m 2.330 ms - 150[0m
-[0mGET /users/sign-in [32m200[0m 7.002 ms - 2053[0m
-[0mGET /users/css/layout.css [33m404[0m 3.997 ms - 159[0m
-[0mGET /users/css/header.css [33m404[0m 6.220 ms - 159[0m
-[0mGET /users/css/footer.css [33m404[0m 9.146 ms - 159[0m
-[0mGET /users/css/layout.css [33m404[0m 3.933 ms - 159[0m
-[0mGET /users/css/header.css [33m404[0m 8.399 ms - 159[0m
-[0mGET /users/css/footer.css [33m404[0m 3.807 ms - 159[0m
-[0mPOST /users/create-session [36m302[0m 31.388 ms - 46[0m
-[0mGET / [32m200[0m 60.438 ms - 37969[0m
-[0mGET /css/layout.css [33m404[0m 9.589 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 15.116 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 14.169 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 16.491 ms - 163[0m
-[0mGET /js/toggle_likes.js [33m404[0m 16.889 ms - 157[0m
-[0mGET /css/home.css [33m404[0m 12.775 ms - 151[0m
-[0mGET /js/home_posts.js [33m404[0m 11.250 ms - 155[0m
-[0mGET /js/home_posts.js [33m404[0m 3.405 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.184 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 1091.294 ms - 88[0m
-[0mGET / [32m200[0m 62.153 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 13.420 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 15.612 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 19.528 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 18.447 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 21.450 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 13.364 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 15.165 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 2.716 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.741 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 14.231 ms - 88[0m
-[0mGET / [32m200[0m 54.497 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 11.761 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 10.257 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 17.741 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 16.194 ms - 155[0m
-[0mGET /css/footer.css [33m404[0m 16.063 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 17.004 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 17.119 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 2.935 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 3.108 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 7.998 ms - 88[0m
-[0mGET / [36m304[0m 48.932 ms - -[0m
-[0mGET /css/layout.css [33m404[0m 12.938 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 12.545 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 13.313 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 13.594 ms - 151[0m
-[0mGET /js/home_post_comments.js [33m404[0m 12.803 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 15.335 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.749 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 10.635 ms - 88[0m
-[0mGET / [32m200[0m 42.145 ms - 37678[0m
-[0mGET /css/header.css [33m404[0m 10.059 ms - 153[0m
-[0mGET /css/layout.css [33m404[0m 10.284 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 10.905 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 13.547 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 17.064 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 11.798 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 7.589 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 5.271 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.699 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 10.700 ms - 88[0m
-[0mGET / [32m200[0m 50.976 ms - 37678[0m
-[0mGET /css/header.css [33m404[0m 8.644 ms - 153[0m
-[0mGET /css/layout.css [33m404[0m 12.187 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 13.599 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 14.838 ms - 163[0m
-[0mGET /js/toggle_likes.js [33m404[0m 17.838 ms - 157[0m
-[0mGET /css/home.css [33m404[0m 12.618 ms - 151[0m
-[0mGET /js/home_posts.js [33m404[0m 7.701 ms - 155[0m
-[0mGET /js/home_posts.js [33m404[0m 2.448 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 3.086 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 7.870 ms - 88[0m
-[0mGET / [32m200[0m 44.160 ms - 37678[0m
-[0mGET /css/header.css [33m404[0m 13.974 ms - 153[0m
-[0mGET /css/layout.css [33m404[0m 15.059 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 17.127 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 16.519 ms - 151[0m
-[0mGET /js/home_post_comments.js [33m404[0m 17.488 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 21.389 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 5.538 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 11.617 ms - 88[0m
-[0mGET / [32m200[0m 45.117 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 10.206 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 9.824 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 11.827 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 13.053 ms - 151[0m
-[0mGET /js/home_post_comments.js [33m404[0m 13.760 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 16.036 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.124 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 9.670 ms - 88[0m
-[0mGET / [32m200[0m 45.755 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 15.273 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 14.712 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 14.594 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 15.247 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 17.867 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 12.233 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 12.018 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 2.986 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.326 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 10.383 ms - 88[0m
-[0mGET / [32m200[0m 38.586 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 12.529 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 13.217 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 13.829 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 13.881 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 18.896 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 11.157 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 6.355 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 2.474 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 5.605 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 9.585 ms - 88[0m
-[0mGET / [32m200[0m 47.755 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 8.177 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 12.649 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 12.824 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 13.902 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 16.534 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 11.558 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 6.466 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 2.509 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.512 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 5.988 ms - 88[0m
-[0mGET / [32m200[0m 45.131 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 9.018 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 9.143 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 15.081 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 15.896 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 19.496 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 11.545 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 9.535 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 3.606 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.689 ms - 157[0m
-[0mGET /likes/toggle/?id=60b62d8dabd90a5c6070bdac&type=Post [36m302[0m 7.343 ms - 88[0m
-[0mGET / [32m200[0m 40.852 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 12.932 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 15.392 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 15.721 ms - 153[0m
-[0mGET /css/home.css [33m404[0m 16.207 ms - 151[0m
-[0mGET /js/home_posts.js [33m404[0m 16.023 ms - 155[0m
-[0mGET /js/home_post_comments.js [33m404[0m 17.441 ms - 163[0m
-[0mGET /js/toggle_likes.js [33m404[0m 4.210 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 5.753 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.452 ms - 157[0m
-[0mGET /likes/toggle/?id=60b5b281d08c986890ef6db7&type=Post [36m302[0m 7.905 ms - 88[0m
-[0mGET / [32m200[0m 40.640 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 6.891 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 8.760 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 11.831 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 13.439 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 14.032 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 10.594 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 10.416 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 2.547 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.968 ms - 157[0m
-[0mGET /likes/toggle/?id=60b5b281d08c986890ef6db7&type=Post [36m302[0m 9.245 ms - 88[0m
-[0mGET / [32m200[0m 39.019 ms - 37678[0m
-[0mGET /css/layout.css [33m404[0m 9.120 ms - 153[0m
-[0mGET /css/header.css [33m404[0m 10.496 ms - 153[0m
-[0mGET /css/footer.css [33m404[0m 10.894 ms - 153[0m
-[0mGET /js/home_post_comments.js [33m404[0m 11.736 ms - 163[0m
-[0mGET /js/home_posts.js [33m404[0m 13.962 ms - 155[0m
-[0mGET /css/home.css [33m404[0m 12.720 ms - 151[0m
-[0mGET /js/toggle_likes.js [33m404[0m 6.987 ms - 157[0m
-[0mGET /js/home_posts.js [33m404[0m 2.496 ms - 155[0m
-[0mGET /js/toggle_likes.js [33m404[0m 2.898 ms - 157[0m
+[0mGET / [32m200[0m 251.625 ms - 36061[0m
+[0mGET /favicon.ico [33m404[0m 6.184 ms - 150[0m
+[0mGET /users/sign-in [36m304[0m 4.726 ms - -[0m
+[0mGET /accounts/forgot-pass [33m404[0m 2.234 ms - 159[0m
+[0mGET /accounts/forgot-pass [33m404[0m 3.476 ms - 159[0m
+[0mGET /accounts/forgot-pass [33m404[0m 1.702 ms - 159[0m
+[0mGET /users/sign-in [32m200[0m 3.501 ms - 2220[0m
+[0mGET /accounts/forgot-password [31m500[0m 2.924 ms - 2311[0m
+[0mGET /users/sign-up [32m200[0m 4.693 ms - 2301[0m
+[0mGET /users/sign-in [36m304[0m 22.966 ms - -[0m
+[0mGET /accounts/forgot-password [31m500[0m 7.153 ms - 2649[0m
+[0mGET /users/sign-in [36m304[0m 20.970 ms - -[0m
+[0mGET /accounts/forgot-password [32m200[0m 4.526 ms - 2071[0m
+[0mPOST /accounts/confirm-email [36m302[0m 70.812 ms - 136[0m
+[0mGET /accounts/forgot-password [32m200[0m 4.828 ms - 2333[0m
+[0mGET / [36m304[0m 436.526 ms - -[0m
+[0mGET /users/sign-in [36m304[0m 5.851 ms - -[0m
+[0mGET /accounts/forgot-password [32m200[0m 3.302 ms - 2120[0m
+[0mPOST /accounts/confirm-email [36m302[0m 228.100 ms - 136[0m
+[0mGET /accounts/forgot-password [32m200[0m 5.513 ms - 2416[0m
+[0mPOST /accounts/confirm-email [36m302[0m 73.362 ms - 136[0m
+[0mGET /accounts/forgot-password [36m304[0m 15.890 ms - -[0m
+[0mPOST /accounts/confirm-email [36m302[0m 64.344 ms - 136[0m
+[0mGET /accounts/forgot-password [36m304[0m 12.612 ms - -[0m
+[0mPOST /accounts/confirm-email [36m302[0m 297.386 ms - 136[0m
+[0mGET /accounts/forgot-password [36m304[0m 27.131 ms - -[0m
+[0mGET /accounts/forgot-password [32m200[0m 30.490 ms - 2120[0m
+[0mPOST /accounts/confirm-email [36m302[0m 57.526 ms - 136[0m
+[0mGET /accounts/forgot-password [32m200[0m 5.625 ms - 2416[0m
+[0mGET /accounts/forgot-password [32m200[0m 19.515 ms - 2120[0m
+[0mPOST /accounts/confirm-email [36m302[0m 51.441 ms - 136[0m
+[0mGET /accounts/forgot-password [32m200[0m 5.816 ms - 2416[0m
+[0mPOST /accounts/confirm-email [36m302[0m 58.448 ms - 136[0m
+[0mGET /accounts/forgot-password [36m304[0m 7.381 ms - -[0m
+[0mPOST /accounts/confirm-email [36m302[0m 59.063 ms - 136[0m
+[0mGET /accounts/forgot-password [36m304[0m 8.111 ms - -[0m
+[0mPOST /accounts/confirm-email [36m302[0m 59.644 ms - 136[0m
+[0mGET /accounts/forgot-password [36m304[0m 9.553 ms - -[0m
+[0mGET /accounts/reset/?accessToken=cfee37db360a49f9bf5f179e0dc532986e53b0fb [32m200[0m 67.955 ms - 2205[0m
+[0mPOST /accounts/reset-password [36m302[0m 8.618 ms - 224[0m
+[0mGET /accounts/reset/?accessToken=cfee37db360a49f9bf5f179e0dc532986e53b0fb [32m200[0m 8.104 ms - 2470[0m
+[0mPOST /accounts/reset-password [36m302[0m 12.203 ms - 72[0m
+[0mGET /users/sign-in [32m200[0m 4.098 ms - 2496[0m
+[0mPOST /users/create-session [36m302[0m 5.920 ms - 46[0m
+[0mGET / [32m200[0m 662.832 ms - 58386[0m
+[0mGET /likes/toggle/?id=60b4ba44e5cd681784918a37&type=Comment [32m200[0m 11.567 ms - 58[0m
+[0mGET / [32m200[0m 113.290 ms - 58116[0m
+[0mGET /likes/toggle/?id=60b60209fd11be4cb0e15e2a&type=Comment [32m200[0m 7.595 ms - 58[0m
+[0mGET / [32m200[0m 75.909 ms - 58116[0m
+[0mGET /likes/toggle/?id=60b60209fd11be4cb0e15e2b&type=Comment [32m200[0m 8.311 ms - 58[0m
+[0mGET /likes/toggle/?id=60b60209fd11be4cb0e15e2c&type=Comment [32m200[0m 8.120 ms - 58[0m
+[0mGET / [32m200[0m 78.230 ms - 58116[0m
+[0mGET /users/sign-out [36m302[0m 3.454 ms - 46[0m
+[0mGET / [32m200[0m 52.965 ms - 36330[0m
+[0mGET / [32m200[0m 98.778 ms - 36061[0m
+[0mGET /users/sign-up [36m304[0m 16.313 ms - -[0m
+[0mPOST /users/create [36m302[0m 44.911 ms - 114[0m
+[0mGET /users/sign-up [36m304[0m 9.517 ms - -[0m
+[0mGET /users/sign-up [36m304[0m 19.723 ms - -[0m
+[0mGET /users/sign-in [32m200[0m 5.387 ms - 2220[0m
+[0mGET /users/sign-up [36m304[0m 18.668 ms - -[0m
+[0mPOST /users/create [0m-[0m - ms - -[0m
+[0mGET /users/sign-up [36m304[0m 7.047 ms - -[0m
+[0mGET / [32m200[0m 117.596 ms - 36332[0m
+[0mGET /users/sign-up [36m304[0m 5.258 ms - -[0m
+[0mGET /users/sign-in [36m304[0m 4.577 ms - -[0m
+[0mGET /users/sign-up [36m304[0m 3.932 ms - -[0m
+[0mPOST /users/create [36m302[0m 36.890 ms - 72[0m
+[0mGET /users/sign-in [36m304[0m 10.343 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 6.630 ms - 46[0m
+[0mGET / [32m200[0m 92.558 ms - 57518[0m
+[0mGET /users/sign-out [36m302[0m 3.593 ms - 46[0m
+[0mGET / [32m200[0m 71.258 ms - 36731[0m
+[0mGET / [32m200[0m 57.924 ms - 36198[0m
+[0mGET /users/sign-up [36m304[0m 6.979 ms - -[0m
+[0mPOST /users/create [36m302[0m 3.196 ms - 114[0m
+[0mGET /users/sign-up [32m200[0m 3.375 ms - 2588[0m
+[0mGET / [36m304[0m 67.996 ms - -[0m
+[0mGET /users/sign-in [36m304[0m 21.030 ms - -[0m
+[0mGET /users/auth/google [36m302[0m 2.932 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AY0e-g4hTHYWRdx0Sx_bY4v_x716tPrpRPFc3YxbgVTa69YrxbVNcmis0nUVJvv5zOhaog&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent [36m302[0m 794.717 ms - 46[0m
+[0mGET / [32m200[0m 90.484 ms - 57408[0m
+[0mGET /users/profile/60c97b14d8bc6054f0e17ad7 [32m200[0m 23.602 ms - 2519[0m
+[0mPOST /users/update/60c97b14d8bc6054f0e17ad7 [36m302[0m 175.635 ms - 164[0m
+[0mGET /users/profile/60c97b14d8bc6054f0e17ad7 [32m200[0m 9.325 ms - 2566[0m
+[0mGET / [32m200[0m 109.111 ms - 57140[0m
+[0mPOST /posts/create [32m200[0m 8.388 ms - 302[0m
+[0mPOST /comments/create [32m200[0m 12.709 ms - 340[0m
+[0mGET / [32m200[0m 78.675 ms - 59555[0m
+[0mGET / [36m304[0m 73.189 ms - -[0m
+[0mGET /posts/destroy/60c97bb9d8bc6054f0e17ad8 [36m302[0m 6.384 ms - 44[0m
+[0mGET / [32m200[0m 59.575 ms - 59817[0m
+[0mGET / [32m200[0m 81.481 ms - 59555[0m
+[0mGET / [36m304[0m 60.255 ms - -[0m
+[0mGET /posts/destroy/60c97bb9d8bc6054f0e17ad8 [36m302[0m 6.545 ms - 44[0m
+[0mGET / [32m200[0m 49.628 ms - 59817[0m
+[0mGET / [32m200[0m 56.249 ms - 59555[0m
+[0mGET / [32m200[0m 68.975 ms - 37690[0m
+[0mGET / [32m200[0m 60.506 ms - 37690[0m
+[0mPOST /comments/create [32m200[0m 10.833 ms - 342[0m
+[0mGET / [32m200[0m 64.708 ms - 60311[0m
+[0mGET /posts/destroy/60c97bb9d8bc6054f0e17ad8 [36m302[0m 6.504 ms - 44[0m
+[0mGET / [32m200[0m 54.012 ms - 60573[0m
+[0mGET / [32m200[0m 61.616 ms - 60311[0m
+[0mGET / [36m304[0m 64.450 ms - -[0m
+[0mGET / [36m304[0m 112.649 ms - -[0m
+[0mPOST /posts/create [32m200[0m 40.633 ms - 284[0m
+[0mPOST /posts/create [32m200[0m 10.174 ms - 284[0m
+[0mPOST /posts/create [32m200[0m 43.591 ms - 284[0m
+[0mGET / [32m200[0m 101.084 ms - 65846[0m
+[0mPOST /posts/create [32m200[0m 9.027 ms - 290[0m
+[0mPOST /comments/create [32m200[0m 13.164 ms - 338[0m
+[0mGET / [32m200[0m 108.136 ms - 68449[0m
+[0mPOST /comments/create [32m200[0m 9.996 ms - 340[0m
+[0mGET / [32m200[0m 77.226 ms - 69203[0m
+[0mPOST /posts/create [32m200[0m 8.631 ms - 287[0m
+[0mPOST /posts/create [32m200[0m 44.303 ms - 288[0m
+[0mGET / [32m200[0m 104.697 ms - 72900[0m
+[0mPOST /posts/create [32m200[0m 42.170 ms - 286[0m
+[0mPOST /posts/create [32m200[0m 12.979 ms - 293[0m
+[0mPOST /posts/create [32m200[0m 8.696 ms - 285[0m
+[0mGET /posts/destroy/60c98cac6ac9e528e8194140 [36m302[0m 18.402 ms - 44[0m
+[0mGET / [32m200[0m 99.381 ms - 78709[0m
+[0mGET / [32m200[0m 86.114 ms - 78447[0m
+[0mGET / [36m304[0m 94.044 ms - -[0m
+[0mGET /posts/destroy/60c98cac6ac9e528e8194140 [36m302[0m 5.591 ms - 44[0m
+[0mGET / [32m200[0m 64.866 ms - 78709[0m
+[0mGET / [32m200[0m 68.073 ms - 78447[0m
+[0mGET / [36m304[0m 134.133 ms - -[0m
+[0mGET / [36m304[0m 97.215 ms - -[0m
+[0mGET / [36m304[0m 222.245 ms - -[0m
+[0mGET / [36m304[0m 112.527 ms - -[0m
+[0mGET / [36m304[0m 87.200 ms - -[0m
+[0mGET / [32m200[0m 82.839 ms - 78498[0m
+[0mGET / [32m200[0m 77.671 ms - 78657[0m
+[0mGET / [32m200[0m 71.107 ms - 78674[0m
+[0mGET / [32m200[0m 70.853 ms - 78752[0m
+[0mGET / [32m200[0m 87.264 ms - 78769[0m
+[0mGET / [32m200[0m 69.066 ms - 78769[0m
+[0mGET / [36m304[0m 69.698 ms - -[0m
+[0mGET / [32m200[0m 69.103 ms - 78769[0m
+[0mGET / [36m304[0m 66.393 ms - -[0m
+[0mGET / [36m304[0m 73.852 ms - -[0m
+[0mGET / [32m200[0m 66.273 ms - 78771[0m
+[0mGET / [32m200[0m 72.969 ms - 78771[0m
+[0mGET / [32m200[0m 69.903 ms - 78771[0m
+[0mGET / [36m304[0m 66.006 ms - -[0m
+[0mGET / [32m200[0m 261.124 ms - 47719[0m
+[0mGET /favicon.ico [33m404[0m 5.503 ms - 150[0m
+[0mGET / [32m200[0m 131.884 ms - 40352[0m
+[0mGET /css/chat_box.css [33m404[0m 2.498 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 1.652 ms - 155[0m
+[0mGET / [32m200[0m 71.331 ms - 46702[0m
+[0mGET /css/chat_box.css [33m404[0m 4.646 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 1.694 ms - 155[0m
+[0mGET /users/sign-in [32m200[0m 5.532 ms - 2557[0m
+[0mPOST /users/create-session [36m302[0m 58.576 ms - 46[0m
+[0mGET / [32m200[0m 90.817 ms - 74925[0m
+[0mGET /css/chat_box.css [33m404[0m 5.399 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 2.638 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 6.530 ms - 155[0m
+[0mGET / [32m200[0m 70.525 ms - 75857[0m
+[0mGET /css/chat_box.css [33m404[0m 10.414 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 6.308 ms - 155[0m
+[0mGET / [32m200[0m 85.621 ms - 89449[0m
+[0mGET /css/chat_box.css [33m404[0m 10.320 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 2.725 ms - 155[0m
+[0mGET / [32m200[0m 91.079 ms - 75107[0m
+[0mGET /css/chat_box.css [33m404[0m 10.629 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 3.067 ms - 155[0m
+[0mGET / [36m304[0m 129.947 ms - -[0m
+[0mGET /css/chat_box.css [33m404[0m 12.269 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 8.800 ms - 155[0m
+[0mGET / [36m304[0m 422.737 ms - -[0m
+[0mGET /css/chat_box.css [33m404[0m 12.160 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 6.878 ms - 155[0m
+[0mGET / [36m304[0m 128.860 ms - -[0m
+[0mGET /css/chat_box.css [33m404[0m 13.103 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 6.270 ms - 155[0m
+[0mGET / [36m304[0m 133.296 ms - -[0m
+[0mGET /css/chat_box.css [33m404[0m 15.029 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 4.440 ms - 155[0m
+[0mGET / [36m304[0m 587.500 ms - -[0m
+[0mGET /css/chat_box.css [33m404[0m 19.956 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 11.638 ms - 155[0m
+[0mGET / [36m304[0m 121.515 ms - -[0m
+[0mGET /css/chat_box.css [33m404[0m 8.681 ms - 155[0m
+[0mGET / [36m304[0m 121.650 ms - -[0m
+[0mGET /css/chat_box.css [33m404[0m 5.434 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 5.211 ms - 155[0m
+[0mGET / [32m200[0m 112.715 ms - 89599[0m
+[0mGET /css/chat_box.css [33m404[0m 12.274 ms - 155[0m
+[0mGET / [36m304[0m 131.264 ms - -[0m
+[0mGET /css/chat_box.css [33m404[0m 10.875 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 7.527 ms - 155[0m
+[0mGET / [36m304[0m 281.296 ms - -[0m
+[0mGET /css/chat_box.css [33m404[0m 8.376 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 5.291 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 10.930 ms - 155[0m
+[0mGET / [36m304[0m 296.941 ms - -[0m
+[0mGET /css/chat_box.css [33m404[0m 8.943 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 4.482 ms - 155[0m
+[0mGET / [32m200[0m 291.111 ms - 108163[0m
+[0mGET /css/chat_box.css [33m404[0m 14.177 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 4.568 ms - 155[0m
+[0mGET / [32m200[0m 142.040 ms - 75492[0m
+[0mGET /css/chat_box.css [33m404[0m 14.864 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 3.409 ms - 155[0m
+[0mPOST /comments/create [36m302[0m 53.985 ms - 46[0m
+[0mGET / [32m200[0m 124.601 ms - 76542[0m
+[0mGET /css/chat_box.css [33m404[0m 8.560 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 5.056 ms - 155[0m
+[0mGET /comments/destroy/60cacc850b011a5cbcb42b1f [36m302[0m 6.411 ms - 88[0m
+[0mGET / [32m200[0m 83.257 ms - 76538[0m
+[0mGET /css/chat_box.css [33m404[0m 9.847 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 5.796 ms - 155[0m
+[0mGET / [32m200[0m 83.533 ms - 76279[0m
+[0mGET /css/chat_box.css [33m404[0m 5.711 ms - 155[0m
+[0mGET /css/chat_box.css [33m404[0m 2.906 ms - 155[0m
+[0mGET / [32m200[0m 578.501 ms - 48019[0m
+[0mGET / [32m200[0m 112.983 ms - 48019[0m
+[0mGET /users/sign-out [36m302[0m 2279.911 ms - 46[0m
+[0mGET / [32m200[0m 246.351 ms - 48094[0m
+[0mGET /users/sign-in [36m304[0m 4.138 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 37.704 ms - 46[0m
+[0mGET / [32m200[0m 72.977 ms - 75204[0m
+[0mGET / [32m200[0m 101.176 ms - 74936[0m
+[0mGET / [32m200[0m 73.236 ms - 74730[0m
+[0mGET /users/profile/60adf11cb4d7803e345573e8 [32m200[0m 23.244 ms - 2889[0m
+[0mGET /friends/toggle/?userID=60adf11cb4d7803e345573e8 [32m200[0m 39.915 ms - 67[0m
+[0mGET /users/profile/60adf11cb4d7803e345573e8 [32m200[0m 11.616 ms - 2892[0m
+[0mGET / [32m200[0m 75.566 ms - 74910[0m
+[0mGET /users/profile/60af6613f61f8653b0411977 [32m200[0m 14.665 ms - 2842[0m
+[0mGET /friends/toggle/?userID=60af6613f61f8653b0411977 [32m200[0m 10.705 ms - 67[0m
+[0mGET / [32m200[0m 77.790 ms - 75089[0m
+[0mGET /users/sign-out [36m302[0m 3.693 ms - 46[0m
+[0mGET / [32m200[0m 64.726 ms - 48010[0m
+[0mGET /users/sign-in [36m304[0m 3.995 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 3.302 ms - 46[0m
+[0mGET / [32m200[0m 80.648 ms - 75171[0m
+[0mGET /users/sign-out [36m302[0m 5.657 ms - 46[0m
+[0mGET / [32m200[0m 66.519 ms - 48010[0m
+[0mGET /users/sign-in [36m304[0m 5.729 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 5.531 ms - 46[0m
+[0mGET / [32m200[0m 74.822 ms - 75357[0m
+[0mGET / [32m200[0m 81.760 ms - 75089[0m
+[0mGET /users/profile/60c97b14d8bc6054f0e17ad7 [32m200[0m 22.198 ms - 2915[0m
+[0mGET / [36m304[0m 259.554 ms - -[0m
+[0mPOST /posts/create [32m200[0m 50.982 ms - 287[0m
+[0mGET /posts/destroy/60cad9486482e93c48944374 [36m302[0m 58.084 ms - 44[0m
+[0mGET / [32m200[0m 105.240 ms - 76927[0m
+[0mGET / [32m200[0m 90.372 ms - 76668[0m
+[0mPOST /posts/create [32m200[0m 7.393 ms - 278[0m
+[0mGET /posts/destroy/60cad9726482e93c48944375 [36m302[0m 7.960 ms - 44[0m
+[0mGET / [32m200[0m 74.797 ms - 78497[0m
+[0mGET / [32m200[0m 72.524 ms - 78238[0m
+[0mGET /likes/toggle/?id=60cad9726482e93c48944375&type=Post [32m200[0m 12.925 ms - 58[0m
+[0mGET / [32m200[0m 95.929 ms - 78238[0m
+[0mGET /likes/toggle/?id=60cad9726482e93c48944375&type=Post [32m200[0m 15.374 ms - 57[0m
+[0mGET / [32m200[0m 82.294 ms - 78238[0m
+[0mPOST /comments/create [32m200[0m 12.263 ms - 335[0m
+[0mPOST /comments/create [32m200[0m 11.221 ms - 336[0m
+[0mGET /comments/destroy/60cad9b76482e93c48944379 [36m302[0m 5.586 ms - 44[0m
+[0mGET / [32m200[0m 95.346 ms - 80070[0m
+[0mGET / [32m200[0m 71.889 ms - 79811[0m
+[0mGET /comments/destroy/60cad9b76482e93c48944379 [36m302[0m 5.378 ms - 44[0m
+[0mGET / [32m200[0m 69.104 ms - 80070[0m
+[0mGET /comments/destroy/60cad9b76482e93c48944379 [36m302[0m 4.621 ms - 44[0m
+[0mGET / [36m304[0m 67.080 ms - -[0m
+[0mGET / [32m200[0m 69.659 ms - 79811[0m
+[0mGET / [36m304[0m 83.950 ms - -[0m
+[0mGET / [36m304[0m 74.970 ms - -[0m
+[0mGET / [32m200[0m 407.944 ms - 79783[0m
+[0mPOST /posts/create [32m200[0m 16.037 ms - 288[0m
+[0mGET / [32m200[0m 122.138 ms - 81362[0m
+[0mGET / [36m304[0m 81.482 ms - -[0m
+[0mGET / [36m304[0m 416.416 ms - -[0m
+[0mGET /posts/destroy/60cadbdaac78895434ad141a [36m302[0m 64.837 ms - 44[0m
+[0mGET / [32m200[0m 108.428 ms - 81621[0m
+[0mGET /posts/destroy/60cadbdaac78895434ad141a [36m302[0m 30.430 ms - 44[0m
+[0mGET / [36m304[0m 117.720 ms - -[0m
+[0mGET / [32m200[0m 118.389 ms - 81362[0m
+[0mGET /posts/destroy/60cadbdaac78895434ad141a [36m302[0m 16.182 ms - 44[0m
+[0mGET / [32m200[0m 143.672 ms - 81621[0m
+[0mGET / [32m200[0m 620.046 ms - 80996[0m
+[0mGET / [32m200[0m 100.537 ms - 80996[0m
+[0mPOST /posts/create [32m200[0m 37.303 ms - 286[0m
+[0mGET / [32m200[0m 108.918 ms - 82573[0m
+[0mGET /posts/destroy/60cb47e71b6a3a49a847938c [36m302[0m 56.986 ms - 44[0m
+[0mGET / [32m200[0m 82.287 ms - 82832[0m
+[0mGET / [32m200[0m 494.335 ms - 82573[0m
+[0mGET /posts/destroy/60cb47e71b6a3a49a847938c [36m302[0m 14.315 ms - 44[0m
+[0mGET / [32m200[0m 103.402 ms - 82832[0m
+[0mGET /posts/destroy/60cb47e71b6a3a49a847938c [36m302[0m 37.134 ms - 44[0m
+[0mGET / [36m304[0m 129.772 ms - -[0m
+[0mGET /posts/destroy/60cb47e71b6a3a49a847938c [36m302[0m 35.855 ms - 44[0m
+[0mGET / [36m304[0m 111.221 ms - -[0m
+[0mGET /posts/destroy/60cb47e71b6a3a49a847938c [36m302[0m 34.486 ms - 44[0m
+[0mGET / [36m304[0m 115.267 ms - -[0m
+[0mGET /posts/destroy/60cb47e71b6a3a49a847938c [36m302[0m 34.730 ms - 44[0m
+[0mGET / [36m304[0m 108.620 ms - -[0m
+[0mGET / [32m200[0m 140.282 ms - 82573[0m
+[0mGET /posts/destroy/60cb47e71b6a3a49a847938c [32m200[0m 18.008 ms - 73[0m
+[0mPOST /posts/create [32m200[0m 43.753 ms - 282[0m
+[0mGET / [32m200[0m 120.760 ms - 82569[0m
+[0mGET /posts/destroy/60cb4aac6045106960adc16d [32m200[0m 13.216 ms - 73[0m
+[0mGET / [32m200[0m 101.566 ms - 80996[0m
+[0mGET /posts/destroy/60cad9486482e93c48944374 [32m200[0m 8.427 ms - 73[0m
+[0mGET /posts/destroy/60cad9726482e93c48944375 [32m200[0m 10.596 ms - 73[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [33m404[0m 5.283 ms - 153[0m
+[0mGET / [32m200[0m 280.717 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [33m404[0m 4.006 ms - 153[0m
+[0mGET / [36m304[0m 512.529 ms - -[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 23.123 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 14.591 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 12.297 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 16.109 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 10.891 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 15.176 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 14.611 ms - 58[0m
+[0mPOST /likes/toggle/?id=60c98cd26ac9e528e8194141&type=Post [32m200[0m 12.300 ms - 58[0m
+[0mPOST /likes/toggle/?id=60c98cd26ac9e528e8194141&type=Post [32m200[0m 14.640 ms - 57[0m
+[0mPOST /likes/toggle/?id=60c98cd26ac9e528e8194141&type=Post [32m200[0m 11.322 ms - 58[0m
+[0mGET / [32m200[0m 130.302 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60c98cd26ac9e528e8194141&type=Post [32m200[0m 14.197 ms - 57[0m
+[0mPOST /likes/toggle/?id=60c98cd26ac9e528e8194141&type=Post [32m200[0m 13.332 ms - 58[0m
+[0mGET / [36m304[0m 92.462 ms - -[0m
+[0mGET / [36m304[0m 131.978 ms - -[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 37.875 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 18.518 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 21.229 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 14.067 ms - 58[0m
+[0mGET / [36m304[0m 126.310 ms - -[0m
+[0mGET / [36m304[0m 136.904 ms - -[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 30.678 ms - 57[0m
+[0mGET / [32m200[0m 130.274 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 32.486 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 16.839 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 15.168 ms - 58[0m
+[0mGET / [32m200[0m 118.723 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 18.779 ms - 57[0m
+[0mGET / [32m200[0m 86.763 ms - 77062[0m
+[0mGET / [36m304[0m 217.426 ms - -[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 26.529 ms - 58[0m
+[0mPOST /likes/toggle/?id=60c98cd26ac9e528e8194141&type=Post [32m200[0m 22.270 ms - 57[0m
+[0mGET / [32m200[0m 127.285 ms - 77062[0m
+[0mGET / [36m304[0m 267.197 ms - -[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 29.748 ms - 57[0m
+[0mGET / [32m200[0m 139.672 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 28.335 ms - 58[0m
+[0mGET / [32m200[0m 172.810 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 30.392 ms - 57[0m
+[0mGET / [32m200[0m 209.791 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 23.772 ms - 58[0m
+[0mGET / [32m200[0m 145.395 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 27.014 ms - 57[0m
+[0mGET / [32m200[0m 127.269 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 23.512 ms - 58[0m
+[0mGET / [32m200[0m 142.853 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 29.330 ms - 57[0m
+[0mGET / [32m200[0m 124.059 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 24.660 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 19.923 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 15.045 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 16.114 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 11.622 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 14.601 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 11.087 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 14.866 ms - 57[0m
+[0mPOST /likes/toggle/?id=60c98c946ac9e528e819413f&type=Post [32m200[0m 56.092 ms - 58[0m
+[0mGET / [32m200[0m 137.883 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60c98c731ae676585c96f54a&type=Post [32m200[0m 14.298 ms - 58[0m
+[0mGET / [32m200[0m 163.489 ms - 77062[0m
+[0mPOST /likes/toggle/?id=60cad9b76482e93c48944379&type=Comment [32m200[0m 24.057 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cad9b76482e93c48944379&type=Comment [32m200[0m 17.774 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cad9b76482e93c48944379&type=Comment [32m200[0m 12.681 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cad9b76482e93c48944379&type=Comment [32m200[0m 13.664 ms - 57[0m
+[0mPOST /likes/toggle/?id=60c98bf1d32517323020796d&type=Comment [32m200[0m 12.015 ms - 58[0m
+[0mPOST /likes/toggle/?id=60c98bf1d32517323020796d&type=Comment [32m200[0m 15.432 ms - 57[0m
+[0mPOST /likes/toggle/?id=60c98bf1d32517323020796d&type=Comment [32m200[0m 11.788 ms - 58[0m
+[0mPOST /likes/toggle/?id=60c98bf1d32517323020796d&type=Comment [32m200[0m 14.669 ms - 57[0m
+[0mPOST /likes/toggle/?id=60c98b4d729c805ab854f7fd&type=Post [32m200[0m 16.995 ms - 58[0m
+[0mPOST /likes/toggle/?id=60c98b4d729c805ab854f7fd&type=Post [32m200[0m 17.574 ms - 57[0m
+[0mGET / [36m304[0m 136.163 ms - -[0m
+[0mPOST /comments/create [32m200[0m 12.893 ms - 336[0m
+[0mPOST /comments/create [32m200[0m 20.398 ms - 337[0m
+[0mGET /comments/destroy/60cb545418bad643a4c5683b [36m302[0m 25.379 ms - 44[0m
+[0mGET / [32m200[0m 100.715 ms - 78896[0m
+[0mGET / [32m200[0m 195.242 ms - 78637[0m
+[0mPOST /comments/create [32m200[0m 24.135 ms - 337[0m
+[0mPOST /comments/create [32m200[0m 13.145 ms - 343[0m
+[0mGET /comments/destroy/60cb553bbbd24a4cec843359 [32m200[0m 147.942 ms - 80[0m
+[0mGET /comments/destroy/60cb5542bbd24a4cec84335b [32m200[0m 7.374 ms - 80[0m
+[0mPOST /comments/create [32m200[0m 10.994 ms - 337[0m
+[0mGET / [32m200[0m 126.309 ms - 79425[0m
+[0mGET /comments/destroy/60cb5552bbd24a4cec84335c [32m200[0m 9.148 ms - 80[0m
+[0mPOST /comments/create [32m200[0m 11.951 ms - 337[0m
+[0mPOST /comments/create [32m200[0m 9.902 ms - 337[0m
+[0mPOST /comments/create [32m200[0m 9.347 ms - 344[0m
+[0mPOST /likes/toggle/?id=60cb5571bbd24a4cec84335f&type=Comment [32m200[0m 10.554 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cb5577bbd24a4cec843360&type=Comment [32m200[0m 38.755 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cb5571bbd24a4cec84335f&type=Comment [32m200[0m 43.573 ms - 57[0m
+[0mGET / [32m200[0m 106.815 ms - 81008[0m
+[0mPOST /likes/toggle/?id=60cb5571bbd24a4cec84335f&type=Comment [32m200[0m 13.589 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cb5571bbd24a4cec84335f&type=Comment [32m200[0m 11.880 ms - 57[0m
+[0mPOST /comments/create [32m200[0m 45.889 ms - 339[0m
+[0mGET / [32m200[0m 109.620 ms - 81798[0m
+[0mPOST /comments/create [32m200[0m 15.137 ms - 336[0m
+[0mGET / [32m200[0m 146.319 ms - 82585[0m
+[0mPOST /comments/create [32m200[0m 22.380 ms - 338[0m
+[0mGET / [32m200[0m 118.126 ms - 83374[0m
+[0mGET /comments/destroy/60cb572a8683e7437478ecd3 [32m200[0m 16.444 ms - 80[0m
+[0mPOST /likes/toggle/?id=60cb56f4eb3c972aa46b9ddc&type=Comment [32m200[0m 11.569 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cb56f4eb3c972aa46b9ddc&type=Comment [32m200[0m 10.717 ms - 57[0m
+[0mPOST /comments/create [32m200[0m 10.868 ms - 340[0m
+[0mPOST /likes/toggle/?id=60cb573f8683e7437478ecd8&type=Comment [32m200[0m 9.306 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cb573f8683e7437478ecd8&type=Comment [32m200[0m 10.122 ms - 57[0m
+[0mPOST /comments/create [32m200[0m 10.333 ms - 335[0m
+[0mGET /comments/destroy/60cb573f8683e7437478ecd8 [32m200[0m 8.325 ms - 80[0m
+[0mGET /comments/destroy/60cb56f4eb3c972aa46b9ddc [32m200[0m 10.279 ms - 80[0m
+[0mGET / [32m200[0m 136.559 ms - 82584[0m
+[0mPOST /posts/create [32m200[0m 19.665 ms - 306[0m
+[0mPOST /likes/toggle/?id=60cb57d21a41fd6b78582862&type=Post [32m200[0m 13.787 ms - 58[0m
+[0mPOST /comments/create [32m200[0m 12.930 ms - 339[0m
+[0mPOST /likes/toggle/?id=60cb57d91a41fd6b78582865&type=Comment [32m200[0m 11.269 ms - 58[0m
+[0mPOST /comments/create [32m200[0m 9.811 ms - 339[0m
+[0mPOST /likes/toggle/?id=60cb57e21a41fd6b78582869&type=Comment [32m200[0m 10.002 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cb57d91a41fd6b78582865&type=Comment [32m200[0m 14.776 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cb57e21a41fd6b78582869&type=Comment [32m200[0m 12.345 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cb57e21a41fd6b78582869&type=Comment [32m200[0m 7.753 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cb57d21a41fd6b78582862&type=Post [32m200[0m 12.293 ms - 57[0m
+[0mGET /posts/destroy/60cb57d21a41fd6b78582862 [32m200[0m 10.440 ms - 73[0m
+[0mPOST /comments/create [32m200[0m 11.164 ms - 336[0m
+[0mPOST /likes/toggle/?id=60cb57f31a41fd6b78582871&type=Comment [32m200[0m 10.964 ms - 58[0m
+[0mGET / [32m200[0m 118.466 ms - 83371[0m
+[0mPOST /likes/toggle/?id=60cad9b76482e93c48944379&type=Comment [32m200[0m 8.311 ms - 58[0m
+[0mGET / [32m200[0m 88.431 ms - 83371[0m
+[0mGET / [36m304[0m 88.458 ms - -[0m
+[0mGET / [36m304[0m 87.998 ms - -[0m
+[0mGET / [36m304[0m 108.674 ms - -[0m
+[0mGET / [36m304[0m 129.799 ms - -[0m
+[0mGET / [36m304[0m 79.047 ms - -[0m
+[0mGET /users/profile/60c97549070e6964a01fad01 [31m500[0m 43.505 ms - 2030[0m
+[0mGET / [32m200[0m 116.557 ms - 83354[0m
+[0mGET /js/chat_box.js [33m404[0m 4.324 ms - 153[0m
+[0mGET /js/chat_box.js [33m404[0m 3.224 ms - 153[0m
+[0mGET /users/profile/60c97549070e6964a01fad01 [32m200[0m 13.995 ms - 2739[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [32m200[0m 12.860 ms - 2751[0m
+[0mGET /friends/toggle/?userID=60b4b915e5cd681784918a31 [36m304[0m 20.468 ms - -[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [32m200[0m 47.639 ms - 2754[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [36m304[0m 15.897 ms - -[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [32m200[0m 12.308 ms - 2764[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [36m304[0m 13.576 ms - -[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [32m200[0m 11.637 ms - 2773[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [32m200[0m 11.256 ms - 2763[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [32m200[0m 14.277 ms - 2772[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [36m304[0m 12.922 ms - -[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [36m304[0m 12.301 ms - -[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [36m304[0m 11.891 ms - -[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [36m304[0m 10.420 ms - -[0m
+[0mGET / [32m200[0m 117.272 ms - 83547[0m
+[0mGET /css/_post.css [33m404[0m 10.297 ms - 152[0m
+[0mGET /css/_comment.css [33m404[0m 32.146 ms - 155[0m
+[0mGET /js/chat_box.js [33m404[0m 4.377 ms - 153[0m
+[0mGET /css/_post.css [33m404[0m 5.773 ms - 152[0m
+[0mGET /css/_comment.css [33m404[0m 4.205 ms - 155[0m
+[0mGET /js/chat_box.js [33m404[0m 2.779 ms - 153[0m
+[0mGET / [36m304[0m 108.905 ms - -[0m
+[0mGET /css/_post.css [33m404[0m 7.527 ms - 152[0m
+[0mGET /css/_comment.css [33m404[0m 6.768 ms - 155[0m
+[0mGET /js/chat_box.js [33m404[0m 3.583 ms - 153[0m
+[0mGET /css/_post.css [33m404[0m 7.044 ms - 152[0m
+[0mGET /css/_comment.css [33m404[0m 5.504 ms - 155[0m
+[0mGET /js/chat_box.js [33m404[0m 3.169 ms - 153[0m
+[0mGET /css/_post.css [33m404[0m 11.221 ms - 152[0m
+[0mGET /css/_comment.css [33m404[0m 9.532 ms - 155[0m
+[0mGET / [36m304[0m 86.094 ms - -[0m
+[0mGET /css/_post.css [33m404[0m 7.614 ms - 152[0m
+[0mGET /css/_comment.css [33m404[0m 9.420 ms - 155[0m
+[0mGET /js/chat_box.js [33m404[0m 8.633 ms - 153[0m
+[0mGET /css/_post.css [33m404[0m 6.552 ms - 152[0m
+[0mGET /css/_comment.css [33m404[0m 7.010 ms - 155[0m
+[0mGET /js/chat_box.js [33m404[0m 5.362 ms - 153[0m
+[0mGET / [32m200[0m 98.079 ms - 84303[0m
+[0mGET /css/post.css [33m404[0m 10.143 ms - 151[0m
+[0mGET /css/_comment.css [33m404[0m 10.099 ms - 155[0m
+[0mGET /js/chat_box.js [33m404[0m 3.751 ms - 153[0m
+[0mGET /css/post.css [33m404[0m 4.201 ms - 151[0m
+[0mGET /css/_comment.css [33m404[0m 4.172 ms - 155[0m
+[0mGET /js/chat_box.js [33m404[0m 2.960 ms - 153[0m
+[0mGET / [32m200[0m 91.841 ms - 79164[0m
+[0mGET /js/chat_box.js [33m404[0m 4.732 ms - 153[0m
+[0mGET /js/chat_box.js [33m404[0m 2.599 ms - 153[0m
+[0mGET / [32m200[0m 87.187 ms - 79114[0m
+[0mGET / [36m304[0m 139.895 ms - -[0m
+[0mGET / [36m304[0m 151.326 ms - -[0m
+[0mGET / [36m304[0m 136.872 ms - -[0m
+[0mGET / [36m304[0m 147.868 ms - -[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [36m304[0m 18.768 ms - -[0m
+[0mGET /friends/toggle/?userID=60b4b915e5cd681784918a31 [32m200[0m 30.556 ms - 68[0m
+[0mGET /users/profile/60b4b915e5cd681784918a31 [32m200[0m 52.460 ms - 2769[0m
+[0mGET /friends/toggle/?userID=60b4b915e5cd681784918a31 [32m200[0m 22.027 ms - 67[0m
+[0mGET /friends/toggle/?userID=60b4b915e5cd681784918a31 [32m200[0m 19.113 ms - 68[0m
+[0mGET /friends/toggle/?userID=60b4b915e5cd681784918a31 [32m200[0m 14.125 ms - 67[0m
+[0mGET / [0m-[0m - ms - -[0m
+[0mGET / [31m500[0m 15240.756 ms - 452[0m
+[0mGET / [32m200[0m 260.940 ms - 79114[0m
+[0mGET /favicon.ico [33m404[0m 6.007 ms - 150[0m
+[0mGET /users/sign-out [36m302[0m 45.986 ms - 46[0m
+[0mGET / [32m200[0m 149.074 ms - 48825[0m
+[0mGET /users/sign-in [36m304[0m 6.450 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 6.612 ms - 46[0m
+[0mGET / [32m200[0m 114.566 ms - 82158[0m
+[0mGET /users/profile/60adf11cb4d7803e345573e8 [32m200[0m 18.525 ms - 2757[0m
+[0mGET /users/sign-out [36m302[0m 4.779 ms - 46[0m
+[0mGET / [32m200[0m 66.886 ms - 48825[0m
+[0mGET /users/sign-in [36m304[0m 6.576 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 3.433 ms - 46[0m
+[0mGET / [32m200[0m 85.335 ms - 77467[0m
+[0mPOST /likes/toggle/?id=60c98cd26ac9e528e8194141&type=Post [32m200[0m 39.461 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cb57f31a41fd6b78582871&type=Comment [32m200[0m 13.719 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 29.887 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 11.605 ms - 57[0m
+[0mPOST /likes/toggle/?id=60c98cd26ac9e528e8194141&type=Post [32m200[0m 10.076 ms - 57[0m
+[0mPOST /likes/toggle/?id=60c98cd26ac9e528e8194141&type=Post [32m200[0m 7.278 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cad9b76482e93c48944379&type=Comment [32m200[0m 8.640 ms - 58[0m
+[0mGET /users/profile/60adf11cb4d7803e345573e8 [32m200[0m 55.463 ms - 2741[0m
+[0mGET /friends/toggle/?userID=60adf11cb4d7803e345573e8 [36m304[0m 224.826 ms - -[0m
+[0mGET / [32m200[0m 111.640 ms - 77379[0m
+[0mGET / [32m200[0m 387.702 ms - 76226[0m
+[0mGET / [36m304[0m 95.527 ms - -[0m
+[0mGET / [36m304[0m 106.562 ms - -[0m
+[0mGET / [36m304[0m 112.763 ms - -[0m
+[0mGET / [36m304[0m 83.280 ms - -[0m
+[0mGET / [36m304[0m 78.533 ms - -[0m
+[0mGET / [36m304[0m 88.243 ms - -[0m
+[0mGET / [36m304[0m 82.068 ms - -[0m
+[0mGET / [36m304[0m 68.435 ms - -[0m
+[0mGET / [36m304[0m 75.094 ms - -[0m
+[0mGET /users/sign-out [36m302[0m 31.088 ms - 46[0m
+[0mGET / [32m200[0m 76.732 ms - 48621[0m
+[0mGET / [32m200[0m 67.845 ms - 48354[0m
+[0mGET / [36m304[0m 75.808 ms - -[0m
+[0mGET / [36m304[0m 72.913 ms - -[0m
+[0mGET /users/sign-in [36m304[0m 4.034 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 5.527 ms - 46[0m
+[0mGET / [32m200[0m 65.101 ms - 76494[0m
+[0mGET /users/sign-out [36m302[0m 4.647 ms - 46[0m
+[0mGET / [32m200[0m 59.820 ms - 48621[0m
+[0mGET / [32m200[0m 512.861 ms - 48354[0m
+[0mGET /favicon.ico [33m404[0m 4.117 ms - 150[0m
+[0mGET / [36m304[0m 98.386 ms - -[0m
+[0mGET / [36m304[0m 100.001 ms - -[0m
+[0mGET / [36m304[0m 75.268 ms - -[0m
+[0mGET / [36m304[0m 80.727 ms - -[0m
+[0mGET / [36m304[0m 951.536 ms - -[0m
+::1 - - [18/Jun/2021:13:02:35 +0000] "GET / HTTP/1.1" 200 4235 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:02:35 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:02:37 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:05:48 +0000] "GET /users/sign-in HTTP/1.1" 200 2590 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:06:04 +0000] "GET /users/sign-up HTTP/1.1" 200 2671 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:06:31 +0000] "POST /users/create HTTP/1.1" 302 72 "http://localhost:8000/users/sign-up" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:06:31 +0000] "GET /users/sign-in HTTP/1.1" 200 2877 "http://localhost:8000/users/sign-up" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:06:37 +0000] "POST /users/create-session HTTP/1.1" 302 46 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:06:37 +0000] "GET / HTTP/1.1" 200 5781 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:06:37 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:06:38 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:06:40 +0000] "GET /likes/toggle/?id=60b88be07f60991f6472e19e&type=Post HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:06:56 +0000] "POST /posts/create HTTP/1.1" 200 275 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:07:03 +0000] "POST /comments/create HTTP/1.1" 200 331 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:07:05 +0000] "GET /likes/toggle/?id=60b88be77f60991f6472e19f&type=Comment HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:07:39 +0000] "GET / HTTP/1.1" 200 7761 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:07:39 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:07:39 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:07:43 +0000] "GET /likes/toggle/?id=60cc9a701c6a9e4c1498b0fe&type=Post HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:07:47 +0000] "GET /likes/toggle/?id=60b88be07f60991f6472e19e&type=Post HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:07:49 +0000] "GET /likes/toggle/?id=60b88be77f60991f6472e19f&type=Comment HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:08:05 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:08:05 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:08:05 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:08:07 +0000] "GET /likes/toggle/?id=60cc9a701c6a9e4c1498b0fe&type=Post HTTP/1.1" 200 58 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:04 +0000] "GET / HTTP/1.1" 200 7761 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:04 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:04 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:09 +0000] "GET /users/sign-out HTTP/1.1" 302 46 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:09 +0000] "GET / HTTP/1.1" 200 5726 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:09 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:09 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:10 +0000] "GET / HTTP/1.1" 200 5459 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:21 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:21 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:21 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:22 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:22 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:22 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:22 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:22 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:22 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:23 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:23 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:23 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:26 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:26 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:26 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:27 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:27 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:09:27 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:11:47 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:11:48 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:11:48 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:11:49 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:11:49 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:11:50 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:11:50 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:11:50 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:11:50 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:11:51 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:11:51 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:09 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:09 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:09 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:09 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:09 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:09 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:11 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:11 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:12:11 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+[0mGET / [32m200[0m 109.507 ms - 48354[0m
+[0mGET /users/sign-in [32m200[0m 8.080 ms - 2557[0m
+[0mPOST /users/create-session [36m302[0m 8.416 ms - 46[0m
+[0mGET / [32m200[0m 94.939 ms - 80638[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 39.009 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 13.091 ms - 57[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 9.831 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 10.752 ms - 57[0m
+[0mPOST /likes/toggle/?id=60c98cd26ac9e528e8194141&type=Post [32m200[0m 8.991 ms - 58[0m
+[0mPOST /likes/toggle/?id=60cadbdaac78895434ad141a&type=Post [32m200[0m 8.070 ms - 58[0m
+[0mPOST /comments/create [32m200[0m 11.488 ms - 327[0m
+[0mGET /comments/destroy/60cc9be2f7c5c155086566e4 [32m200[0m 388.614 ms - 80[0m
+::1 - - [18/Jun/2021:13:16:41 +0000] "GET / HTTP/1.1" 200 5459 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:16:41 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:16:42 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:16:44 +0000] "GET /users/sign-in HTTP/1.1" 200 2590 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:16:48 +0000] "POST /users/create-session HTTP/1.1" 302 46 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:16:48 +0000] "GET / HTTP/1.1" 200 8029 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:16:48 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:16:49 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:16:53 +0000] "GET /likes/toggle/?id=60b88be77f60991f6472e19f&type=Comment HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:17:08 +0000] "GET / HTTP/1.1" 200 7761 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:17:08 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:17:08 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:20:10 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/users/sign-in" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:20:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:20:10 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:20:15 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/users/sign-in" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:20:15 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:20:15 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:21:56 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:21:56 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:21:56 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:27:02 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:27:02 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+::1 - - [18/Jun/2021:13:27:07 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:27:07 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:27:07 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:35:00 +0000] "GET / HTTP/1.1" 200 7717 "-" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:35:00 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:35:00 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:35:01 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:35:01 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:40:54 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:40:54 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:40:54 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:40:54 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:40:54 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:43:33 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:43:33 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:43:33 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:43:33 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:43:33 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:44:04 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:44:04 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:44:04 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:44:04 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:44:04 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:45:39 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:45:40 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:45:40 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:45:40 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:45:40 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:50:39 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:50:39 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:50:39 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:50:39 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:50:39 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:59:30 +0000] "GET / HTTP/1.1" 200 7780 "-" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:59:39 +0000] "POST /likes/toggle/?id=60b88be07f60991f6472e19e&type=Post HTTP/1.1" 200 58 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:59:43 +0000] "POST /likes/toggle/?id=60b88be07f60991f6472e19e&type=Post HTTP/1.1" 200 57 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:13:59:45 +0000] "GET /comments/destroy/60cc9a771c6a9e4c1498b0ff HTTP/1.1" 200 80 "http://localhost:8000/" "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+::1 - - [18/Jun/2021:14:01:03 +0000] "GET /posts/destroy/60cc9a701c6a9e4c1498b0fe HTTP/1.1" 200 73 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"

@@ -9,7 +9,7 @@ const commentsMailer = require('../mailers/comments_mailer');
 // this process function calls the mailer
 queue.process('emails', function (job, done) {
     // 'emails' is name of queue or type of queue
-    console.log('emails worker is processing a job', job.data);
+    console.log('emails worker is processing a job: ', job.data);
 
     commentsMailer.newComment(job.data);
     done();

@@ -5,20 +5,21 @@ const likeSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId
     },
     // this defines the object id of liked object
-    // it could be either post's id or comment's id
+    // it's value could be either post.id or comment.id
     likeable: {
         type: mongoose.Schema.Types.ObjectId,
-        require: true,
+        required: true,
         refPath: 'onModel'
     },
     // this field is used for defining the type of 
     // the liked object since it is dynamic reference
+    // it's value could be either Post or Comment
     onModel: {
         type: String,
-        require: true,
+        required: true,
         enum: ['Post', 'Comment'] 
     }
-},  {
+}, {
     timestamps: true
 });
 
