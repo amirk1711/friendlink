@@ -5,33 +5,10 @@ const path = require("path");
 module.exports.profile = async  function(req ,res){
     try {
         let user = await User.findById(req.params.id);
-        let usersFriendships;
-
-        if(req.user){
-            usersFriendships = await User.findById(req.user._id).populate({ 
-                path : 'friendships',
-                populate: {
-                    path: 'from_user'
-                },
-                populate: {
-                    path: 'to_user'
-                }
-            });
-        }
-
-        let isFriend = false;
-        for(friendships of usersFriendships.friendships ){
-            if(friendships.from_user.id == user.id || friendships.to_user.id == user.id ){
-                isFriend = true ;
-                break;
-            }
-        }
 
         return res.render('user_profile' , {
             title : `${user.name} | Profile`,
-            profile_user: user,
-            my_friends : usersFriendships ,
-            is_friend : isFriend
+            profile_user: user
         });
     } catch (err) {
         console.log(err);
