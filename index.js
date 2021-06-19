@@ -22,6 +22,9 @@ const customMware = require('./config/middleware');
 const path = require('path');
 const { Server } = require('http');
 
+
+const uri = process.env.MONGODB_URI;
+
 // use middleware to compile scss file into css file
 // src: from where to pick scss file
 // dest: where css file will be placed after compiling scss
@@ -77,7 +80,7 @@ app.use(session({
     store: MongoStore.create(
         {
             // mongooseConnection: db,
-            mongoUrl: 'mongodb://localhost/friendlink-development',
+            mongoUrl: uri || 'mongodb://localhost/friendlink-development',
             autoRemove: 'disabled'
         },
         function(err){
