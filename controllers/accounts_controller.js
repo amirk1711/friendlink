@@ -37,14 +37,14 @@ module.exports.confirmEmail = async function(req, res){
             console.log('myToken', myToken) ;
 
             // resetPasswordMailer.passResetToken(myToken);
-            let job = queue.create('resetPasswordEmails', myToken).priority('medium').save(function(err){
-                if(err){
-                    console.log('error in creating a queue for password reset', err);
-                    return;
-                }
+            // let job = queue.create('resetPasswordEmails', myToken).priority('medium').save(function(err){
+            //     if(err){
+            //         console.log('error in creating a queue for password reset', err);
+            //         return;
+            //     }
 
-                console.log('job enqueued', job.id);
-            });
+            //     console.log('job enqueued', job.id);
+            // });
 
             req.flash('success' , 'Password Reset Link has been sent to the user!!');
             return res.redirect('back');
