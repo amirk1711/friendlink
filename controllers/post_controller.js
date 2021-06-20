@@ -1,9 +1,12 @@
 const Post = require("../models/post");
 const Comment = require('../models/comment');
 const Like = require('../models/like');
+const fs = require("fs");
+const path = require("path");
 
 module.exports.create = async function(req , res){
     try {
+        let post;
         await Post.uploadedPost(req, res, async function(err){
             if(err){
                 console.log("*****Multer Error***** :" , err);
@@ -11,31 +14,31 @@ module.exports.create = async function(req , res){
             }
             // console.log(req.file);
             if(req.file){
-                await Post.create({
+                post = await Post.create({
                     user: req.user.id,
                     content: Post.postPath + '/' + req.file.filename
                 });
             }
-                          
+
+            //if the req is ajax
+            if(req.xhr){
+                // console.log('Create Post using AJAX');
+                // to populate just the name of the user (we'll not want to send the password in the API)
+                post = await post.populate('user', 'name').execPopulate();
+                return res.status(200).json({
+                    data: {
+                        post: post
+                    },
+                    message: "Post created using AJAX!"
+                });
+            }
+
+            req.flash('success', "Post published!");
+            return res.redirect('back');
+             
         }); 
 
-        console.log('post', post);
-
-        //if the req is ajax
-        if(req.xhr){
-            // console.log('Create Post using AJAX');
-            // to populate just the name of the user (we'll not want to send the password in the API)
-            post = await post.populate('user', 'name').execPopulate();
-            return res.status(200).json({
-                data: {
-                    post: post
-                },
-                message: "Post created using AJAX!"
-            });
-        }
-
-        req.flash('success', "Post published!");
-        return res.redirect('back');
+        
     }catch (error){
         req.flash('error', "Error in creating Post")
         return res.redirect('back');
@@ -55,6 +58,12 @@ module.exports.destroy = async function(req,res){
             await Like.deleteMany({likeable: post, onModel: 'Post'});
             // deete all likes asscciated with the commets of that post
             await Like.deleteMany({_id: {$in: post.comments}});
+
+            // reomve the files from uploads as well
+            let fileName = post.content;
+            console.log('file to be deleted', fileName);
+            fs.unlinkSync(path.join(__dirname, '..', fileName));
+
 
             //delete the post 
             post.remove();
