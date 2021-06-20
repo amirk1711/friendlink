@@ -13,3 +13,13 @@
 //     resetPasswordMailer.passResetToken(job.data);
 //     done();
 // });
+
+const agenda = require('../config/agenda');
+
+agenda.on('complete', function(job) {
+    console.log(`Job ${job.attrs.name} completed`);
+});
+
+agenda.on('fail', function(err, job) {
+    console.log(`Job ${job.attrs.name} failed with error: ${err.message}`);
+});

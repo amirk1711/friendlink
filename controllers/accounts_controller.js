@@ -9,6 +9,9 @@ const resetPasswordMailer = require('../mailers/reset_password_mailer');
 const queue = require('../config/kue');
 const resetPasswordEmailWorker = require('../workers/reset_password_email_worker');
 
+
+const agenda = require('../config/agenda');
+
 module.exports.forgotPassword = function(req, res){
     return res.render('forgot_password', {
         title: 'Forgot password'
@@ -45,6 +48,13 @@ module.exports.confirmEmail = async function(req, res){
 
             //     console.log('job enqueued', job.id);
             // });
+
+            await (async function () {
+                await agenda.start();
+                await agenda.schedule("in 1 seconds", "forgot-password-email", {
+                    myToken: myToken
+                });
+            })();
 
             req.flash('success' , 'Password Reset Link has been sent to the user!!');
             return res.redirect('back');
