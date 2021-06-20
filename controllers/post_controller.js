@@ -4,23 +4,22 @@ const Like = require('../models/like');
 
 module.exports.create = async function(req , res){
     try {
-        let post;
-        Post.uploadedPost(req, res, function(err){
+        await Post.uploadedPost(req, res, async function(err){
             if(err){
                 console.log("*****Multer Error***** :" , err);
+                return;
             }
-
-            // if user is sending a file in req
-            // console.log('req.file', req.file);
+            // console.log(req.file);
             if(req.file){
-                // save the path of the uploaded file into the avatar field in the user
-                post = Post.create({
+                await Post.create({
                     user: req.user.id,
                     content: Post.postPath + '/' + req.file.filename
                 });
             }
-        });
-        
+                          
+        }); 
+
+        console.log('post', post);
 
         //if the req is ajax
         if(req.xhr){

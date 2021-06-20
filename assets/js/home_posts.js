@@ -8,11 +8,9 @@
 
             // Get post form
             let form = $('#new-post-form')[0];
-            console.log('form: ', form);
 
             // create an FormData object
             let data = new FormData(form);
-            console.log('data: ', data);
 
             $.ajax({
                 type: 'post',
@@ -23,7 +21,7 @@
                 contentType: false,
                 cache: false,
                 success: function(data){
-                    console.log('data: ', data);
+                    // console.log('data: ', data);
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
                     deletePost($(' .delete-post-button', newPost));
