@@ -38,7 +38,7 @@ module.exports.create = async function(req , res){
         req.flash('success', "Post published!");
         return res.redirect('back');
     }catch (error){
-        req.flash('error', "Error in creatung Post")
+        req.flash('error', "Error in creating Post")
         return res.redirect('back');
     }
 }
