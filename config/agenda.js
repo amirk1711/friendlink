@@ -1,6 +1,7 @@
 const Agenda = require('agenda');
 const env = require('./environment');
-const connectionString = `mongodb://localhost/${env.db}`;
+const uri = process.env.MONGODB_URI;
+const connectionString = `${uri} | mongodb://localhost/${env.db}`;
 const resetPasswordMailer = require('../mailers/reset_password_mailer');
 
 
