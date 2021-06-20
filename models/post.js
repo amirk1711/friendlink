@@ -35,7 +35,7 @@ const postSchema = new mongoose.Schema({
 
 // now link all three, content(which is in schema),
 // POST_PATH and multer
-let storage = multer.diskStorage({
+let storage = multer.memoryStorage({
 	destination: function (req, file, cb) {
 		cb(null, path.join(__dirname, "..", POST_PATH));
 	},
