@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // now link all three, avatar(which is in schema),
-// AVATAR_PATH and multer to mak esure that
+// AVATAR_PATH and multer
 let storage = multer.diskStorage({
 	destination: function (req, file, cb) {
 		cb(null, path.join(__dirname, "..", AVATAR_PATH));

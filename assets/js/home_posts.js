@@ -1,16 +1,29 @@
 {   
     // method to submit the form data for new post using AJAX
     let createPost = function(){
-        let newPostForm = $('#new-post-form');
+        
 
-        newPostForm.submit(function(e){
+        $('#new-post-form').submit(function(e){
             e.preventDefault();
+
+            // Get post form
+            let form = $('#new-post-form')[0];
+            console.log('form: ', form);
+
+            // create an FormData object
+            let data = new FormData(form);
+            console.log('data: ', data);
 
             $.ajax({
                 type: 'post',
+                enctype: 'multipart/form-data',
                 url: '/posts/create',
-                data: newPostForm.serialize(),
+                data: data,
+                processData: false,
+                contentType: false,
+                cache: false,
                 success: function(data){
+                    console.log('data: ', data);
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
                     deletePost($(' .delete-post-button', newPost));
@@ -45,7 +58,7 @@
                             <a class="delete-post-button"  href="/posts/destroy/${ post._id }">X</a>
                         </small>
                        
-                        ${ post.content }
+                        <img src="${ post.content }" alt="Cannot load the post. Please retry." class="post-content">
                         <br>
                         <small>
                             by ${ post.user.name }

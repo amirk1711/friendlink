@@ -7,8 +7,9 @@
 
         <!-- users can post only if they are signed in -->
         <% if (locals.user) { %>
-            <form action="/posts/create" method="POST" id="new-post-form">
-                <textarea name="content" rows="4" cols="40" id="content" placeholder="Type here to post..." required></textarea>
+            <form action="/posts/create" method="POST" enctype="multipart/form-data" id="new-post-form">
+                <!-- <textarea name="content" rows="4" cols="40" id="content" placeholder="Type here to post..." required></textarea> -->
+                <input type="file" name="content" id="content">
                 <input type="submit" value="Post" id="submit-btn">
             </form>
         <% } %>

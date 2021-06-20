@@ -4,15 +4,28 @@ const Like = require('../models/like');
 
 module.exports.create = async function(req , res){
     try {
-        let post = await Post.create({
-            content: req.body.content,
-            user: req.user._id
+        let post;
+        Post.uploadedPost(req, res, function(err){
+            if(err){
+                console.log("*****Multer Error***** :" , err);
+            }
+
+            // if user is sending a file in req
+            // console.log('req.file', req.file);
+            if(req.file){
+                // save the path of the uploaded file into the avatar field in the user
+                post = Post.create({
+                    user: req.user.id,
+                    content: Post.postPath + '/' + req.file.filename
+                });
+            }
         });
+        
 
         //if the req is ajax
         if(req.xhr){
             // console.log('Create Post using AJAX');
-            //to populate just the name of the user (we'll not want to send the password in the API)
+            // to populate just the name of the user (we'll not want to send the password in the API)
             post = await post.populate('user', 'name').execPopulate();
             return res.status(200).json({
                 data: {

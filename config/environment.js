@@ -70,7 +70,7 @@ const production = {
     }
 }
 
-module.exports = eval(process.env.FRIENDLINK_ENVIRONMENT) == undefined ? development : eval(process.env.FRIENDLINK_ENVIRONMENT); 
+// module.exports = eval(process.env.FRIENDLINK_ENVIRONMENT) == undefined ? development : eval(process.env.FRIENDLINK_ENVIRONMENT); 
 
 // run in development mode for debugging
-// module.exports = development;
+module.exports = development;
