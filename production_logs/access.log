@@ -721,6 +721,7 @@
 ::1 - - [19/Jun/2021:03:02:15 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
 ::1 - - [19/Jun/2021:03:03:42 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
 ::1 - - [19/Jun/2021:03:03:44 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+<<<<<<< HEAD
 ::1 - - [20/Jun/2021:02:53:27 +0000] "GET / HTTP/1.1" 200 4371 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
 ::1 - - [20/Jun/2021:02:53:29 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
 ::1 - - [20/Jun/2021:02:53:32 +0000] "GET /users/sign-in HTTP/1.1" 200 2590 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
@@ -1318,3 +1319,5 @@
 [0mGET /posts/destroy/60cf37adfa22eb38fc7cfe44 [32m200[0m 9.539 ms - 73[0m
 [0mGET /posts/destroy/60cf3756dfe9750b1c426c47 [32m200[0m 11.816 ms - 73[0m
 [0mGET / [32m200[0m 28.156 ms - 4189[0m
+=======
+>>>>>>> parent of 23be6a2 (Enable mailing feature using agenda.js)
