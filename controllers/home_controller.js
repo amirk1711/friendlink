@@ -7,7 +7,6 @@ module.exports.home = async function(req ,res){
             // so that posts can be displayed on the home screen
             // with details like user(owner of the post), comments and likes 
             let posts = await Post.find({})
-            .sort('-createdAt')
             .populate('user')
             .populate({
                 path: 'comments',
