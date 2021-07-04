@@ -2,20 +2,15 @@ const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema(
 	{
-		// content will be an image base 64
-		// we will store image in base64 encoding
-		content: [
-			{
-				type: String,
-				required: true,
-			},
-		],
-		contentType: [
-			{
-				type: String,
-				required: true,
-			},
-		],
+		content: {
+			type: String,
+			required: true,
+		},
+		contentType: {
+			type: String,
+			required: true,
+		},
+
 		// link post to the user
 		user: {
 			type: mongoose.Schema.Types.ObjectId,

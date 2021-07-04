@@ -59,13 +59,64 @@ module.exports.createSession = async function (req, res) {
 		return res.status(200).json({
 			message: "Sign in successfull, here is your token please keep it safe!",
 			data: {
-				token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "100000" }),
+				token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
 			},
 		});
 	} catch (err) {
 		console.log("Error in creating sesssion******", err);
 		return res.status(500).json({
 			message: "Internal server error",
+		});
+	}
+};
+
+module.exports.profile = async function (req, res) {
+	try {
+		let user = await User.findById(req.params.id);
+
+		return res.status(200).json({
+			message: "User profile fetched successfully!",
+			data: {
+				title: `${user.name} | Profile`,
+				profile_user: user,
+			},
+		});
+	} catch (err) {
+		console.log("Error in fetching user profile******", err);
+		return res.status(500).json({
+			message: "Internal server error",
+		});
+	}
+};
+
+module.exports.update = async function (req, res) {
+	if (req.user.id == req.params.id) {
+		try {
+			let user = await User.findById(req.user.id);
+
+			user.name = req.body.name;
+			if(req.body.avatar !== ''){
+				user.avatar = req.body.avatar;
+			}
+
+			user.save();
+
+			return res.status(200).json({
+				message: 'Profile updated successfully!',
+				data: {
+					updated_profile: user,
+				}
+			});
+		} catch (error) {
+			req.flash("error", error);
+			return res.status(500).json({
+				message: 'Error in updating profile!'
+			});
+		}
+	} else {
+		req.flash("error", "Unauthorized !");
+		return res.status(401).json({
+			message: 'Unauthorized!'
 		});
 	}
 };

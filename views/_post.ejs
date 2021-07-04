@@ -2,22 +2,18 @@
 <li id="post-<%= post._id %>">
 	<p>
 		<% if (locals.user && locals.user.id == post.user.id){ %>
-		<small>
-			<a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>
-		</small>
+			<small>
+				<a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>
+			</small>
 
-        <small> <%= post.user.name %> </small>
+			<small> <%= post.user.name %> </small>
 
-		<% } %> <% post.content.forEach((postImage, index) => {%>
-		<img
-			src="data:<%= post.contentType[index] %>;base64,<%= postImage %>"
-			alt="Cannot load the post. Please retry."
-			class="post-content"
-		/>
-		<% }) %>
+		<% } %> 
+		
 
 		<br />
 		
+		<img src="<%= post.content %>" />
 
 		<br />
 		<small>
