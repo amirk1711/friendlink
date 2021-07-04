@@ -17,6 +17,8 @@ module.exports.home = async function (req, res) {
 		posts: posts,
 	});
 };
+
+
 module.exports.create = async function (req, res){
 	module.exports.create = async function (req, res) {
 		try {			
