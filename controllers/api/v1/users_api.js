@@ -2,9 +2,52 @@ const User = require("../../../models/user");
 const jwt = require("jsonwebtoken");
 const env = require("../../../config/environment");
 
+module.exports.create = async function (req, res) {
+	console.log("req.body from users_api", req.body);
+	//check if the password and confirm_password matches or not
+	if (req.body.password != req.body.confirm_password) {
+		console.log("Passwords do not match!");
+		return res.status(422).json({
+			message: "Passwords do not match!",
+		});
+	}
+
+	// find user by email
+	User.findOne({ email: req.body.email }, function (err, user) {
+		if (err) {
+			console.log("Error in finding user!");
+			return res.status(422).json({
+				message: "Error in finding user!",
+			});
+		}
+
+		// if user is not found, create a new user
+		if (!user) {
+			User.create(req.body, function (err, user) {
+				if (err) {
+					req.flash("error in creating user ", err);
+					return res.status(422).json({
+						message: "error in creating user",
+					});
+				}
+
+				req.flash("success", "You have signed up, sign in to continue!");
+				return res.status(200).json({
+					message: "You have signed up, sign in to continue!",
+				});
+			});
+		} else {
+			req.flash("success", "You have already signed up, login to continue!");
+			return res.status(200).json({
+				message: "You have already signed up, sign in to continue!",
+			});
+		}
+	});
+};
+
 module.exports.createSession = async function (req, res) {
 	try {
-		let user = await User.findOne({email: req.body.email});
+		let user = await User.findOne({ email: req.body.email });
 
 		if (!user || user.password != req.body.password) {
 			return res.status(422).json({
@@ -16,7 +59,7 @@ module.exports.createSession = async function (req, res) {
 		return res.status(200).json({
 			message: "Sign in successfull, here is your token please keep it safe!",
 			data: {
-				token: jwt.sign(user.toJSON(), env.jwt_secret, {expiresIn: "100000"}),
+				token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "100000" }),
 			},
 		});
 	} catch (err) {
