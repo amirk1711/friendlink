@@ -1430,3 +1430,4 @@
 ::1 - - [05/Jul/2021:04:53:05 +0000] "POST /api/v1/posts/create HTTP/1.1" 200 27 "-" "PostmanRuntime/7.28.1"
 ::1 - - [05/Jul/2021:07:46:49 +0000] "POST /api/v1/comments/create HTTP/1.1" 200 317 "-" "PostmanRuntime/7.28.1"
 ::1 - - [05/Jul/2021:07:48:40 +0000] "POST /api/v1/comments/create HTTP/1.1" 200 325 "-" "PostmanRuntime/7.28.1"
+::1 - - [05/Jul/2021:07:51:17 +0000] "GET /api/v1/comments/destroy/60e2b95837ff1112f8ff9801 HTTP/1.1" 200 31 "-" "PostmanRuntime/7.28.1"
