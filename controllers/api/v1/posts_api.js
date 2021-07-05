@@ -21,15 +21,15 @@ module.exports.home = async function (req, res) {
 module.exports.create = async function (req, res) {
 	try {
 		// create post
-		console.log('from post_api', req.body);
-		console.log('user id', req.user);
+		// console.log("from post_api", req.body);
+		// console.log("user id", req.user);
 		let post = await Post.create({
 			user: req.user.id,
 			content: req.body.content,
 			contentType: req.body.contentType,
 		});
 
-		console.log('post',post);
+		console.log("post", post);
 
 		if (req.xhr) {
 			console.log("Create Post using AJAX");
@@ -46,6 +46,9 @@ module.exports.create = async function (req, res) {
 
 		req.flash("success", "Post published!");
 		return res.status(200).json({
+			data: {
+				post: post,
+			},
 			message: "Post created!",
 		});
 	} catch (error) {
