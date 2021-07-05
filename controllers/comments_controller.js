@@ -1,9 +1,6 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
 const Like = require('../models/like');
-const commentsMailer = require('../mailers/comments_mailer');
-const queue = require('../config/kue');
-const commentEmailWorker = require('../workers/comment_email_worker');
 
 module.exports.create = async function(req, res){
     try {
