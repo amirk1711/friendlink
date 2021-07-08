@@ -15,6 +15,7 @@ module.exports.home = async function (req, res) {
 	return res.json(200, {
 		message: "List of posts",
 		posts: posts,
+		success: true,
 	});
 };
 
@@ -50,6 +51,7 @@ module.exports.create = async function (req, res) {
 				post: post,
 			},
 			message: "Post created!",
+			success: true,
 		});
 	} catch (error) {
 		req.flash("error", "Error in creating Post");
@@ -71,6 +73,7 @@ module.exports.destroy = async function (req, res) {
 
 			return res.status(200).json({
 				message: "Post and associated comments deleted successfully",
+				success: true,
 			});
 		} else {
 			return res.status(401).json({

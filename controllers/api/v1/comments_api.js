@@ -39,12 +39,16 @@ module.exports.create = async function (req, res) {
 					data: {
 						comment: comment,
 					},
+					success: true,
 					message: "Comment Created!",
 				});
 			}
 		}
 	} catch (error) {
 		conole.log("Error in creating comment!", error);
+		return res.status(500).json({
+			message: "Internal Server Error!",
+		});
 	}
 };
 
@@ -66,20 +70,20 @@ module.exports.destroy = async function (req, res) {
 			// pull/delete from the post's comments array with comment id
 			await Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
 
-            req.flash("success", "Comment Deleted!");
+			req.flash("success", "Comment Deleted!");
 			return res.status(200).json({
 				message: "Comment Deleted !",
+				success: true,
 			});
 		}
 		req.flash("error", "You cannot delete this comment!");
 		return res.status(401).json({
-            message: "You cannot delete this comment!"
-        });
-
+			message: "You cannot delete this comment!",
+		});
 	} catch (error) {
 		req.flash("error", error);
 		return res.status(500).json({
-            message: "Internal Server Error!"
-        });
+			message: "Internal Server Error!",
+		});
 	}
 };

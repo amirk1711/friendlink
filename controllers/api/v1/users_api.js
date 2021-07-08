@@ -33,6 +33,7 @@ module.exports.create = async function (req, res) {
 
 				req.flash("success", "You have signed up, sign in to continue!");
 				return res.status(200).json({
+					success: true,
 					message: "You have signed up, sign in to continue!",
 				});
 			});
@@ -61,6 +62,7 @@ module.exports.createSession = async function (req, res) {
 			data: {
 				token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
 			},
+			success: true,
 		});
 	} catch (err) {
 		console.log("Error in creating sesssion******", err);
@@ -80,6 +82,7 @@ module.exports.profile = async function (req, res) {
 				title: `${user.name} | Profile`,
 				profile_user: user,
 			},
+			success: true,
 		});
 	} catch (err) {
 		console.log("Error in fetching user profile******", err);
@@ -105,7 +108,8 @@ module.exports.update = async function (req, res) {
 				message: 'Profile updated successfully!',
 				data: {
 					updated_profile: user,
-				}
+				},
+				success: true,
 			});
 		} catch (error) {
 			req.flash("error", error);
