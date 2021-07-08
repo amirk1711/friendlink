@@ -108,6 +108,7 @@ module.exports.update = async function (req, res) {
 				message: 'Profile updated successfully!',
 				data: {
 					updated_profile: user,
+					token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
 				},
 				success: true,
 			});
