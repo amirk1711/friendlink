@@ -28,6 +28,7 @@ module.exports.create = async function (req, res) {
 			user: req.user.id,
 			content: req.body.content,
 			contentType: req.body.contentType,
+			caption: req.body.caption,
 		});
 
 		console.log("post", post);
@@ -84,6 +85,31 @@ module.exports.destroy = async function (req, res) {
 		console.log("Error in deleting post******:", err);
 		return res.status(500).json({
 			message: "Internal server error",
+		});
+	}
+};
+
+// get posts(fd following user) for timeline
+module.exports.timelinePosts = async function (req, res) {
+	try {
+		const currentUser = await User.findById(req.user.id);
+		const userPosts = await Post.find({ user: req.user._id });
+		const followingPosts = await Promise.all(
+			currentUser.following.map((followingId) => {
+				return Post.find({ user: followingId });
+			})
+		);
+
+		return res.status(200).json({
+			message: "Timeline Posts",
+			success: true,
+			data: {
+				timelinePosts: userPosts.concat(...followingPosts)
+			}
+		});
+	} catch (error) {
+		return res.status(500).json({
+			message: "Internal Server Error!",
 		});
 	}
 };

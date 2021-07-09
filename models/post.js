@@ -10,6 +10,11 @@ const postSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		caption: {
+			type: String,
+			default: '',
+			max: 500,
+		},
 
 		// link post to the user
 		user: {
