@@ -12,5 +12,8 @@ router.post(
 );
 router.get("/profile/:id", passport.checkAuthentication, usersApi.profile);
 router.post("/update/:id", passport.checkAuthentication, usersApi.update);
+router.delete("/:id", passport.checkAuthentication, usersApi.delete);
+router.put("/follow/:id", passport.checkAuthentication, usersApi.follow);
+router.put("/unfollow/:id", passport.checkAuthentication, usersApi.unfollow);
 
 module.exports = router;

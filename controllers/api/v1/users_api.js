@@ -98,14 +98,14 @@ module.exports.update = async function (req, res) {
 			let user = await User.findById(req.user.id);
 
 			user.name = req.body.name;
-			if(req.body.avatar !== ''){
+			if (req.body.avatar !== "") {
 				user.avatar = req.body.avatar;
 			}
 
 			user.save();
 
 			return res.status(200).json({
-				message: 'Profile updated successfully!',
+				message: "Profile updated successfully!",
 				data: {
 					updated_profile: user,
 					token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
@@ -115,13 +115,98 @@ module.exports.update = async function (req, res) {
 		} catch (error) {
 			req.flash("error", error);
 			return res.status(500).json({
-				message: 'Error in updating profile!'
+				message: "Error in updating profile!",
 			});
 		}
 	} else {
 		req.flash("error", "Unauthorized !");
 		return res.status(401).json({
-			message: 'Unauthorized!'
+			message: "Unauthorized!",
 		});
+	}
+};
+
+module.exports.delete = async function (req, res) {
+	if (req.user.id == req.params.id) {
+		try {
+			await User.findByIdAndDelete(req.params.id);
+			return res.status(200).json({
+				message: "Account has been deleted!",
+				success: true,
+			});
+		} catch (error) {
+			return res.status(500).json(error);
+		}
+	} else {
+		return res.status(403).json({
+			message: "You are not authorized!",
+		});
+	}
+};
+
+module.exports.follow = async function (req, res) {
+	if (req.user.id === req.params.id) {
+		return res.status(403).json({
+			message: "You can't follow yourself!",
+		});
+	} else {
+		try {
+			const toFollowUser = await User.findById(req.params.id);
+			const currentUser = await User.findById(req.user.id);
+
+			// if user already follows toFollowUSer
+			if(!toFollowUser.followers.includes(req.user.id)){
+				await toFollowUser.updateOne({$push: {followers: req.user.id}});
+				await currentUser.updateOne({$push: {following: req.params.id}});
+				return res.status(200).json({
+					message: "You started following this user!",
+					success: true,
+					data: {
+
+					}
+				})
+			} else{
+				return res.status(403).json({
+					message: 'You already follow this user'
+				})
+			}
+		} catch (error) {
+			return res.status(500).json({
+				message: "Internal Server Error!"
+			});
+		}
+	}
+};
+
+module.exports.unfollow = async function (req, res) {
+	if (req.user.id === req.params.id) {
+		return res.status(403).json({
+			message: "You can't unfollow yourself!",
+		});
+	} else {
+		try {
+			const toUnfFollowUser = await User.findById(req.params.id);
+			const currentUser = await User.findById(req.user.id);
+
+			if(toUnfFollowUser.followers.includes(req.user.id)){
+				await toFollowUser.updateOne({$pull: {followers: req.user.id}});
+				await currentUser.updateOne({$pull: {following: req.params.id}});
+				return res.status(200).json({
+					message: "You unfollowed this user!",
+					success: true,
+					data: {
+						
+					}
+				})
+			} else{
+				return res.status(403).json({
+					message: 'You do not follow this user'
+				})
+			}
+		} catch (error) {
+			return res.status(500).json({
+				message: "Internal Server Error!"
+			});
+		}
 	}
 };
