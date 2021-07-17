@@ -117,6 +117,11 @@ app.use(flash());
 // so that it will be accessible in the ejs templates
 app.use(customMware.setFlash);
 
+app.use((req, res, next) => {
+	res.header({ "Access-Control-Allow-Origin": "*" });
+	next();
+});
+
 // handle the routes
 // writing index is not neccessary
 app.use("/", require("./routes/index"));
