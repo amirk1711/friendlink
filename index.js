@@ -27,6 +27,7 @@ const { Server } = require("http");
 const cors = require('cors');
 
 //enables cors
+app.options('*', cors());
 app.use(cors({
 	'allowedHeaders': ['sessionId', 'Content-Type'],
 	'exposedHeaders': ['sessionId'],
