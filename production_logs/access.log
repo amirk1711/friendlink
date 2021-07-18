@@ -15,3 +15,7 @@
 ::1 - - [08/Jul/2021:16:45:01 +0000] "POST /api/v1/likes/toggle?id=60e29031c46de00b04d6c120&type=Post HTTP/1.1" 200 497 "-" "PostmanRuntime/7.28.1"
 ::1 - - [08/Jul/2021:16:45:19 +0000] "GET /api/v1/likes/fetch?id=60e29031c46de00b04d6c120&type=Post HTTP/1.1" 200 656 "-" "PostmanRuntime/7.28.1"
 ::ffff:192.168.43.83 - - [09/Jul/2021:05:23:14 +0000] "GET / HTTP/1.1" 200 10054 "-" "Avast Antivirus"
+[0mGET / [32m200[0m 243.658 ms - 3941[0m
+[0mGET /favicon.ico [33m404[0m 2810.817 ms - 150[0m
+[0mGET /api/v1/posts/timeline/all [33m401[0m 3.712 ms - -[0m
+[0mPOST /api/v1/users/login [33m401[0m 1.591 ms - -[0m
