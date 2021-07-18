@@ -45,6 +45,9 @@ module.exports.create = async function (req, res) {
 			req.flash("success", "You have already signed up, login to continue!");
 			return res.status(200).json({
 				message: "You have already signed up, sign in to continue!",
+				data: {
+					user: user,
+				},
 			});
 		}
 	});

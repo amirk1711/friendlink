@@ -49,6 +49,11 @@ if (env.name == "development") {
 	);
 }
 
+app.use((req, res, next) => {
+	res.header({ "Access-Control-Allow-Origin": "*" });
+	next();
+});
+
 // express.urlencoded will extract the data from the form and add them into req.body
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -116,11 +121,6 @@ app.use(flash());
 // use this middleware to put flash into res.locals
 // so that it will be accessible in the ejs templates
 app.use(customMware.setFlash);
-
-app.use((req, res, next) => {
-	res.header({ "Access-Control-Allow-Origin": "*" });
-	next();
-});
 
 // handle the routes
 // writing index is not neccessary
