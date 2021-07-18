@@ -19,3 +19,6 @@
 [0mGET /favicon.ico [33m404[0m 2810.817 ms - 150[0m
 [0mGET /api/v1/posts/timeline/all [33m401[0m 3.712 ms - -[0m
 [0mPOST /api/v1/users/login [33m401[0m 1.591 ms - -[0m
+[0mGET / [36m304[0m 2660.086 ms - -[0m
+[0mGET /api/v1/users/profile/:60f3990557ee5800159f4ef7 [33m401[0m 1696.153 ms - -[0m
+[0mGET / [32m200[0m 209.445 ms - 3941[0m
