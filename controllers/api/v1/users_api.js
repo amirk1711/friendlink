@@ -5,12 +5,12 @@ const env = require("../../../config/environment");
 module.exports.create = async function (req, res) {
 	console.log("req.body from users_api", req.body);
 	//check if the password and confirm_password matches or not
-	if (req.body.password != req.body.confirm_password) {
-		console.log("Passwords do not match!");
-		return res.status(422).json({
-			message: "Passwords do not match!",
-		});
-	}
+	// if (req.body.password != req.body.confirm_password) {
+	// 	console.log("Passwords do not match!");
+	// 	return res.status(422).json({
+	// 		message: "Passwords do not match!",
+	// 	});
+	// }
 
 	// find user by email
 	User.findOne({ email: req.body.email }, function (err, user) {
