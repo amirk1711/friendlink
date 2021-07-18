@@ -82,8 +82,9 @@ module.exports.createSession = async function (req, res) {
 
 module.exports.profile = async function (req, res) {
 	try {
+		console.log('inside fetch profile', req.params.id);
 		let user = await User.findById(req.params.id);
-
+		console.log('User inside api fun', user);
 		return res.status(200).json({
 			message: "User profile fetched successfully!",
 			data: {

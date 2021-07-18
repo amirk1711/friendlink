@@ -24,17 +24,19 @@ const customMware = require("./config/middleware");
 const path = require("path");
 const { Server } = require("http");
 
-const cors = require('cors');
+const cors = require("cors");
 
 //enables cors
-app.options('*', cors());
-app.use(cors({
-	'allowedHeaders': ['sessionId', 'Content-Type'],
-	'exposedHeaders': ['sessionId'],
-	'origin': '*',
-	'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-	'preflightContinue': false
-  }));
+app.options("*", cors());
+app.use(
+	cors({
+		allowedHeaders: ["sessionId", "Content-Type"],
+		exposedHeaders: ["sessionId"],
+		origin: "*",
+		methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+		preflightContinue: false,
+	})
+);
 
 // to use dotenv
 dotenv.config();
@@ -60,8 +62,6 @@ if (env.name == "development") {
 		})
 	);
 }
-
-
 
 // express.urlencoded will extract the data from the form and add them into req.body
 app.use(express.urlencoded({ extended: true }));
