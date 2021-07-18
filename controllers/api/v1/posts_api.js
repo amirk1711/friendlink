@@ -4,9 +4,9 @@ const Comment = require("../../../models/comment");
 
 module.exports.create = async function (req, res) {
 	try {
-		// create post
-		// console.log("from post_api", req.body);
-		// console.log("user id", req.user);
+		console.log("from post_api", req.body);
+		console.log("user id", req.user);
+
 		let post = await Post.create({
 			user: req.user.id,
 			content: req.body.content,
