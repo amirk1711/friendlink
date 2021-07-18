@@ -4,9 +4,9 @@ const usersApi = require("../../../controllers/api/v1/users_api");
 
 const passport = require("passport");
 
-router.post("/create", usersApi.create);
+router.post("/signup", usersApi.create);
 router.post(
-	"/create-session",
+	"/login",
 	passport.authenticate("local", { failureRedirect: "/users/sign-in" }),
 	usersApi.createSession
 );

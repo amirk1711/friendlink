@@ -41,6 +41,10 @@ module.exports.create = async function (req, res) {
 			req.flash("success", "You have already signed up, login to continue!");
 			return res.status(200).json({
 				message: "You have already signed up, sign in to continue!",
+				data: {
+					token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
+					user: user,
+				},
 			});
 		}
 	});
@@ -61,6 +65,7 @@ module.exports.createSession = async function (req, res) {
 			message: "Sign in successfull, here is your token please keep it safe!",
 			data: {
 				token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
+				user: user,
 			},
 			success: true,
 		});
@@ -154,25 +159,24 @@ module.exports.follow = async function (req, res) {
 			const toFollowUser = await User.findById(req.params.id);
 			const currentUser = await User.findById(req.user.id);
 
-			// if user already follows toFollowUSer
-			if(!toFollowUser.followers.includes(req.user.id)){
-				await toFollowUser.updateOne({$push: {followers: req.user.id}});
-				await currentUser.updateOne({$push: {following: req.params.id}});
+			// if user does not already follows toFollowUSer
+			if (!toFollowUser.followers.includes(req.user.id)) {
+				await toFollowUser.updateOne({ $push: { followers: req.user.id } });
+				await currentUser.updateOne({ $push: { following: req.params.id } });
+
 				return res.status(200).json({
 					message: "You started following this user!",
 					success: true,
-					data: {
-
-					}
-				})
-			} else{
+					data: {},
+				});
+			} else {
 				return res.status(403).json({
-					message: 'You already follow this user'
-				})
+					message: "You already follow this user",
+				});
 			}
 		} catch (error) {
 			return res.status(500).json({
-				message: "Internal Server Error!"
+				message: "Internal Server Error!",
 			});
 		}
 	}
@@ -188,24 +192,22 @@ module.exports.unfollow = async function (req, res) {
 			const toUnfFollowUser = await User.findById(req.params.id);
 			const currentUser = await User.findById(req.user.id);
 
-			if(toUnfFollowUser.followers.includes(req.user.id)){
-				await toFollowUser.updateOne({$pull: {followers: req.user.id}});
-				await currentUser.updateOne({$pull: {following: req.params.id}});
+			if (toUnfFollowUser.followers.includes(req.user.id)) {
+				await toFollowUser.updateOne({ $pull: { followers: req.user.id } });
+				await currentUser.updateOne({ $pull: { following: req.params.id } });
 				return res.status(200).json({
-					message: "You unfollowed this user!",
+					message: "You have unfollowed this user!",
 					success: true,
-					data: {
-						
-					}
-				})
-			} else{
+					data: {},
+				});
+			} else {
 				return res.status(403).json({
-					message: 'You do not follow this user'
-				})
+					message: "You do not follow this user",
+				});
 			}
 		} catch (error) {
 			return res.status(500).json({
-				message: "Internal Server Error!"
+				message: "Internal Server Error!",
 			});
 		}
 	}

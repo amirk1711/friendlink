@@ -12,7 +12,7 @@ const postSchema = new mongoose.Schema(
 		},
 		caption: {
 			type: String,
-			default: '',
+			default: "",
 			max: 500,
 		},
 

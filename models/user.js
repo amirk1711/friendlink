@@ -27,18 +27,32 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			default: "https://image.flaticon.com/icons/png/512/848/848043.png",
 		},
-		followers: {
-			type: Array,
-			default: [],
-		},
-		following: {
-			type: Array,
-			default: [],
-		},
+		followers: [
+			{
+				type: mongoose.Schema.Types.ObjectId,
+				ref: "User",
+			},
+		],
+		following: [
+			{
+				type: mongoose.Schema.Types.ObjectId,
+				ref: "User",
+			},
+		],
+		suggestions: [
+			{
+				type: mongoose.Schema.Types.ObjectId,
+				ref: "User",
+			},
+		],
 		bio: {
 			type: String,
 			default: "",
 			max: 50,
+		},
+		website: {
+			type: String,
+			default: '',
 		}
 	},
 	{

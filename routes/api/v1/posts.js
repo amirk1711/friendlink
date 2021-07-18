@@ -4,7 +4,7 @@ const passport = require("passport");
 
 const postsApi = require("../../../controllers/api/v1/posts_api");
 
-router.get("/", postsApi.home);
+
 router.post("/create", passport.authenticate("jwt", { session: false }), postsApi.create);
 router.delete("/:id", passport.authenticate("jwt", { session: false }), postsApi.destroy);
 router.get('/timeline/all', passport.authenticate("jwt", { session: false }), postsApi.timelinePosts);
