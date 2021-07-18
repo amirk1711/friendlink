@@ -35,16 +35,16 @@ module.exports.create = async function (req, res) {
 				return res.status(200).json({
 					success: true,
 					message: "You have signed up, sign in to continue!",
+					data: {
+						token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
+						user: user,
+					},
 				});
 			});
 		} else {
 			req.flash("success", "You have already signed up, login to continue!");
 			return res.status(200).json({
 				message: "You have already signed up, sign in to continue!",
-				data: {
-					token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
-					user: user,
-				},
 			});
 		}
 	});
