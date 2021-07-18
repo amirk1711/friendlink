@@ -24,6 +24,17 @@ const customMware = require("./config/middleware");
 const path = require("path");
 const { Server } = require("http");
 
+const cors = require('cors');
+
+//enables cors
+app.use(cors({
+	'allowedHeaders': ['sessionId', 'Content-Type'],
+	'exposedHeaders': ['sessionId'],
+	'origin': '*',
+	'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+	'preflightContinue': false
+  }));
+
 // to use dotenv
 dotenv.config();
 
@@ -49,10 +60,7 @@ if (env.name == "development") {
 	);
 }
 
-app.use((req, res, next) => {
-	res.header({ "Access-Control-Allow-Origin": "*" });
-	next();
-});
+
 
 // express.urlencoded will extract the data from the form and add them into req.body
 app.use(express.urlencoded({ extended: true }));
