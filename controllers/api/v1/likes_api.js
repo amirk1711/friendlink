@@ -46,6 +46,9 @@ module.exports.toggleLike = async function (req, res) {
 			likeable.save();
 		}
 
+		// before returning populate likes from Post/Comment
+		likeable = await likeable.populate('likes').execPopulate();
+
 		return res.status(200).json({
 			message: "Request Sucessfull!",
 			success: "true",
