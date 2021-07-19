@@ -16,7 +16,11 @@ module.exports.toggleLike = async function (req, res) {
 			likeable = await Comment.findById(req.query.id).populate("likes");
 		}
 
+		console.log('req user _id', req.user._id);
 
+		console.log('likeable.likes', likeable.likes);
+
+		console.log('check condn:', likeable.likes.includes(req.user._id))
 		// check if user already liked
 		if(likeable.likes.includes(req.user._id)){
 			console.log('if already liked');
