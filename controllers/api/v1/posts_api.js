@@ -14,7 +14,7 @@ module.exports.create = async function (req, res) {
 		});
 
 		// post = await post.populate('user', '-password).execPopulate();
-		post = await post.populate('user' , '-password').execPopulate();
+		post = await post.populate("user", "-password").execPopulate();
 		console.log("Post", post);
 
 		return res.status(200).json({
@@ -70,8 +70,12 @@ module.exports.timelinePosts = async function (req, res) {
 			})
 		);
 
-		const timelinePosts = await userPosts
-			.concat(...followingPosts)
+
+		let timelinePosts = await userPosts.concat(...followingPosts);
+
+		console.log('Timeline Posts: ', timelinePosts);
+		
+		timelinePosts = await timelinePosts
 			.populate("user")
 			.populate({
 				path: "comments",
