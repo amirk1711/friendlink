@@ -8,6 +8,7 @@ const env = require('./environment');
 const User = require('../models/user');
 
 let opts = {
+    ignoreExpiration: true,
     // to extract token inside header > auth > bearer
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
     // key to encrypt and decrypt token

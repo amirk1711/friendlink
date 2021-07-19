@@ -27,3 +27,6 @@
 [0mGET /api/v1/posts/timeline/all [32m200[0m 43705.144 ms - 73[0m
 [0mGET /api/v1/posts/timeline/all [32m200[0m 14047.151 ms - 811[0m
 [0mGET /api/v1/posts/timeline/all [32m200[0m 18461.148 ms - 796[0m
+[0mGET /api/v1/posts/timeline/all [33m401[0m 21547.339 ms - -[0m
+[0mGET /api/v1/posts/timeline/all [32m200[0m 14775.197 ms - 796[0m
+[0mGET /api/v1/posts/timeline/all [32m200[0m 1102.745 ms - 796[0m
