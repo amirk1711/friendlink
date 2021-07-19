@@ -20,9 +20,9 @@ module.exports.toggleLike = async function (req, res) {
 		// check if user already liked
 		if(likeable.likes.includes(req.user._id)){
 			console.log('if already liked');
-			// await likeable.updateOne({$pull: {likes: req.user._id}});
-			await likeable.likes.pull(req.user._id);
-			await likeable.save();
+			await likeable.updateOne({$pull: {likes: req.user._id}});
+			// await likeable.likes.pull(req.user._id);
+			// await likeable.save();
 			deleted = true;
 			console.log('likeable after deleting', likeable);
 		} else {
