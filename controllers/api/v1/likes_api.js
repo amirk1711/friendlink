@@ -41,6 +41,7 @@ module.exports.toggleLike = async function (req, res) {
 			success: "true",
 			data: {
 				deleted: deleted,
+				likes: likeable.likes,
 			},
 		});
 	} catch (error) {
