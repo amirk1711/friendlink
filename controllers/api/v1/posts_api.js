@@ -13,8 +13,8 @@ module.exports.create = async function (req, res) {
 			caption: req.body.caption,
 		});
 
-		await post.populate("user", "-password");
-
+		// post = await post.populate('user', '-password).execPopulate();
+		post = await post.populate('user' , '-password').execPopulate();
 		console.log("Post", post);
 
 		return res.status(200).json({
