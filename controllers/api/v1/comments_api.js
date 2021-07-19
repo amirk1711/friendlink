@@ -8,6 +8,7 @@ module.exports.create = async function (req, res) {
 		let post = await Post.findById(req.body.post);
 
 		if (post) {
+			console.log('req from comment', req.user);
 			// if post is found, create a comment
 			let comment = await Comment.create({
 				content: req.body.content,
@@ -25,24 +26,14 @@ module.exports.create = async function (req, res) {
 			// populate name and email from Comment model to send mail to the required user
 			comment = await comment.populate("user", "name email").execPopulate();
 
-			if (req.xhr) {
-				console.log("AJAX Request");
-				return res.status(200).json({
-					data: {
-						comment: comment,
-					},
-					message: "Comment Created using AJAX!",
-				});
-			} else {
-				req.flash("success", "Comment Created!");
-				return res.status(200).json({
-					data: {
-						comment: comment,
-					},
-					success: true,
-					message: "Comment Created!",
-				});
-			}
+			req.flash("success", "Comment Created!");
+			return res.status(200).json({
+				data: {
+					comment: comment,
+				},
+				success: true,
+				message: "Comment Created!",
+			});
 		}
 	} catch (error) {
 		conole.log("Error in creating comment!", error);
