@@ -29,7 +29,7 @@ module.exports.toggleLike = async function (req, res) {
 			console.log('if it is new like');
 			await likeable.likes.push(req.user._id);
 			await likeable.save();
-			console.log('likeable after insrting', likebale);
+			console.log('likeable after insrting', likeable);
 		}
 
 
