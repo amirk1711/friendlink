@@ -10,10 +10,10 @@ module.exports.toggleLike = async function (req, res) {
 
 		if (req.query.type == "Post") {
 			// if it is a like on a post
-			likeable = await Post.findById(req.query.id).populate("likes");
+			likeable = await Post.findById(req.query.id);
 		} else {
 			// if it is a like on a comment
-			likeable = await Comment.findById(req.query.id).populate("likes");
+			likeable = await Comment.findById(req.query.id);
 		}
 
 		console.log('req user _id', req.user._id);

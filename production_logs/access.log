@@ -31,3 +31,4 @@
 [0mGET /api/v1/posts/timeline/all [32m200[0m 14775.197 ms - 796[0m
 [0mGET /api/v1/posts/timeline/all [32m200[0m 1102.745 ms - 796[0m
 [0mPOST /api/v1/posts/create [33m401[0m 2191.600 ms - -[0m
+[0mGET / [32m200[0m 216.686 ms - 4881[0m
