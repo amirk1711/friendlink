@@ -4,7 +4,7 @@ const passport = require('passport');
 
 const likesApi = require('../../../controllers/api/v1/likes_api');
 
-router.post('/toggle', passport.checkAuthentication, likesApi.toggleLike); 
-router.get('/fetch', passport.checkAuthentication, likesApi.fetchLikes);
+router.post('/toggle', passport.authenticate("jwt", { session: false }), likesApi.toggleLike); 
+router.get('/fetch', passport.authenticate("jwt", { session: false }), likesApi.fetchLikes);
 
 module.exports = router;
