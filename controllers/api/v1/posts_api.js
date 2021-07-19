@@ -1,7 +1,6 @@
 const Post = require("../../../models/post");
 const Comment = require("../../../models/comment");
 
-
 module.exports.create = async function (req, res) {
 	try {
 		console.log("from post_api", req.body);
@@ -14,22 +13,10 @@ module.exports.create = async function (req, res) {
 			caption: req.body.caption,
 		});
 
-		console.log("post", post);
+		await post.populate("user", "-password");
 
-		if (req.xhr) {
-			console.log("Create Post using AJAX");
-			// to populate just the name of the user (we'll not want to send the password in the API)
-			post = await post.populate("user", "name").execPopulate();
-			console.log("post to ajax", post);
-			return res.status(200).json({
-				data: {
-					post: post,
-				},
-				message: "Post created using AJAX!",
-			});
-		}
+		console.log("Post", post);
 
-		req.flash("success", "Post published!");
 		return res.status(200).json({
 			data: {
 				post: post,
