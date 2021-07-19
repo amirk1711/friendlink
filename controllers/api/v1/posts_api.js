@@ -1,5 +1,6 @@
 const Post = require("../../../models/post");
 const Comment = require("../../../models/comment");
+const User = require("../../../models/user");
 
 module.exports.create = async function (req, res) {
 	try {
@@ -62,28 +63,33 @@ module.exports.destroy = async function (req, res) {
 // get posts(of following user) for timeline
 module.exports.timelinePosts = async function (req, res) {
 	try {
-		const currentUser = await User.findById(req.user.id);
 		const userPosts = await Post.find({ user: req.user._id });
+
+		const currentUser = await User.findById(req.user._id);
+
 		const followingPosts = await Promise.all(
 			currentUser.following.map((followingId) => {
 				return Post.find({ user: followingId });
 			})
 		);
 
-
 		let timelinePosts = await userPosts.concat(...followingPosts);
 
-		console.log('Timeline Posts: ', timelinePosts);
-		
-		timelinePosts = await timelinePosts
-			.populate("user")
-			.populate({
-				path: "comments",
-				populate: {
-					path: "user likes",
-				},
-			})
-			.populate("likes");
+
+		if (timelinePosts.length > 0) {
+			
+			timelinePosts = await Promise.all(timelinePosts.map((post) => {
+				 return (post.populate('user', '-password')
+				 .populate({
+					 path: 'comments',
+					 populate: {
+						 path: 'user likes',
+					 },
+				 })
+				 .populate('likes')
+				 .execPopulate());
+			}));
+		}
 
 		return res.status(200).json({
 			message: "Timeline Posts",
