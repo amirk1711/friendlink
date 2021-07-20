@@ -165,8 +165,8 @@ module.exports.follow = async function (req, res) {
 
 			// if user does not already follows toFollowUSer
 			if (!toFollowUser.followers.includes(req.user.id)) {
-				await toFollowUser.updateOne({ $push: { followers: req.user.id } });
-				await currentUser.updateOne({ $push: { following: req.params.id } });
+				await toFollowUser.followers.push(req.user.id);
+				await currentUser.following.push(req.params.id);
 
 				return res.status(200).json({
 					message: "You started following this user!",
@@ -197,8 +197,8 @@ module.exports.unfollow = async function (req, res) {
 			const currentUser = await User.findById(req.user.id);
 
 			if (toUnfFollowUser.followers.includes(req.user.id)) {
-				await toFollowUser.updateOne({ $pull: { followers: req.user.id } });
-				await currentUser.updateOne({ $pull: { following: req.params.id } });
+				await toFollowUser.followers.pull(req.user.id);
+				await currentUser.following.pull(req.params.id);
 				return res.status(200).json({
 					message: "You have unfollowed this user!",
 					success: true,
@@ -222,11 +222,12 @@ module.exports.fetchSuggestions = async function (req, res) {
 		try {
 			// let allUsersExceptMe = await User.find({ _id: { $ne: req.user.id || $nin: followingsArray} }, { password: 0 });
 
+			console.log('both', req.user.id, req.user._id);
 			let currUser = await User.findById(req.user._id);
 			console.log("currUSer", currUser);
 
 			let meAndfollowingsArray = currUser.following;
-			await meAndfollowingsArray.concat(req.user._id);
+			await meAndfollowingsArray.push(req.user._id);
 			console.log("followings array", meAndfollowingsArray);
 
 			let allUsersExceptMe = await User.find({ _id: { $nin: meAndfollowingsArray } }, { password: 0 });
