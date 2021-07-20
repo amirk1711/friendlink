@@ -227,7 +227,7 @@ module.exports.fetchSuggestions = async function (req, res) {
 
 			let meAndfollowingsArray = currUser.following;
 			await meAndfollowingsArray.concat(req.user._id);
-			console.log("followings array", followingsArray);
+			console.log("followings array", meAndfollowingsArray);
 
 			let allUsersExceptMe = await User.find({ _id: { $nin: meAndfollowingsArray } }, { password: 0 });
 			console.log('all users except me', allUsersExceptMe);
