@@ -85,20 +85,20 @@ module.exports.profile = async function (req, res) {
 	try {
 		console.log("inside fetch profile", req.params);
 
-
 		let user = await User.findById(req.params.id);
-		let userPost = await Post.find({ user: req.user._id })
-			.populate("user")
-			.populate({
-				path: "comments",
-				populate: {
-					path: "user likes",
-				},
-			})
-			.populate("likes");
-
+		let userPost = await Post.find({ user: req.user._id });
 		console.log("User: ", user);
 		console.log("User: ", userPost);
+
+
+		//  .populate("user")
+		// 	.populate({
+		// 		path: "comments",
+		// 		populate: {
+		// 			path: "user likes",
+		// 		},
+		// 	})
+		// 	.populate("likes")
 		return res.status(200).json({
 			message: "User profile fetched successfully!",
 			data: {
