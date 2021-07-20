@@ -1,4 +1,5 @@
 const User = require("../../../models/user");
+const Post = require("../../../models/post");
 const jwt = require("jsonwebtoken");
 const env = require("../../../config/environment");
 
@@ -83,13 +84,25 @@ module.exports.createSession = async function (req, res) {
 module.exports.profile = async function (req, res) {
 	try {
 		console.log("inside fetch profile", req.params);
+
 		let user = await User.findById(req.params.id);
-		console.log("User inside api fun", user);
+		let userPost = await Post.find({ _id: req.user._id })
+			.populate("user")
+			.populate({
+				path: "comments",
+				populate: {
+					path: "user likes",
+				},
+			})
+			.populate("likes")
+			.execPopulate();
+
+		console.log("User: ", user);
 		return res.status(200).json({
 			message: "User profile fetched successfully!",
 			data: {
-				title: `${user.name} | Profile`,
 				profile_user: user,
+				profile_posts: userPost,
 			},
 			success: true,
 		});
@@ -220,30 +233,21 @@ module.exports.unfollow = async function (req, res) {
 module.exports.fetchSuggestions = async function (req, res) {
 	if (req.user.id == req.params.id) {
 		try {
-			// let allUsersExceptMe = await User.find({ _id: { $ne: req.user.id || $nin: followingsArray} }, { password: 0 });
-
-			console.log('both', req.user.id, req.user._id);
 			let currUser = await User.findById(req.user._id);
-			console.log("currUSer", currUser);
 
 			let meAndfollowingsArray = currUser.following;
 			await meAndfollowingsArray.push(req.user._id);
-			console.log("followings array", meAndfollowingsArray);
 
-			let allUsersExceptMe = await User.find({ _id: { $nin: meAndfollowingsArray } }, { password: 0 });
-			console.log('all users except me', allUsersExceptMe);
-
-			// let suggestionList = allUsersExceptMe.filter(
-			// 	(user) => !followingsArray.includes(user.id)
-			// );
-
-			// console.log("suggestion List", suggestionList);
+			let suggestionList = await User.find(
+				{ _id: { $nin: meAndfollowingsArray } },
+				{ password: 0 }
+			);
 
 			return res.status(200).json({
 				message: "Fetch Suggestion list successfully!",
 				success: true,
 				data: {
-					suggestions: allUsersExceptMe,
+					suggestions: suggestionList,
 				},
 			});
 		} catch (error) {
