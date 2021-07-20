@@ -94,10 +94,10 @@ module.exports.profile = async function (req, res) {
 					path: "user likes",
 				},
 			})
-			.populate("likes")
-			.execPopulate();
+			.populate("likes");
 
 		console.log("User: ", user);
+		console.log("User: ", userPost);
 		return res.status(200).json({
 			message: "User profile fetched successfully!",
 			data: {
