@@ -35,3 +35,4 @@
 [0mGET / [32m200[0m 1234.143 ms - 4881[0m
 [0mPOST /api/v1/users/login [32m200[0m 95.433 ms - 986[0m
 [0mGET /api/v1/users/suggestions/60f518a7eab4281db80fb0bc [32m200[0m 13251.255 ms - 2665[0m
+[0mPOST /api/v1/users/login [32m200[0m 8483.162 ms - 986[0m

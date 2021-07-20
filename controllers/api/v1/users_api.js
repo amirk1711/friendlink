@@ -82,9 +82,9 @@ module.exports.createSession = async function (req, res) {
 
 module.exports.profile = async function (req, res) {
 	try {
-		console.log('inside fetch profile', req.params);
+		console.log("inside fetch profile", req.params);
 		let user = await User.findById(req.params.id);
-		console.log('User inside api fun', user);
+		console.log("User inside api fun", user);
 		return res.status(200).json({
 			message: "User profile fetched successfully!",
 			data: {
@@ -217,12 +217,29 @@ module.exports.unfollow = async function (req, res) {
 	}
 };
 
-module.exports.fetchSuggestions = async function(req, res){
-	if (req.user.id == req.params.id){
+module.exports.fetchSuggestions = async function (req, res) {
+	if (req.user.id == req.params.id) {
 		try {
-			let allUsersExceptMe = await User.find({_id: {$ne: req.user.id}}, {password: 0});
+			// let allUsersExceptMe = await User.find({ _id: { $ne: req.user.id || $nin: followingsArray} }, { password: 0 });
+
+			let currUser = await user.findById(req.user._id);
+			console.log("currUSer", currUser);
+
+			let meAndfollowingsArray = currUser.following;
+			await meAndfollowingsArray.concat(req.user._id);
+			console.log("followings array", followingsArray);
+
+			let allUsersExceptMe = await User.find({ _id: { $nin: meAndfollowingsArray } }, { password: 0 });
+			console.log('all users except me', allUsersExceptMe);
+
+			// let suggestionList = allUsersExceptMe.filter(
+			// 	(user) => !followingsArray.includes(user.id)
+			// );
+
+			// console.log("suggestion List", suggestionList);
+
 			return res.status(200).json({
-				message: 'Fetch Suggestion list successfully!',
+				message: "Fetch Suggestion list successfully!",
 				success: true,
 				data: {
 					suggestions: allUsersExceptMe,
@@ -233,9 +250,9 @@ module.exports.fetchSuggestions = async function(req, res){
 				message: "Internal Server Error!",
 			});
 		}
-	}else{
+	} else {
 		return res.status(403).json({
 			message: "You are not authorized!",
 		});
 	}
-}
+};
