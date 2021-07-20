@@ -11,5 +11,8 @@ router.post("/update/:id", passport.authenticate("jwt", { session: false }), use
 router.delete("/:id", passport.authenticate("jwt", { session: false }), usersApi.delete);
 router.put("/follow/:id", passport.authenticate("jwt", { session: false }), usersApi.follow);
 router.put("/unfollow/:id", passport.authenticate("jwt", { session: false }), usersApi.unfollow);
+router.get("/suggestions/:id", passport.authenticate("jwt", { session: false }), usersApi.fetchSuggestions);
 
 module.exports = router;
+
+// 

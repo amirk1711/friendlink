@@ -216,3 +216,26 @@ module.exports.unfollow = async function (req, res) {
 		}
 	}
 };
+
+module.exports.fetchSuggestions = async function(req, res){
+	if (req.user.id == req.params.id){
+		try {
+			let allUsersExceptMe = await User.find({_id: {$ne: req.user.id}}, {password: 0});
+			return res.status(200).json({
+				message: 'Fetch Suggestion list successfully!',
+				success: true,
+				data: {
+					suggestions: allUsersExceptMe,
+				},
+			});
+		} catch (error) {
+			return res.status(500).json({
+				message: "Internal Server Error!",
+			});
+		}
+	}else{
+		return res.status(403).json({
+			message: "You are not authorized!",
+		});
+	}
+}

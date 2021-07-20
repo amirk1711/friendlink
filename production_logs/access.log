@@ -32,3 +32,6 @@
 [0mGET /api/v1/posts/timeline/all [32m200[0m 1102.745 ms - 796[0m
 [0mPOST /api/v1/posts/create [33m401[0m 2191.600 ms - -[0m
 [0mGET / [32m200[0m 216.686 ms - 4881[0m
+[0mGET / [32m200[0m 1234.143 ms - 4881[0m
+[0mPOST /api/v1/users/login [32m200[0m 95.433 ms - 986[0m
+[0mGET /api/v1/users/suggestions/60f518a7eab4281db80fb0bc [32m200[0m 13251.255 ms - 2665[0m
