@@ -90,7 +90,6 @@ module.exports.profile = async function (req, res) {
 		console.log("User: ", user);
 		console.log("User: ", userPost);
 
-
 		//  .populate("user")
 		// 	.populate({
 		// 		path: "comments",
@@ -116,35 +115,33 @@ module.exports.profile = async function (req, res) {
 };
 
 module.exports.update = async function (req, res) {
-	if (req.user.id == req.params.id) {
-		try {
-			let user = await User.findById(req.user.id);
+	try {
+		let user = await User.findById(req.user._id);
 
-			user.name = req.body.name;
-			if (req.body.avatar !== "") {
-				user.avatar = req.body.avatar;
-			}
+		console.log('User in update profile api', user);
 
-			user.save();
+		user.name = req.body.name;
+		user.username = req.body.username;
+		user.website = req.body.website;
+		user.bio = req.body.bio;
 
-			return res.status(200).json({
-				message: "Profile updated successfully!",
-				data: {
-					updated_profile: user,
-					token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
-				},
-				success: true,
-			});
-		} catch (error) {
-			req.flash("error", error);
-			return res.status(500).json({
-				message: "Error in updating profile!",
-			});
-		}
-	} else {
-		req.flash("error", "Unauthorized !");
-		return res.status(401).json({
-			message: "Unauthorized!",
+
+		await user.save();
+
+		console.log('User after updating', user);
+
+		return res.status(200).json({
+			message: "Profile updated successfully!",
+			data: {
+				updated_profile: user,
+				token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
+			},
+			success: true,
+		});
+	} catch (error) {
+		req.flash("error", error);
+		return res.status(500).json({
+			message: "Error in updating profile!",
 		});
 	}
 };
