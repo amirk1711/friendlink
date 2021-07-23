@@ -14,5 +14,7 @@ router.put("/unfollow/:id", passport.authenticate("jwt", { session: false }), us
 router.get("/suggestions/:id", passport.authenticate("jwt", { session: false }), usersApi.fetchSuggestions);
 router.put("/change/profile", passport.authenticate("jwt", { session: false }), usersApi.changeProfile);
 router.put("/remove/profile", passport.authenticate("jwt", { session: false }), usersApi.changeProfile);
+router.post("/change/password", passport.authenticate("jwt", { session: false }), usersApi.changeProfile);
+
 
 module.exports = router;

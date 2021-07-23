@@ -118,17 +118,16 @@ module.exports.update = async function (req, res) {
 	try {
 		let user = await User.findById(req.user._id);
 
-		console.log('User in update profile api', user);
+		console.log("User in update profile api", user);
 
 		user.name = req.body.name;
 		user.username = req.body.username;
 		user.website = req.body.website;
 		user.bio = req.body.bio;
 
-
 		await user.save();
 
-		console.log('User after updating', user);
+		console.log("User after updating", user);
 
 		return res.status(200).json({
 			message: "Profile updated successfully!",
@@ -146,8 +145,7 @@ module.exports.update = async function (req, res) {
 	}
 };
 
-
-module.exports.changeProfile = async function(req, res){
+module.exports.changeProfile = async function (req, res) {
 	try {
 		let user = await User.findById(req.user._id);
 		user.avatar = req.body.profileUrl;
@@ -166,26 +164,59 @@ module.exports.changeProfile = async function(req, res){
 			message: "Error in updating profile!",
 		});
 	}
-}
-
+};
 
 module.exports.delete = async function (req, res) {
-	if (req.user.id == req.params.id) {
-		try {
-			await User.findByIdAndDelete(req.params.id);
-			return res.status(200).json({
-				message: "Account has been deleted!",
-				success: true,
+	try {
+		let user = await User.findById(req.user._id);
+
+		console.log('user password', User);
+		console.log('body password', req.body.password);
+
+		if(req.body.password !== user.password){
+			return res.status(403).json({
+				message: 'Wrong Password!'
 			});
-		} catch (error) {
-			return res.status(500).json(error);
 		}
-	} else {
-		return res.status(403).json({
-			message: "You are not authorized!",
+
+		await User.findByIdAndDelete(req.user._id);
+		return res.status(200).json({
+			message: "Account has been deleted!",
+			success: true,
 		});
+	} catch (error) {
+		return res.status(500).json(error);
 	}
 };
+
+module.exports.changePassword = async function(req, res){
+	try {
+		let user = await User.findById(req.user._id);
+
+		console.log('user password', User);
+		console.log('body password', req.body.old_password);
+
+		if(req.body.old_password !== user.password || req.body.new_password !== req.body.confirm_password){
+			return res.status(403).json({
+				message: 'Wrong Password!'
+			});
+		}
+
+		user.password = req.body.new_password;
+		await user.save();
+
+		return res.status(200).json({
+			message: "Your password has been changed!",
+			success: true,
+			data: {
+				user,
+				token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
+			}
+		});
+	} catch (error) {
+		return res.status(500).json(error);
+	}
+}
 
 module.exports.follow = async function (req, res) {
 	if (req.user.id === req.params.id) {
