@@ -12,7 +12,7 @@ router.delete("/:id", passport.authenticate("jwt", { session: false }), usersApi
 router.put("/follow/:id", passport.authenticate("jwt", { session: false }), usersApi.follow);
 router.put("/unfollow/:id", passport.authenticate("jwt", { session: false }), usersApi.unfollow);
 router.get("/suggestions/:id", passport.authenticate("jwt", { session: false }), usersApi.fetchSuggestions);
+router.put("/change/profile", passport.authenticate("jwt", { session: false }), usersApi.changeProfile);
+router.put("/remove/profile", passport.authenticate("jwt", { session: false }), usersApi.changeProfile);
 
 module.exports = router;
-
-// 

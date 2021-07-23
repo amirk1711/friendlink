@@ -146,6 +146,30 @@ module.exports.update = async function (req, res) {
 	}
 };
 
+
+module.exports.changeProfile = async function(req, res){
+	try {
+		let user = await User.findById(req.user._id);
+		user.avatar = req.body.profileUrl;
+		await user.save();
+
+		console.log('User after updating profile pic', user);
+
+		return res.status(200).json({
+			message: "Profile updated successfully!",
+			data: {
+				updated_profile: user,
+			},
+			success: true,
+		});
+	} catch (error) {
+		return res.status(500).json({
+			message: "Error in updating profile!",
+		});
+	}
+}
+
+
 module.exports.delete = async function (req, res) {
 	if (req.user.id == req.params.id) {
 		try {
