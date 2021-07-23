@@ -153,12 +153,11 @@ module.exports.changeProfile = async function(req, res){
 		user.avatar = req.body.profileUrl;
 		await user.save();
 
-		console.log('User after updating profile pic', user);
-
 		return res.status(200).json({
 			message: "Profile updated successfully!",
 			data: {
 				updated_profile: user,
+				token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
 			},
 			success: true,
 		});
