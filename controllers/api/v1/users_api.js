@@ -167,26 +167,22 @@ module.exports.changeProfile = async function (req, res) {
 };
 
 module.exports.delete = async function (req, res) {
-	try {
-		let user = await User.findById(req.user._id);
-
-		console.log('user password', User);
-		console.log('body password', req.body.password);
-
-		if(req.body.password !== user.password){
-			return res.status(403).json({
-				message: 'Wrong Password!'
+	if(req.user.id === req.params.id){
+		try {	
+			await User.findByIdAndDelete(req.user._id);
+			return res.status(200).json({
+				message: "Account has been deleted!",
+				success: true,
 			});
+		} catch (error) {
+			return res.status(500).json(error);
 		}
-
-		await User.findByIdAndDelete(req.user._id);
-		return res.status(200).json({
-			message: "Account has been deleted!",
-			success: true,
+	}else{
+		return res.status(403).json({
+			message: 'You are not authorized!',
 		});
-	} catch (error) {
-		return res.status(500).json(error);
 	}
+	
 };
 
 module.exports.changePassword = async function(req, res){
