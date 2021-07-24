@@ -80,6 +80,7 @@ module.exports.timelinePosts = async function (req, res) {
 			
 			timelinePosts = await Promise.all(timelinePosts.map((post) => {
 				 return (post.populate('user', '-password')
+				 .sort('-createdAt')
 				 .populate({
 					 path: 'comments',
 					 populate: {
@@ -90,6 +91,8 @@ module.exports.timelinePosts = async function (req, res) {
 				 .execPopulate());
 			}));
 		}
+
+
 
 		return res.status(200).json({
 			message: "Timeline Posts",
