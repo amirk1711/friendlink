@@ -1,5 +1,9 @@
 const User = require("../../../models/user");
 const Post = require("../../../models/post");
+const Comment = require("../../../models/comment");
+const Like = require("../../../models/like");
+const ResetPassToken = require("../../../models/reset_pass_token");
+
 const jwt = require("jsonwebtoken");
 const env = require("../../../config/environment");
 
@@ -168,8 +172,33 @@ module.exports.changeProfile = async function (req, res) {
 
 module.exports.delete = async function (req, res) {
 	if(req.user.id === req.params.id){
-		try {	
+		try {
+			// delete all the posts of that user
+			await Post.deleteMany({user: req.user._id});
+
+			// delete all the comments of that user
+			await Comment.deleteMany({user: req.user._id});
+
+			// delete all the likes from that user
+			await Like.deleteMany({user: req.user._id});
+
+			// delete that user from reset pass token
+			await ResetPassToken.deleteMany({user: req.user._id});
+
+			// delete follwers, following, suggestion from User
+	
+			let update = {$pull : {
+				followers: {_id: req.user._id},
+				following: {_id: req.user._id},
+				suggestions: {_id: req.user._id},
+			}};
+
+			await User.updateMany({}, update);
+
+
 			await User.findByIdAndDelete(req.user._id);
+
+
 			return res.status(200).json({
 				message: "Account has been deleted!",
 				success: true,
