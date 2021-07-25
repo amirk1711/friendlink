@@ -45,21 +45,30 @@ module.exports.create = async function (req, res) {
 
 module.exports.destroy = async function (req, res) {
 	try {
-		let comment = await Comment.findById(req.params.id);
+		let comment = await Comment.find({_id: req.params.id});
+		console.log('Comment: ', comment);
 
 		// find the post on which comment is created
 		let postId = comment.post;
+		console.log('postId', postId);
+
 		let commentOnPost = Post.findById(postId);
 
-		if (comment.user == req.user.id || commentOnPost.user == req.user.id) {
+		console.log('Comment on Post: ', commentOnPost);
+
+		if (comment.user == req.user._id || commentOnPost.user == req.user._id) {
+			console.log('Ok');
 			// delete the associated likes with that comment
-			await Like.deleteMany({ likeable: comment._id, onModel: "Comment" });
+			// await Like.deleteMany({ likeable: comment._id, onModel: "Comment" });
 
 			// delete the comment
 			comment.remove();
 
+			console.log('comments deleted');
+
 			// pull/delete from the post's comments array with comment id
 			await Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
+
 
 			req.flash("success", "Comment Deleted!");
 			return res.status(200).json({
