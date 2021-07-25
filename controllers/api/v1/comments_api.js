@@ -57,7 +57,12 @@ module.exports.destroy = async function (req, res) {
 
 		console.log('Comment on Post: ', commentOnPost);
 
-		if (comment.user == req.user._id || commentOnPost.user == req.user._id) {
+		console.log('comment.user', comment.user);
+		console.log('req.user._id', req.user._id);
+		console.log('req.user._id', req.user.id);
+		console.log('commentOnPost.user', commentOnPost.user);
+
+		if (comment.user == req.user.id || commentOnPost.user == req.user.id) {
 			console.log('Ok');
 			// delete the associated likes with that comment
 			// await Like.deleteMany({ likeable: comment._id, onModel: "Comment" });
