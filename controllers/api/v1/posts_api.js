@@ -92,19 +92,19 @@ module.exports.timelinePosts = async function (req, res) {
 			);
 		}
 
-		console.log("timeline posts before", timelinePosts);
+		// console.log("timeline posts before", timelinePosts);
 
 
 
-		timelinePosts = await timelinePosts.sort({ createdAt: "desc" }).exec(function(err, docs){
-			if(err){
-				return 
-			}
-			console.log('docs', docs);
-			return docs;
-		});
+		// timelinePosts = await timelinePosts.sort({ 'createdAt': "desc" }).exec(function(err, docs){
+		// 	if(err){
+		// 		return 
+		// 	}
+		// 	console.log('docs', docs);
+		// 	return docs;
+		// });
 
-		console.log("timeline posts after", timelinePosts);
+		// console.log("timeline posts after", timelinePosts);
 
 		return res.status(200).json({
 			message: "Timeline Posts",
