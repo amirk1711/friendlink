@@ -23,7 +23,7 @@ module.exports.create = async function (req, res) {
 			post.save();
 
 			// populate name and email from Comment model to send mail to the required user
-			comment = await comment.populate("user", "name email avatar username").execPopulate();
+			comment = await comment.populate("user", "name email avatar username").populate("post", "user").execPopulate();
 
 			req.flash("success", "Comment Created!");
 			return res.status(200).json({
