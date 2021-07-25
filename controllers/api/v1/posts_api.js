@@ -83,7 +83,7 @@ module.exports.timelinePosts = async function (req, res) {
 						.populate({
 							path: "comments",
 							populate: {
-								path: "user likes",
+								path: "user likes post",
 							},
 						})
 						.populate("likes")
