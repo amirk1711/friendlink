@@ -43,24 +43,13 @@ module.exports.create = async function (req, res) {
 };
 
 module.exports.destroy = async function (req, res) {
-	try {
-		console.log('req.params.id', req.params.id);
-		
+	try {		
 		let comment = await Comment.findOne({_id: req.params.id});
-		console.log('Comment: ', comment);
 
 		// find the post on which comment is created
 		let postId = comment.post;
-		console.log('postId', postId);
 
 		let commentOnPost = await Post.findById(postId);
-
-		console.log('Comment on Post: ', commentOnPost);
-
-		console.log('comment.user', comment.user);
-		console.log('req.user._id', req.user._id);
-		console.log('req.user._id', req.user.id);
-		console.log('commentOnPost.user', commentOnPost.user);
 
 		if (comment.user == req.user.id || commentOnPost.user == req.user.id) {
 			console.log('Ok');

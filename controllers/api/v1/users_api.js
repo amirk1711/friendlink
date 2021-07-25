@@ -90,7 +90,7 @@ module.exports.profile = async function (req, res) {
 		console.log("inside fetch profile", req.params);
 
 		let user = await User.findById(req.params.id);
-		let userPost = await Post.find({ user: req.user._id });
+		let userPost = await Post.find({ user: req.params.id });
 		console.log("User: ", user);
 		console.log("User: ", userPost);
 
