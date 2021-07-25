@@ -44,8 +44,9 @@ module.exports.create = async function (req, res) {
 
 module.exports.destroy = async function (req, res) {
 	try {
+		console.log('req.params.id', req.params.id);
 		
-		let comment = await Comment.findbyId(req.params.id);
+		let comment = await Comment.findOne({_id: req.params.id});
 		console.log('Comment: ', comment);
 
 		// find the post on which comment is created
