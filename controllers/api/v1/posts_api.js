@@ -75,26 +75,30 @@ module.exports.timelinePosts = async function (req, res) {
 
 		let timelinePosts = await userPosts.concat(...followingPosts);
 
-		console.log('timeline posts before', timelinePosts);
-
 		if (timelinePosts.length > 0) {
-			timelinePosts = await Promise.all(timelinePosts.map((post) => {
-				 return (post.populate('user', '-password')
-				 .populate({
-					 path: 'comments',
-					 populate: {
-						 path: 'user likes',
-					 },
-				 })
-				 .populate('likes')
-				 .execPopulate());
-			}));
+			timelinePosts = await Promise.all(
+				timelinePosts.map((post) => {
+					return post
+						.populate("user", "-password")
+						.populate({
+							path: "comments",
+							populate: {
+								path: "user likes",
+							},
+						})
+						.populate("likes")
+						.execPopulate();
+				})
+			);
 		}
 
-		await timelinePosts.sort({ createdAt: 'desc'}).exec();
+		console.log("timeline posts before", timelinePosts);
 
 
-		console.log('timeline posts after', timelinePosts);
+
+		// await timelinePosts.sort({ createdAt: "desc" }).exec();
+
+		console.log("timeline posts after", timelinePosts);
 
 		return res.status(200).json({
 			message: "Timeline Posts",
