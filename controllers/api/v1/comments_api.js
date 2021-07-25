@@ -1,8 +1,5 @@
 const Comment = require("../../../models/comment");
 const Post = require("../../../models/post");
-const Like = require("../../../models/like");
-const mongoose = require('mongoose');
-const ObjectId = require('mongodb').ObjectId;
 
 module.exports.create = async function (req, res) {
 	try {
@@ -47,10 +44,8 @@ module.exports.create = async function (req, res) {
 
 module.exports.destroy = async function (req, res) {
 	try {
-		console.log('params id', req.params.id);
-		console.log('objectId', mongoose.Types.ObjectId(req.params.id))
-		console.log('objectId', typeof(mongoose.Types.ObjectId(req.params.id)))
-		let comment = await Comment.findbyId(mongoose.Types.ObjectId(req.params.id));
+		
+		let comment = await Comment.findbyId(req.params.id);
 		console.log('Comment: ', comment);
 
 		// find the post on which comment is created
