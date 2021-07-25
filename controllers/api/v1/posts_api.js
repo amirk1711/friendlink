@@ -92,7 +92,7 @@ module.exports.timelinePosts = async function (req, res) {
 			);
 		}
 
-		console.log("timeline posts before", timelinePosts.createdAt);
+		console.log("timeline posts before", timelinePosts);
 
 
 
@@ -104,7 +104,7 @@ module.exports.timelinePosts = async function (req, res) {
 			return docs;
 		});
 
-		console.log("timeline posts after", timelinePosts.createdAt);
+		console.log("timeline posts after", timelinePosts);
 
 		return res.status(200).json({
 			message: "Timeline Posts",
