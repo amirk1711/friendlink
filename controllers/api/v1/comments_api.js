@@ -53,7 +53,7 @@ module.exports.destroy = async function (req, res) {
 		let postId = comment.post;
 		console.log('postId', postId);
 
-		let commentOnPost = Post.findById(postId);
+		let commentOnPost = await Post.findById(postId);
 
 		console.log('Comment on Post: ', commentOnPost);
 
