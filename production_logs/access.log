@@ -1,0 +1,9 @@
+[0mPOST /api/v1/users/login [32m200[0m 574.136 ms - 986[0m
+[0mPOST /api/v1/chat-users/ [31m500[0m 2797.546 ms - 2[0m
+[0mPOST /api/v1/chat-users/ [31m500[0m 35925.110 ms - 2[0m
+[0mPOST /api/v1/chat-users/ [32m200[0m 381.069 ms - 268[0m
+[0mPOST /api/v1/chat-users/ [32m200[0m 761.686 ms - 268[0m
+[0mGET /api/v1/chat-users/60c97b14d8bc6054f0e17ad7 [32m200[0m 1632.884 ms - 847[0m
+[0mPOST /api/v1/chats/60c97b14d8bc6054f0e17ad7 [33m404[0m 442.557 ms - 177[0m
+[0mPOST /api/v1/chats [32m200[0m 2466.618 ms - 288[0m
+[0mGET /api/v1/chats/6100cb0a486e761a28f99ec2 [32m200[0m 377.036 ms - 293[0m
