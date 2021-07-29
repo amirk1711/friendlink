@@ -9,6 +9,8 @@ module.exports.home = async function (req, res) {
 
 		await chat.save();
 
+		console.log('chat saved');
+		
 		// chat = await chat.populate("sender", "-password").populate("chatUserId");
 		chat = await chat.populate("sender", "-password").populate("chatUserId").execPopulate();
 		console.log("chat", chat);
@@ -21,6 +23,7 @@ module.exports.home = async function (req, res) {
 			},
 		});
 	} catch (error) {
+		console.log('error', error);
 		return res.status(500).json(error);
 	}
 };
