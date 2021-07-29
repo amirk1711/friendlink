@@ -7,6 +7,7 @@ module.exports.home = async function (req, res) {
 		await chat.save();
 
 		chat = await chat.populate("sender", "-password").populate("chatUserId").execPopulate();
+		console.log('chat', chat);
 
 		return res.status(200).json({
 			message: "Chat created successfully",
