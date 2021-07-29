@@ -4,10 +4,12 @@ const ChatUser = require("../../../models/chat_user");
 module.exports.home = async function (req, res) {
 	try {
 		const newChatUser = await new ChatUser({
-            connections: [req.body.senderId, req.body.receiverId],
-        });
+			connections: [req.body.senderId, req.body.receiverId],
+		});
 
 		await newChatUser.save();
+
+		newChatUser = await newChatUser.populate("connections", "-password").execPopulate();
 
 		return res.status(200).json({
 			message: "New chat user is crrated!",
@@ -26,7 +28,7 @@ module.exports.getChatUsers = async function (req, res) {
 	try {
 		const chatUsers = await ChatUser.find({
 			connections: { $in: [req.params.id] },
-		});
+		}).populate("connections", "-password");
 
 		return res.status(200).json({
 			message: "Fetched Chat Users Successfully",
