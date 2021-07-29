@@ -4,13 +4,13 @@ module.exports.home = async function (req, res) {
 	try {
 		console.log("inside func");
 		// const chat = new Chat(req.body);
-		const chat = await Chat.create(req.body);
+		let chat = await Chat.create(req.body);
 		console.log("new chat created", chat);
 
 		await chat.save();
 
 		console.log('chat saved');
-		
+
 		// chat = await chat.populate("sender", "-password").populate("chatUserId");
 		chat = await chat.populate("sender", "-password").populate("chatUserId").execPopulate();
 		console.log("chat", chat);
