@@ -2,7 +2,9 @@ const Chat = require("../../../models/chat");
 
 module.exports.home = async function (req, res) {
 	try {
+		console.log('inside func');
 		const chat = new Chat(req.body);
+		console.log('new chat created', chat);
 		
 		chat = await chat.populate("sender", "-password").populate("chatUserId").execPopulate();
 		console.log('chat', chat);
