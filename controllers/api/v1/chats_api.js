@@ -5,8 +5,8 @@ module.exports.home = async function (req, res) {
 		console.log('inside func');
 		const chat = new Chat(req.body);
 		console.log('new chat created', chat);
-		
-		chat = await chat.populate("sender", "-password").populate("chatUserId").execPopulate();
+
+		chat = await chat.populate("sender", "-password").populate("chatUserId");
 		console.log('chat', chat);
 
 		await chat.save();
@@ -27,7 +27,7 @@ module.exports.getChats = async function (req, res) {
 	try {
 		const chats = await Chat.find({ chatUserId: req.params.chatUserId })
 			.populate("sender", "-password")
-			.populate("chatUSerId");
+			.populate("chatUserId");
 
 		return res.status(200).json({
 			message: "Chats fetched successfully!",
