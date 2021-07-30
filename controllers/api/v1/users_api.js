@@ -68,6 +68,12 @@ module.exports.createSession = async function (req, res) {
 			});
 		}
 
+		user = await user
+			.populate("followers", "-password")
+			.populate("following", "-password")
+			.populate("suggestions", "-password")
+			.execPopulate();
+
 		// find that user and generate jwt corresponding to that user
 		return res.status(200).json({
 			message: "Sign in successfull, here is your token please keep it safe!",
@@ -133,6 +139,13 @@ module.exports.update = async function (req, res) {
 
 		console.log("User after updating", user);
 
+		user = await user
+			.populate("followers", "-password")
+			.populate("following", "-password")
+			.populate("suggestions", "-password")
+			.execPopulate();
+
+
 		return res.status(200).json({
 			message: "Profile updated successfully!",
 			data: {
@@ -155,6 +168,13 @@ module.exports.changeProfile = async function (req, res) {
 		user.avatar = req.body.profileUrl;
 		await user.save();
 
+		user = await user
+			.populate("followers", "-password")
+			.populate("following", "-password")
+			.populate("suggestions", "-password")
+			.execPopulate();
+
+
 		return res.status(200).json({
 			message: "Profile updated successfully!",
 			data: {
@@ -171,33 +191,33 @@ module.exports.changeProfile = async function (req, res) {
 };
 
 module.exports.delete = async function (req, res) {
-	if(req.user.id === req.params.id){
+	if (req.user.id === req.params.id) {
 		try {
 			// delete all the posts of that user
-			await Post.deleteMany({user: req.user._id});
+			await Post.deleteMany({ user: req.user._id });
 
 			// delete all the comments of that user
-			await Comment.deleteMany({user: req.user._id});
+			await Comment.deleteMany({ user: req.user._id });
 
 			// delete all the likes from that user
-			await Like.deleteMany({user: req.user._id});
+			await Like.deleteMany({ user: req.user._id });
 
 			// delete that user from reset pass token
-			await ResetPassToken.deleteMany({user: req.user._id});
+			await ResetPassToken.deleteMany({ user: req.user._id });
 
 			// delete follwers, following, suggestion from User
-	
-			let update = {$pull : {
-				followers: {_id: req.user._id},
-				following: {_id: req.user._id},
-				suggestions: {_id: req.user._id},
-			}};
+
+			let update = {
+				$pull: {
+					followers: { _id: req.user._id },
+					following: { _id: req.user._id },
+					suggestions: { _id: req.user._id },
+				},
+			};
 
 			await User.updateMany({}, update);
 
-
 			await User.findByIdAndDelete(req.user._id);
-
 
 			return res.status(200).json({
 				message: "Account has been deleted!",
@@ -206,29 +226,38 @@ module.exports.delete = async function (req, res) {
 		} catch (error) {
 			return res.status(500).json(error);
 		}
-	}else{
+	} else {
 		return res.status(403).json({
-			message: 'You are not authorized!',
+			message: "You are not authorized!",
 		});
 	}
-	
 };
 
-module.exports.changePassword = async function(req, res){
+module.exports.changePassword = async function (req, res) {
 	try {
 		let user = await User.findById(req.user._id);
 
-		console.log('user password', User);
-		console.log('body password', req.body.old_password);
+		console.log("user password", User);
+		console.log("body password", req.body.old_password);
 
-		if(req.body.old_password !== user.password || req.body.new_password !== req.body.confirm_password){
+		if (
+			req.body.old_password !== user.password ||
+			req.body.new_password !== req.body.confirm_password
+		) {
 			return res.status(403).json({
-				message: 'Wrong Password!'
+				message: "Wrong Password!",
 			});
 		}
 
 		user.password = req.body.new_password;
 		await user.save();
+
+		user = await user
+			.populate("followers", "-password")
+			.populate("following", "-password")
+			.populate("suggestions", "-password")
+			.execPopulate();
+
 
 		return res.status(200).json({
 			message: "Your password has been changed!",
@@ -236,12 +265,12 @@ module.exports.changePassword = async function(req, res){
 			data: {
 				user,
 				token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
-			}
+			},
 		});
 	} catch (error) {
 		return res.status(500).json(error);
 	}
-}
+};
 
 module.exports.follow = async function (req, res) {
 	if (req.user.id === req.params.id) {

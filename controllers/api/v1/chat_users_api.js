@@ -3,7 +3,7 @@ const ChatUser = require("../../../models/chat_user");
 // create users to chat with them
 module.exports.home = async function (req, res) {
 	try {
-		const newChatUser = await new ChatUser({
+		let newChatUser = await new ChatUser({
 			connections: [req.body.senderId, req.body.receiverId],
 		});
 
