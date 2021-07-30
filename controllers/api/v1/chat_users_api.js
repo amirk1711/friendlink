@@ -14,6 +14,7 @@ module.exports.home = async function (req, res) {
 					chatUser,
 				},
 				success: true,
+				alreadyExist: true
 			});
 		}
 
@@ -31,6 +32,7 @@ module.exports.home = async function (req, res) {
 				newChatUser,
 			},
 			success: true,
+			alreadyExist: false,
 		});
 	} catch (error) {
 		return res.status(500).json(error);
