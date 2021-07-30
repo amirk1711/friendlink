@@ -325,14 +325,17 @@ module.exports.unfollow = async function (req, res) {
 		});
 	} else {
 		try {
-			let toUnfFollowUser = await User.findById(req.params.id);
+			let toUnFollowUser = await User.findById(req.params.id);
 			let currentUser = await User.findById(req.user.id);
 
-			if (toUnfFollowUser.followers.includes(req.user.id)) {
-				await toFollowUser.followers.pull(req.user.id);
+			if (toUnFollowUser.followers.includes(req.user.id)) {
+				await toUnFollowUser.followers.pull(req.user.id);
 				await currentUser.following.pull(req.params.id);
 
-				toFollowUser = await toFollowUser
+				await toUnFollowUser.save();
+				await currentUser.save();
+
+				toUnFollowUser = await toUnFollowUser
 					.populate("following")
 					.populate("followers")
 					.execPopulate();
@@ -341,7 +344,7 @@ module.exports.unfollow = async function (req, res) {
 					message: "You have unfollowed this user!",
 					success: true,
 					data: {
-						updated_profile: toFollowUser,
+						updated_profile: toUnFollowUser,
 					},
 				});
 			} else {
