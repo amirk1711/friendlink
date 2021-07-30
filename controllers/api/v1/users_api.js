@@ -279,10 +279,19 @@ module.exports.follow = async function (req, res) {
 			let toFollowUser = await User.findById(req.params.id);
 			let currentUser = await User.findById(req.user.id);
 
+			console.log('toFollowUser', toFollowUser);
+			console.log('currentUser', currentUser);
+
 			// if user does not already follows toFollowUSer
 			if (!toFollowUser.followers.includes(req.user.id)) {
 				await toFollowUser.followers.push(req.user.id);
 				await currentUser.following.push(req.params.id);
+
+				await toFollowUser.save();
+				await currentUser.save();
+
+				console.log('toFollowUser1', toFollowUser);
+			console.log('currentUser1', currentUser);
 
 				toFollowUser = await toFollowUser
 					.populate("following")
