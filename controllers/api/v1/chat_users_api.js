@@ -3,6 +3,20 @@ const ChatUser = require("../../../models/chat_user");
 // create users to chat with them
 module.exports.home = async function (req, res) {
 	try {
+		const chatUser = await ChatUser.findOne({
+			connections: { $all: [req.body.senderId, req.body.receiverId] },
+		}).populate("connections", "-password");
+
+		if(chatUser){
+			return res.status(200).json({
+				message: "Chat user is returned!",
+				data: {
+					chatUser,
+				},
+				success: true,
+			});
+		}
+
 		let newChatUser = await new ChatUser({
 			connections: [req.body.senderId, req.body.receiverId],
 		});
@@ -35,6 +49,24 @@ module.exports.getChatUsers = async function (req, res) {
 			success: true,
 			data: {
 				chatUsers,
+			},
+		});
+	} catch (error) {
+		return res.status(500).json(error);
+	}
+};
+
+module.exports.getChatUser = async function (req, res) {
+	try {
+		const chatUser = await ChatUser.findOne({
+			connections: { $all: [req.params.firstUserId, req.params.secondUserId] },
+		}).populate("connections", "-password");
+
+		return res.status(200).json({
+			message: "Fetched Chat User Successfully for Online Users",
+			success: true,
+			data: {
+				chatUser,
 			},
 		});
 	} catch (error) {
