@@ -79,7 +79,6 @@ module.exports.timelinePosts = async function (req, res) {
 			timelinePosts = await Promise.all(
 				timelinePosts.map((post) => {
 					return post
-						.sort('-createdAt')
 						.populate("user", "-password")
 						.populate({
 							path: "comments",
@@ -95,11 +94,9 @@ module.exports.timelinePosts = async function (req, res) {
 
 		// console.log("timeline posts before", timelinePosts);
 
-
-
 		// timelinePosts = await timelinePosts.sort({ 'createdAt': "desc" }).exec(function(err, docs){
 		// 	if(err){
-		// 		return 
+		// 		return
 		// 	}
 		// 	console.log('docs', docs);
 		// 	return docs;
