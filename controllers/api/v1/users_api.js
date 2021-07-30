@@ -100,6 +100,12 @@ module.exports.profile = async function (req, res) {
 		console.log("User: ", user);
 		console.log("User: ", userPost);
 
+		user = await user
+			.populate("followers", "-password")
+			.populate("following", "-password")
+			.populate("suggestions", "-password")
+			.execPopulate();
+
 		//  .populate("user")
 		// 	.populate({
 		// 		path: "comments",
@@ -279,8 +285,8 @@ module.exports.follow = async function (req, res) {
 			let toFollowUser = await User.findById(req.params.id);
 			let currentUser = await User.findById(req.user.id);
 
-			console.log('toFollowUser', toFollowUser);
-			console.log('currentUser', currentUser);
+			console.log("toFollowUser", toFollowUser);
+			console.log("currentUser", currentUser);
 
 			// if user does not already follows toFollowUSer
 			if (!toFollowUser.followers.includes(req.user.id)) {
@@ -290,12 +296,12 @@ module.exports.follow = async function (req, res) {
 				await toFollowUser.save();
 				await currentUser.save();
 
-				console.log('toFollowUser1', toFollowUser);
-			console.log('currentUser1', currentUser);
+				console.log("toFollowUser1", toFollowUser);
+				console.log("currentUser1", currentUser);
 
 				toFollowUser = await toFollowUser
-					.populate("following")
-					.populate("followers")
+					.populate("followers", "-password")
+					.populate("following", "-password")
 					.execPopulate();
 
 				return res.status(200).json({
@@ -336,8 +342,8 @@ module.exports.unfollow = async function (req, res) {
 				await currentUser.save();
 
 				toUnFollowUser = await toUnFollowUser
-					.populate("following")
-					.populate("followers")
+					.populate("followers", "-password")
+					.populate("following", "-password")
 					.execPopulate();
 
 				return res.status(200).json({
