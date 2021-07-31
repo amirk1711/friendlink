@@ -309,6 +309,7 @@ module.exports.follow = async function (req, res) {
 					success: true,
 					data: {
 						updated_profile: toFollowUser,
+						token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
 					},
 				});
 			} else {
@@ -351,6 +352,7 @@ module.exports.unfollow = async function (req, res) {
 					success: true,
 					data: {
 						updated_profile: toUnFollowUser,
+						token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
 					},
 				});
 			} else {
