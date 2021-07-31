@@ -300,8 +300,8 @@ module.exports.follow = async function (req, res) {
 				console.log("currentUser1", currentUser);
 
 				toFollowUser = await toFollowUser
-					.populate("followers", "-password")
-					.populate("following", "-password")
+					.populate("followers")
+					.populate("following")
 					.execPopulate();
 
 				return res.status(200).json({
@@ -318,6 +318,7 @@ module.exports.follow = async function (req, res) {
 				});
 			}
 		} catch (error) {
+			console.log('Error', error);
 			return res.status(500).json({
 				message: error,
 			});
