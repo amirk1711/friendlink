@@ -300,8 +300,14 @@ module.exports.follow = async function (req, res) {
 				console.log("currentUser1", currentUser);
 
 				toFollowUser = await toFollowUser
-					.populate("followers")
-					.populate("following")
+					.populate("followers", "-password")
+					.populate("following", "-password")
+					.execPopulate();
+
+				currentUser = await currentUser
+					.populate("followers", "-password")
+					.populate("following", "-password")
+					.populate("suggestions", "-password")
 					.execPopulate();
 
 				return res.status(200).json({
@@ -309,7 +315,9 @@ module.exports.follow = async function (req, res) {
 					success: true,
 					data: {
 						updated_profile: toFollowUser,
-						token: jwt.sign(currentUser.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
+						token: jwt.sign(currentUser.toJSON(), env.jwt_secret, {
+							expiresIn: "1000000",
+						}),
 					},
 				});
 			} else {
@@ -318,7 +326,7 @@ module.exports.follow = async function (req, res) {
 				});
 			}
 		} catch (error) {
-			console.log('Error', error);
+			console.log("Error", error);
 			return res.status(500).json({
 				message: error,
 			});
@@ -348,12 +356,20 @@ module.exports.unfollow = async function (req, res) {
 					.populate("following", "-password")
 					.execPopulate();
 
+				currentUser = await currentUser
+					.populate("followers", "-password")
+					.populate("following", "-password")
+					.populate("suggestions", "-password")
+					.execPopulate();
+
 				return res.status(200).json({
 					message: "You have unfollowed this user!",
 					success: true,
 					data: {
 						updated_profile: toUnFollowUser,
-						token: jwt.sign(currentUser.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
+						token: jwt.sign(currentUser.toJSON(), env.jwt_secret, {
+							expiresIn: "1000000",
+						}),
 					},
 				});
 			} else {
