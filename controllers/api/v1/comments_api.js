@@ -25,7 +25,6 @@ module.exports.create = async function (req, res) {
 			// populate name and email from Comment model to send mail to the required user
 			comment = await comment.populate("user", "name email avatar username").populate("post", "user").execPopulate();
 
-			req.flash("success", "Comment Created!");
 			return res.status(200).json({
 				data: {
 					comment: comment,
@@ -64,19 +63,15 @@ module.exports.destroy = async function (req, res) {
 			// pull/delete from the post's comments array with comment id
 			await Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
 
-
-			req.flash("success", "Comment Deleted!");
 			return res.status(200).json({
 				message: "Comment Deleted !",
 				success: true,
 			});
 		}
-		req.flash("error", "You cannot delete this comment!");
 		return res.status(401).json({
 			message: "You cannot delete this comment!",
 		});
 	} catch (error) {
-		req.flash("error", error);
 		return res.status(500).json({
 			message: "Internal Server Error!",
 		});

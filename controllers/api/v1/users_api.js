@@ -9,13 +9,6 @@ const env = require("../../../config/environment");
 
 module.exports.create = async function (req, res) {
 	console.log("req.body from users_api", req.body);
-	//check if the password and confirm_password matches or not
-	// if (req.body.password != req.body.confirm_password) {
-	// 	console.log("Passwords do not match!");
-	// 	return res.status(422).json({
-	// 		message: "Passwords do not match!",
-	// 	});
-	// }
 
 	// find user by email
 	User.findOne({ email: req.body.email }, function (err, user) {
@@ -30,13 +23,11 @@ module.exports.create = async function (req, res) {
 		if (!user) {
 			User.create(req.body, function (err, user) {
 				if (err) {
-					req.flash("error in creating user ", err);
 					return res.status(422).json({
 						message: "error in creating user",
 					});
 				}
 
-				req.flash("success", "You have signed up, sign in to continue!");
 				return res.status(200).json({
 					success: true,
 					message: "You have signed up, sign in to continue!",
@@ -47,7 +38,6 @@ module.exports.create = async function (req, res) {
 				});
 			});
 		} else {
-			req.flash("success", "You have already signed up, login to continue!");
 			return res.status(200).json({
 				message: "You have already signed up, sign in to continue!",
 				data: {
@@ -160,7 +150,6 @@ module.exports.update = async function (req, res) {
 			success: true,
 		});
 	} catch (error) {
-		req.flash("error", error);
 		return res.status(500).json({
 			message: "Error in updating profile!",
 		});

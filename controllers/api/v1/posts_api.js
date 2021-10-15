@@ -26,7 +26,6 @@ module.exports.create = async function (req, res) {
 			success: true,
 		});
 	} catch (error) {
-		req.flash("error", "Error in creating Post");
 		return res.status(500).json({
 			message: "Internal server error",
 		});
