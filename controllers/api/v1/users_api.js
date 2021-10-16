@@ -25,7 +25,7 @@ module.exports.googleAuth = async function (req, res) {
 		console.log("name email from ticket", name, email);
 
 		// create a new user or find if the user already exist
-		User.findOne({ email: email }).exec(function (err, user) {
+		User.findOne({ email: email }).exec(async function (err, user) {
 			if (err) {
 				console.log("Error in finding email", err);
 				return;
