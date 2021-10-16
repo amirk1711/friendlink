@@ -15,6 +15,7 @@ module.exports.googleAuth = async function (req, res) {
 	try {
 		console.log("Inside google auth controller");
 		const { token } = req.body;
+        console.log("req.body: ", req.body);
 		console.log("Token extracted from body", token);
 		const ticket = await client.verifyIdToken({
 			idToken: token,
