@@ -32,7 +32,7 @@ router.post(
 	usersApi.changePassword
 );
 
-router.get("/auth/google", usersApi.googleAuth);
+router.post("/auth/google", usersApi.googleAuth);
 // router.get(
 // 	"/auth/google/callback",
 // 	passport.authenticate("google", { failureRedirect: "/login" }),
