@@ -32,6 +32,12 @@ router.post(
 	usersApi.changePassword
 );
 
+router.post(
+	"/check/username",
+	passport.authenticate("jwt", { session: false }),
+	usersApi.checkUsername
+);
+
 router.post("/auth/google", usersApi.googleAuth);
 // router.get(
 // 	"/auth/google/callback",

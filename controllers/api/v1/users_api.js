@@ -159,10 +159,8 @@ module.exports.createSession = async function (req, res) {
 
 module.exports.profile = async function (req, res) {
 	try {
-
 		let user = await User.findById(req.params.id);
 		let userPost = await Post.find({ user: req.params.id });
-		
 
 		user = await user
 			.populate("followers", "-password")
@@ -476,6 +474,29 @@ module.exports.fetchSuggestions = async function (req, res) {
 	} else {
 		return res.status(403).json({
 			message: "You are not authorized!",
+		});
+	}
+};
+
+module.exports.checkUsername = async function (req, res) {
+	try {
+		let user = await User.findOne({ username: req.body.username });
+		if (user) {
+			return res.status(200).json({
+				message: "Username is not unique.",
+				success: true,
+				isUnique: false,
+			});
+		}
+		return res.status(200).json({
+			message: "Username is unique.",
+			success: true,
+			isUnique: true,
+		});
+	} catch (error) {
+		console.log("error", error);
+		return res.status(500).json({
+			message: "Internal Server Error!",
 		});
 	}
 };
