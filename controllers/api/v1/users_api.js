@@ -4,8 +4,87 @@ const Comment = require("../../../models/comment");
 const Like = require("../../../models/like");
 const ResetPassToken = require("../../../models/reset_pass_token");
 
+const genUsername = require("unique-username-generator");
+const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const env = require("../../../config/environment");
+const { OAuth2Client } = require("google-auth-library");
+const client = new OAuth2Client(env.google_client_id);
+
+module.exports.googleAuth = async function (req, res) {
+	try {
+		console.log("Inside google auth controller");
+		const { token } = req.body;
+		console.log("Token extracted from body", token);
+		const ticket = await client.verifyIdToken({
+			idToken: token,
+			audience: env.google_client_id,
+		});
+
+		const { name, email } = ticket.getPayload();
+		console.log("name email from ticket", name, email);
+
+		// create a new user or find if the user already exist
+		User.findOne({ email: email }).exec(function (err, user) {
+			if (err) {
+				console.log("Error in finding email", err);
+				return;
+			}
+
+			if (user) {
+				// if user found
+				user = await user
+					.populate("followers", "-password")
+					.populate("following", "-password")
+					.populate("suggestions", "-password")
+					.execPopulate();
+
+				// find that user and generate jwt corresponding to that user
+				return res.status(200).json({
+					message: "Sign in successfull, here is your token please keep it safe!",
+					data: {
+						token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
+						user: user,
+					},
+					success: true,
+				});
+			} else {
+				// create user and sign in
+				User.create(
+					{
+						name: name,
+						email: email,
+						password: crypto.randomBytes(20).toString("hex"),
+						username: genUsername.generateFromEmail(email, 3),
+					},
+					function (err, user) {
+						if (err) {
+							return res.status(422).json({
+								message: "error in creating user",
+							});
+						}
+
+						return res.status(200).json({
+							success: true,
+							message: "You have signed up, sign in to continue!",
+							data: {
+								token: jwt.sign(user.toJSON(), env.jwt_secret, {
+									expiresIn: "1000000",
+								}),
+								user: user,
+							},
+						});
+					}
+				);
+			}
+		});
+	} catch (err) {
+		console.log("Error in creating sesssion******", err);
+		return res.status(500).json({
+			message: "Internal server error",
+		});
+	}
+};
 
 module.exports.create = async function (req, res) {
 	console.log("req.body from users_api", req.body);

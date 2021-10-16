@@ -32,11 +32,11 @@ router.post(
 	usersApi.changePassword
 );
 
-router.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
-router.get(
-	"/auth/google/callback",
-	passport.authenticate("google", { failureRedirect: "/login" }),
-	usersApi.createSession
-);
+router.get("/auth/google", usersApi.googleAuth);
+// router.get(
+// 	"/auth/google/callback",
+// 	passport.authenticate("google", { failureRedirect: "/login" }),
+// 	usersApi.createSession
+// );
 
 module.exports = router;
