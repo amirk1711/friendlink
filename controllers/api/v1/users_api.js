@@ -481,6 +481,7 @@ module.exports.fetchSuggestions = async function (req, res) {
 module.exports.checkUsername = async function (req, res) {
 	try {
 		let user = await User.findOne({ username: req.body.username });
+        console.log("username: ", user.username);
 		if (user) {
 			return res.status(200).json({
 				message: "Username is not unique.",
