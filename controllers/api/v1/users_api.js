@@ -13,17 +13,13 @@ const client = new OAuth2Client(env.google_client_id);
 
 module.exports.googleAuth = async function (req, res) {
 	try {
-		console.log("Inside google auth controller");
 		const { token } = req.body;
-        console.log("req.body: ", req.body);
-		console.log("Token extracted from body", token);
 		const ticket = await client.verifyIdToken({
 			idToken: token,
 			audience: env.google_client_id,
 		});
 
 		const { name, email } = ticket.getPayload();
-		console.log("name email from ticket", name, email);
 
 		// create a new user or find if the user already exist
 		User.findOne({ email: email }).exec(async function (err, user) {
@@ -163,12 +159,10 @@ module.exports.createSession = async function (req, res) {
 
 module.exports.profile = async function (req, res) {
 	try {
-		console.log("inside fetch profile", req.params);
 
 		let user = await User.findById(req.params.id);
 		let userPost = await Post.find({ user: req.params.id });
-		console.log("User: ", user);
-		console.log("User: ", userPost);
+		
 
 		user = await user
 			.populate("followers", "-password")
