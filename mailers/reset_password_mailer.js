@@ -7,11 +7,11 @@ exports.passResetToken = function (myToken) {
 		from: "friendlinkhelp@gmail.com", // sender address
 		to: myToken.user.email, // list of receivers
 		subject: "Friendlink | Reset Password",
-		template: "reset_password", // the name of the template file i.e reset_password.handlebars
+		html: "reset_password.hbs", // the name of the template file i.e reset_password.handlebars
 		context: {
 			name: myToken.user.name,
-            accessToken: myToken.accessToken,
-            company: "Friendlink",
+			accessToken: myToken.accessToken,
+			company: "Friendlink",
 		},
 	};
 
