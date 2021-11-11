@@ -10,13 +10,11 @@ module.exports.confirmEmail = async function (req, res) {
 	try {
 		// get the email of user
 		const email = req.body.email;
-		console.log("email", email);
 
 		let user = await User.findOne({ email: email });
 		if (user) {
 			// generate access token for email using crypto
 			const accessToken = crypto.randomBytes(20).toString("hex");
-			console.log("accessToken", accessToken);
 
 			// token will be valid for only 20 minutes
 			const token = await ResetPassToken.create({
