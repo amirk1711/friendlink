@@ -1,23 +1,26 @@
-// const nodeMailer = require('../config/nodemailer');
+const nodeMailer = require("../config/nodemailer");
 
-// exports.passResetToken = function(myToken){
-//     console.log('Inside reset pass mailer');
-//     let htmlString = nodeMailer.renderTemplate({token: myToken}, '/accounts/reset_password.ejs');
+exports.passResetToken = function (myToken) {
+	console.log("email from token: ", myToken.user.email);
 
-//     console.log('email from token', myToken.user.email);
+	let mailOptions = {
+		from: "friendlinkhelp@gmail.com", // sender address
+		to: myToken.user.email, // list of receivers
+		subject: "Friendlink | Reset Password",
+		template: "reset_password", // the name of the template file i.e reset_password.handlebars
+		context: {
+			name: myToken.user.name,
+            accessToken: myToken.accessToken,
+            company: "Friendlink",
+		},
+	};
 
-//     nodeMailer.transporter.sendMail({
-//         from: 'friendlinkhelp@gmail.com',
-//         to: myToken.user.email,
-//         subject: 'Friendlink | Reset Password',
-//         html: htmlString,
-//     }, function(err, info){
-//         if(err){
-//             console.log('Error in sending mail', err);
-//             return;
-//         }
-//         console.log('Message sent', info);
-//         return; 
-//     });
-
-// }
+	nodeMailer.transporter.sendMail(mailOptions, function (err, info) {
+		if (err) {
+			console.log("Error in sending mail", err);
+			return;
+		}
+		console.log("Email sent.", info);
+		return;
+	});
+};
