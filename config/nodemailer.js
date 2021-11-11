@@ -10,7 +10,8 @@ const handlebarOptions = {
 	viewEngine: {
         extName: ".hbs",
 		partialsDir: path.resolve("../views/"),
-		defaultLayout: false,
+        defaultLayout: "",
+        layoutsDir: "",
 	},
 	viewPath: path.resolve("../views/"),
     extName: ".hbs",
