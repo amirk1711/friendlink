@@ -8,12 +8,11 @@ let transporter = nodemailer.createTransport(env.smtp);
 // point to the template folder
 const handlebarOptions = {
 	viewEngine: {
+		extName: ".hbs",
 		partialsDir: path.resolve("../views/"),
 		defaultLayout: false,
-		extName: ".hbs",
 	},
 	viewPath: path.resolve("../views/"),
-	extName: ".hbs",
 };
 
 // use a template file with nodemailer
