@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-const hbs = require("nodemailer-express-handlebars");
+const hbs = require("nodemailer-handlebars");
 const path = require("path");
 const env = require("./environment");
 
