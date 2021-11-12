@@ -1,22 +1,30 @@
 const nodemailer = require("nodemailer");
-const hbs = require("nodemailer-handlebars");
-const path = require("path");
 const env = require("./environment");
+const ejs = require('ejs');
+const path = require('path');
 
 let transporter = nodemailer.createTransport(env.smtp);
 
-// point to the template folder
-const handlebarOptions = {
-	viewEngine: "express-handlebars",
-	viewPath: path.join(__dirname, "/../views/"),
-	defaultLayout: false,
-	layoutsDir: false,
-	partialsDir: false,
-};
+// relativePath = from where being the mail is sent
+let renderTemplate = (data, relativePath) => {
+	let mailHTML;
+	ejs.renderFile(
+		path.join(__dirname, "../views", relativePath),
+		data,
+		function (err, template) {
+			if (err) {
+				console.log("Error in rendering template", err);
+				return;
+			}
 
-// use a template file with nodemailer
-transporter.use("compile", hbs(handlebarOptions));
+			mailHTML = template;
+		}
+	);
+
+	return mailHTML;
+};
 
 module.exports = {
 	transporter: transporter,
+	renderTemplate: renderTemplate,
 };
