@@ -7,12 +7,8 @@ let transporter = nodemailer.createTransport(env.smtp);
 
 // point to the template folder
 const handlebarOptions = {
-	viewEngine: {
-		partialsDir: false,
-		defaultLayout: false,
-		layoutsDir: false,
-	},
-	viewPath: path.resolve("../views/"),
+	viewEngine: "express-handlebars",
+	viewPath: "../views/",
 };
 
 // use a template file with nodemailer
