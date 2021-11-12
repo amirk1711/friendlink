@@ -24,7 +24,6 @@ module.exports.confirmEmail = async function (req, res) {
 			});
 
 			const myToken = await token.populate("user", "name email").execPopulate();
-			console.log("myToken", myToken);
 
 			// if the user already exists, then send the mail
 			resetPasswordMailer.passResetToken(myToken);
@@ -52,8 +51,6 @@ module.exports.reset = async function (req, res) {
 	try {
 		let token = req.query.accessToken;
 		let accessToken = await ResetPassToken.findOne({ accessToken: token });
-
-		console.log("accessToken", accessToken);
 
 		if (accessToken && accessToken.validTime >= Date.now()) {
 			return res.status(200).json({

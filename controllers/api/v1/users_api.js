@@ -3,11 +3,12 @@ const Post = require("../../../models/post");
 const Comment = require("../../../models/comment");
 const Like = require("../../../models/like");
 const ResetPassToken = require("../../../models/reset_pass_token");
+const welcomeUserMailer = require("../../../mailers/welcome_user_mailer");
+const env = require("../../../config/environment");
 
 const genUsername = require("unique-username-generator");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
-const env = require("../../../config/environment");
 const { OAuth2Client } = require("google-auth-library");
 const client = new OAuth2Client(env.google_client_id);
 
@@ -103,6 +104,9 @@ module.exports.create = async function (req, res) {
 						message: "error in creating user",
 					});
 				}
+
+				// send welcome email to user
+				welcomeUserMailer.welcomeUser(user);
 
 				return res.status(200).json({
 					success: true,

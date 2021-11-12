@@ -1,12 +1,12 @@
 const nodeMailer = require("../config/nodemailer");
 
-exports.passResetToken = function (myToken) {
-	let htmlString = nodeMailer.renderTemplate({ token: myToken }, "/reset_password.ejs");
+exports.welcomeUser = function (user) {
+	let htmlString = nodeMailer.renderTemplate({ user: user }, "/welcome_user.ejs");
 
 	let mailOptions = {
 		from: "friendlinkhelp@gmail.com",
-		to: myToken.user.email,
-		subject: "Friendlink | Reset Password",
+		to: user.email,
+		subject: "Welcome to Friendlink",
 		html: htmlString,
 	};
 

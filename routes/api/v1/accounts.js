@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const passport = require("passport");
 
 const accountsApi = require("../../../controllers/api/v1/accounts_api");
 
