@@ -130,7 +130,9 @@ module.exports.create = async function (req, res) {
 
 module.exports.createSession = async function (req, res) {
 	try {
+		console.log("login fun");
 		let user = await User.findOne({ email: req.body.email });
+		console.log("user: ", user);
 
 		if (!user || user.password != req.body.password) {
 			return res.status(422).json({
