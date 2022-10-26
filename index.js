@@ -1,6 +1,6 @@
 const express = require("express");
+require("dotenv").config();
 const env = require("./config/environment");
-const dotenv = require("dotenv");
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 const app = express();
@@ -41,7 +41,7 @@ app.use(function(req, res, next) {
 });
 
 // to use dotenv
-dotenv.config();
+// dotenv.config();
 
 const uri = process.env.MONGODB_URI;
 
