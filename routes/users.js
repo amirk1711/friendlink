@@ -1,28 +1,19 @@
-// const express = require('express');
-// const router = express.Router();
-// const passport = require('passport');
+const express = require("express");
+const passport = require("passport");
+const usersApi = require("../controllers/users");
+const router = express.Router();
+const jwt_auth_mw = passport.authenticate("jwt", { session: false });
 
-// const usersController = require('../controllers/users_controller');
+router.post("/signup", usersApi.signup);
+router.post("/login", usersApi.login);
+router.get("/profile/:id", jwt_auth_mw, usersApi.profile);
+router.post("/update/:id", jwt_auth_mw, usersApi.update);
+router.put("/change/profile", jwt_auth_mw, usersApi.changeProfile);
+router.delete("/:id", jwt_auth_mw, usersApi.delete);
+router.post("/change/password", jwt_auth_mw, usersApi.changePassword);
+router.put("/follow/:id", jwt_auth_mw, usersApi.follow);
+router.put("/unfollow/:id", jwt_auth_mw, usersApi.unfollow);
+router.get("/suggestions/:id", jwt_auth_mw, usersApi.fetchSuggestions);
+router.post("/check/username", usersApi.checkUsername);
 
-// router.get('/profile/:id', passport.checkAuthentication, usersController.profile);
-// router.get('/sign-in', usersController.signIn);
-// router.get('/sign-up', usersController.signUp);
-// router.get('/sign-out', usersController.destroySession);
-
-// router.post('/create', usersController.create);
-// router.post('/update/:id', passport.checkAuthentication, usersController.update);
-
-// //use passport as a middleware to authenticate
-// router.post('/create-session', passport.authenticate(
-//     'local', //strategy to be used 
-//     {failureRedirect : '/users/sign-in'}),
-//     usersController.createSession );
-
-
-// // route through which we will sent the req to the google for authentication
-// router.get('/auth/google', passport.authenticate('google' , {scope : ['profile' , 'email'] }));
-
-// // route through which google will send the data to the server
-// router.get('/auth/google/callback', passport.authenticate('google' , {failureRedirect : '/users/sign-in'}), usersController.createSession);
-
-// module.exports = router;
+module.exports = router;

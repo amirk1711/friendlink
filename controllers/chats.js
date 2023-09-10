@@ -1,4 +1,4 @@
-const Chat = require("../../../models/chat");
+const Chat = require("../models/chat");
 
 module.exports.home = async function (req, res) {
 	try {

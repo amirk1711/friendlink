@@ -1,10 +1,8 @@
 const passport = require('passport');
 const JWTStrategy = require('passport-jwt').Strategy;
-// to extract JWT from headers
-const ExtractJWT = require('passport-jwt').ExtractJwt;
+const ExtractJWT = require('passport-jwt').ExtractJwt; // to extract JWT from headers
 
 const env = require('./environment');
-
 const User = require('../models/user');
 
 let opts = {
@@ -16,11 +14,10 @@ let opts = {
 };
 
 passport.use(new JWTStrategy(opts, function(jwtPayload, done){
-    // we need to find user based on the payload
-
+    // find user based on the payload
     User.findById(jwtPayload._id, function(err, user){
         if(err){
-            console.log('Error in finding user form JWT');
+            console.log('Error in finding user form JWT payload');
             return;
         }
 

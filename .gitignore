@@ -1,3 +1,5 @@
 node_modules/
 production_logs/access.log
 .env
+desc.txt
+test_cred.txt

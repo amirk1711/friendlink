@@ -1,10 +1,8 @@
-const User = require("../../../models/user");
-const Post = require("../../../models/post");
-const Comment = require("../../../models/comment");
-const Like = require("../../../models/like");
-const ResetPassToken = require("../../../models/reset_pass_token");
-const welcomeUserMailer = require("../../../mailers/welcome_user_mailer");
-const env = require("../../../config/environment");
+const User = require("../models/user");
+const Post = require("../models/post");
+const Comment = require("../models/comment");
+const Like = require("../models/like");
+const env = require("../config/environment");
 
 const genUsername = require("unique-username-generator");
 const crypto = require("crypto");
@@ -12,85 +10,11 @@ const jwt = require("jsonwebtoken");
 const { OAuth2Client } = require("google-auth-library");
 const client = new OAuth2Client(env.google_client_id);
 
-module.exports.googleAuth = async function (req, res) {
-	try {
-		const { token } = req.body;
-		const ticket = await client.verifyIdToken({
-			idToken: token,
-			audience: env.google_client_id,
-		});
 
-		const { name, email } = ticket.getPayload();
-
-		// create a new user or find if the user already exist
-		User.findOne({ email: email }).exec(async function (err, user) {
-			if (err) {
-				console.log("Error in finding email", err);
-				return;
-			}
-
-			if (user) {
-				// if user found
-				user = await user
-					.populate("followers", "-password")
-					.populate("following", "-password")
-					.populate("suggestions", "-password")
-					.execPopulate();
-
-				// find that user and generate jwt corresponding to that user
-				return res.status(200).json({
-					message: "Sign in successfull, here is your token please keep it safe!",
-					data: {
-						token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
-						user: user,
-					},
-					success: true,
-				});
-			} else {
-				// create user and sign in
-				User.create(
-					{
-						name: name,
-						email: email,
-						password: crypto.randomBytes(20).toString("hex"),
-						username: genUsername.generateFromEmail(email, 3),
-					},
-					function (err, user) {
-						if (err) {
-							return res.status(422).json({
-								message: "error in creating user",
-							});
-						}
-
-						return res.status(200).json({
-							success: true,
-							message: "You have signed up, sign in to continue!",
-							data: {
-								token: jwt.sign(user.toJSON(), env.jwt_secret, {
-									expiresIn: "1000000",
-								}),
-								user: user,
-							},
-						});
-					}
-				);
-			}
-		});
-	} catch (err) {
-		console.log("Error in creating sesssion******", err);
-		return res.status(500).json({
-			message: "Internal server error",
-		});
-	}
-};
-
-module.exports.create = async function (req, res) {
-	console.log("req.body from users_api", req.body);
-
+module.exports.signup = async function (req, res) {
 	// find user by email
 	User.findOne({ email: req.body.email }, function (err, user) {
 		if (err) {
-			console.log("Error in finding user!");
 			return res.status(422).json({
 				message: "Error in finding user!",
 			});
@@ -104,9 +28,6 @@ module.exports.create = async function (req, res) {
 						message: "error in creating user",
 					});
 				}
-
-				// send welcome email to user
-				welcomeUserMailer.welcomeUser(user);
 
 				return res.status(200).json({
 					success: true,
@@ -128,11 +49,9 @@ module.exports.create = async function (req, res) {
 	});
 };
 
-module.exports.createSession = async function (req, res) {
+module.exports.login = async function (req, res) {
 	try {
-		console.log("login fun");
 		let user = await User.findOne({ email: req.body.email });
-		console.log("user: ", user);
 
 		if (!user || user.password != req.body.password) {
 			return res.status(422).json({
@@ -156,9 +75,8 @@ module.exports.createSession = async function (req, res) {
 			success: true,
 		});
 	} catch (err) {
-		console.log("Error in creating sesssion******", err);
 		return res.status(500).json({
-			message: "Internal server error",
+			message: err,
 		});
 	}
 };
@@ -174,14 +92,6 @@ module.exports.profile = async function (req, res) {
 			.populate("suggestions", "-password")
 			.execPopulate();
 
-		//  .populate("user")
-		// 	.populate({
-		// 		path: "comments",
-		// 		populate: {
-		// 			path: "user likes",
-		// 		},
-		// 	})
-		// 	.populate("likes")
 		return res.status(200).json({
 			message: "User profile fetched successfully!",
 			data: {
@@ -191,9 +101,8 @@ module.exports.profile = async function (req, res) {
 			success: true,
 		});
 	} catch (err) {
-		console.log("Error in fetching user profile******", err);
 		return res.status(500).json({
-			message: "Internal server error",
+			message: err,
 		});
 	}
 };
@@ -202,16 +111,12 @@ module.exports.update = async function (req, res) {
 	try {
 		let user = await User.findById(req.user._id);
 
-		console.log("User in update profile api", user);
-
 		user.name = req.body.name;
 		user.username = req.body.username;
 		user.website = req.body.website;
 		user.bio = req.body.bio;
 
 		await user.save();
-
-		console.log("User after updating", user);
 
 		user = await user
 			.populate("followers", "-password")
@@ -229,7 +134,7 @@ module.exports.update = async function (req, res) {
 		});
 	} catch (error) {
 		return res.status(500).json({
-			message: "Error in updating profile!",
+			message: err,
 		});
 	}
 };
@@ -256,7 +161,7 @@ module.exports.changeProfile = async function (req, res) {
 		});
 	} catch (error) {
 		return res.status(500).json({
-			message: "Error in updating profile!",
+			message: err,
 		});
 	}
 };
@@ -273,11 +178,7 @@ module.exports.delete = async function (req, res) {
 			// delete all the likes from that user
 			await Like.deleteMany({ user: req.user._id });
 
-			// delete that user from reset pass token
-			await ResetPassToken.deleteMany({ user: req.user._id });
-
 			// delete follwers, following, suggestion from User
-
 			let update = {
 				$pull: {
 					followers: { _id: req.user._id },
@@ -294,8 +195,8 @@ module.exports.delete = async function (req, res) {
 				message: "Account has been deleted!",
 				success: true,
 			});
-		} catch (error) {
-			return res.status(500).json(error);
+		} catch (err) {
+			return res.status(500).json(err);
 		}
 	} else {
 		return res.status(403).json({
@@ -307,9 +208,6 @@ module.exports.delete = async function (req, res) {
 module.exports.changePassword = async function (req, res) {
 	try {
 		let user = await User.findById(req.user._id);
-
-		console.log("user password", User);
-		console.log("body password", req.body.old_password);
 
 		if (
 			req.body.old_password !== user.password ||
@@ -337,8 +235,8 @@ module.exports.changePassword = async function (req, res) {
 				token: jwt.sign(user.toJSON(), env.jwt_secret, { expiresIn: "1000000" }),
 			},
 		});
-	} catch (error) {
-		return res.status(500).json(error);
+	} catch (err) {
+		return res.status(500).json(err);
 	}
 };
 
@@ -352,9 +250,6 @@ module.exports.follow = async function (req, res) {
 			let toFollowUser = await User.findById(req.params.id);
 			let currentUser = await User.findById(req.user.id);
 
-			console.log("toFollowUser", toFollowUser);
-			console.log("currentUser", currentUser);
-
 			// if user does not already follows toFollowUSer
 			if (!toFollowUser.followers.includes(req.user.id)) {
 				await toFollowUser.followers.push(req.user.id);
@@ -362,9 +257,6 @@ module.exports.follow = async function (req, res) {
 
 				await toFollowUser.save();
 				await currentUser.save();
-
-				console.log("toFollowUser1", toFollowUser);
-				console.log("currentUser1", currentUser);
 
 				toFollowUser = await toFollowUser
 					.populate("followers", "-password")
@@ -392,10 +284,9 @@ module.exports.follow = async function (req, res) {
 					message: "You already follow this user",
 				});
 			}
-		} catch (error) {
-			console.log("Error", error);
+		} catch (err) {
 			return res.status(500).json({
-				message: error,
+				message: err,
 			});
 		}
 	}

@@ -1,4 +1,4 @@
-const ChatUser = require("../../../models/chat_user");
+const ChatUser = require("../models/chat_user");
 
 // create users to chat with them
 module.exports.home = async function (req, res) {

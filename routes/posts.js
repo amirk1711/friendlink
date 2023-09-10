@@ -1,13 +1,11 @@
-// const express = require("express");
-// const router = express.Router();
-// const passport = require("passport");
+const express = require("express");
+const passport = require("passport");
+const postsApi = require("../controllers/posts");
+const router = express.Router();
+const jwt_auth_mw = passport.authenticate("jwt", { session: false });
 
-// const store = require('../config/multer');
+router.post("/create", jwt_auth_mw, postsApi.create);
+router.delete("/:id", jwt_auth_mw, postsApi.destroy);
+router.get("/timeline/all", jwt_auth_mw, postsApi.timelinePosts);
 
-// const postController = require("../controllers/post_controller");
-
-// // maxm 3 photo can be uploaded at once
-// router.post("/create", passport.checkAuthentication, store.array('content', 3),  postController.create);
-// router.get("/destroy/:id", passport.checkAuthentication, postController.destroy);
-
-// module.exports = router;
+module.exports = router;

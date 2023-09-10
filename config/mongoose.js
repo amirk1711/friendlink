@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const env = require("./environment");
-const uri = process.env.MONGODB_URI;
+const uri = env.db_uri;
 
-mongoose.connect(uri || `mongodb://localhost/${env.db}`, {
+mongoose.connect(uri, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useCreateIndex: true,
@@ -10,11 +10,9 @@ mongoose.connect(uri || `mongodb://localhost/${env.db}`, {
 });
 
 const db = mongoose.connection;
-
 db.on("error", console.error.bind(console, "Error connecting to MongoDB"));
-
 db.once("open", function () {
-	console.log("Connected to MongoDB");
+	if(env.name === "development") console.log("Connected to MongoDB");
 });
 
 module.exports = db;

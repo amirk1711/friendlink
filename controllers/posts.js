@@ -1,6 +1,6 @@
-const Post = require("../../../models/post");
-const Comment = require("../../../models/comment");
-const User = require("../../../models/user");
+const Post = require("../models/post");
+const Comment = require("../models/comment");
+const User = require("../models/user");
 
 module.exports.create = async function (req, res) {
 	try {
@@ -59,7 +59,6 @@ module.exports.destroy = async function (req, res) {
 	}
 };
 
-// get posts(of following user) for timeline
 module.exports.timelinePosts = async function (req, res) {
 	try {
 		const userPosts = await Post.find({ user: req.user._id });
