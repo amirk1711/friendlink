@@ -57,21 +57,3 @@ module.exports.getChatUsers = async function (req, res) {
 		return res.status(500).json(error);
 	}
 };
-
-module.exports.getChatUser = async function (req, res) {
-	try {
-		const chatUser = await ChatUser.findOne({
-			connections: { $all: [req.params.firstUserId, req.params.secondUserId] },
-		}).populate("connections", "-password");
-
-		return res.status(200).json({
-			message: "Fetched Chat User Successfully for Online Users",
-			success: true,
-			data: {
-				chatUser,
-			},
-		});
-	} catch (error) {
-		return res.status(500).json(error);
-	}
-};
